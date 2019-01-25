@@ -55,9 +55,9 @@
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/ic_launcher_round_corners"
                     android:hint="@string/prompt_password"
                     android:imeActionId="6"
-                    android:background="@drawable/ic_launcher_round_corners"
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
@@ -69,10 +69,12 @@
             <Button
                 android:id="@+id/email_sign_in_button"
                 style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
+                android:layout_width="121dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:background="@color/colorAccent"
                 android:text="@string/action_sign_in"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
                 android:textStyle="bold" />
 
         </LinearLayout>
