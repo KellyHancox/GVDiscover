@@ -1,13 +1,40 @@
 package com.example.gvdiscoverapp;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import android.util.Log;
+
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.*;
+import com.google.android.gms.maps.model.*;
+
+import java.sql.Connection;
+
 public class MapPageKelly extends AppCompatActivity {
+
+    private static final String TAG = "MapPageKelly";
+
+    private static final int ERROR_DIALOG_REQUEST = 9001;
+
+    private GoogleMap mMap;
+
+    private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
+    private static final String COARSE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
+
+    private boolean mLocationPermissionGranted = false;
+
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,14 +43,92 @@ public class MapPageKelly extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        isServicesOK();
+        getLocationPermission();
+    }
+
+    private void getLocationPermission(){
+        String[] permissions = {COARSE_LOCATION, FINE_LOCATION};
+
+        if(ContextCompat.checkSelfPermission(this.getApplicationContext(), FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED){
+            if(ContextCompat.checkSelfPermission(this.getApplicationContext(), COARSE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED) {
+                mLocationPermissionGranted = true;
+            }else{
+                ActivityCompat.requestPermissions(this, permissions,
+                        LOCATION_PERMISSION_REQUEST_CODE);
+            }
+        }else{
+            ActivityCompat.requestPermissions(this, permissions,
+                    LOCATION_PERMISSION_REQUEST_CODE);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions, @NonNull int[] grantResults) {
+        Log.d(TAG, "onRequestPermissionsResult: requesting permissions");
+        mLocationPermissionGranted = false;
+
+        switch(requestCode){
+            case LOCATION_PERMISSION_REQUEST_CODE:{
+                if(grantResults.length > 0){
+
+                    //looping through the grant results
+                    for(int i = 0; i > grantResults.length; i++){
+                        if(grantResults[i] != PackageManager.PERMISSION_GRANTED){
+                            return;
+                        }
+                    }
+                    mLocationPermissionGranted = true;
+                    //initialize the map
+                    initMap();
+                }
+            }
+        }
+
+    }
+
+    public boolean isServicesOK(){
+        Log.d(TAG, "isServicesOK: checking google services version");
+        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(MapPageKelly.this);
+
+        if(available == ConnectionResult.SUCCESS){
+            //everything is ok and the user can make requests
+            return true;
+        }else if(GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
+            //an error occurred but we can resolve it
+            Log.d(TAG, "isServicesOK: an error occurred, but you can fix it");
+            //Dailog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MapPageKelly.this, available, ERROR_DIALOG_REQUEST);
+            //dialog.show();
+            return true;
+        }
+        else{
+        //we can't make map requests
+        return false;
+        }
+    }
+
+    private void initMap(){
+        Log.d(TAG, "initMap: initializing map");
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(new OnMapReadyCallback() {
+
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onMapReady(GoogleMap googleMap) {
+                mMap = googleMap;
+
+                // Add a marker in Sydney, Australia, and move the camera.
+                LatLng grandValley = new LatLng(42.972, -85.89163);
+                mMap.addMarker(new MarkerOptions().position(grandValley).title("Marker at Kirkhof"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(grandValley));
             }
         });
     }
-
 }
+
+
+
