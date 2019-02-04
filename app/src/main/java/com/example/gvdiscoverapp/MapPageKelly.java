@@ -24,16 +24,11 @@ import java.sql.Connection;
 public class MapPageKelly extends AppCompatActivity {
 
     private static final String TAG = "MapPageKelly";
-
     private static final int ERROR_DIALOG_REQUEST = 9001;
-
     private GoogleMap mMap;
-
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COARSE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
-
     private boolean mLocationPermissionGranted = false;
-
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
 
     @Override
