@@ -62,6 +62,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -191,13 +194,26 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
-        return email.contains("@");
+        //determines if the inputed email is one of the following
+        if(email.equals("davidjes@mail.gvsu.edu")){
+            return true;
+        }
+        else if(email.equals("hancoxk@mail.gvsu.edu")){
+            return true;
+        }
+        else if(email.equals("shanm@mail.gvsu.edu")){
+            return true;
+        }
+        else
+            return false;
     }
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 4;
+        if (password.equals("Password"))
+            return true;
+        else
+            return false;
     }
 
     /**
