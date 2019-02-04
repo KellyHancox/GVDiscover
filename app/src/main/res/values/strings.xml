@@ -15,4 +15,8 @@
     <string name="title_activity_map">Map</string>
     <string name="title_activity_map_page_kelly">MapPageKelly</string>
     <string name="google_maps_API_key">AIzaSyCn9uIFwLq3ZYfmTCqRE--8EC7DvamhFwI</string>
+    <string name="map">Map</string>
+    <string name="find_events">Find Events</string>
+    <string name="hub">Hub</string>
+    <string name="create_event">Create Event</string>
 </resources>
