@@ -50,6 +50,8 @@ public class MapPageKelly extends AppCompatActivity {
             if(ContextCompat.checkSelfPermission(this.getApplicationContext(), COARSE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
                 mLocationPermissionGranted = true;
+                initMap();
+
             }else{
                 ActivityCompat.requestPermissions(this, permissions,
                         LOCATION_PERMISSION_REQUEST_CODE);
@@ -79,6 +81,11 @@ public class MapPageKelly extends AppCompatActivity {
                     mLocationPermissionGranted = true;
                     //initialize the map
                     initMap();
+
+//                    SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+//                            .findFragmentById(R.id.map);
+//                    mapFragment.getMapAsync(this);
+
                 }
             }
         }
@@ -116,13 +123,29 @@ public class MapPageKelly extends AppCompatActivity {
             public void onMapReady(GoogleMap googleMap) {
                 mMap = googleMap;
 
-                // Add a marker in Sydney, Australia, and move the camera.
-                LatLng grandValley = new LatLng(42.972, -85.89163);
+
+
+                //Constrain the camera target to the Adelaide bounds.
+
+                //sets zoom preferences
+                mMap.setMinZoomPreference(16.0f);
+                mMap.setMaxZoomPreference(17.0f);
+
+                // Add a marker at Kirkhof and move the camera.
+                LatLng grandValley = new LatLng(42.962739, -85.888673);
                 mMap.addMarker(new MarkerOptions().position(grandValley).title("Marker at Kirkhof"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(grandValley));
+
+                LatLngBounds ADELAIDE = new LatLngBounds(
+                        //lower left
+                        new LatLng(42.961,-85.897),
+                        //upper right
+                        new LatLng(42.965, -85.8815));
+
+                mMap.setLatLngBoundsForCameraTarget(ADELAIDE);
             }
         });
     }
+
 }
 
 
