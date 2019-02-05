@@ -64,8 +64,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mLoginFormView;
 
 
-    public void toHub(View view) {
-        startActivity(new Intent(LoginActivity.this, createEventsMatt.class));
+    public void toHome(View view) {
+        startActivity(new Intent(LoginActivity.this, home_screen_monica.class));
     }
 
     @Override
