@@ -150,6 +150,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * errors are presented and no actual login attempt is made.
      */
     private void attemptLogin() {
+        startActivity(new Intent(LoginActivity.this, home_screen_monica.class));
         if (mAuthTask != null) {
             return;
         }
@@ -177,6 +178,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mEmailView.setError(getString(R.string.error_field_required));
             focusView = mEmailView;
             cancel = true;
+
         } else if (!isEmailValid(email)) {
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
@@ -205,6 +207,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             return true;
         }
         else if(email.equals("shanm@mail.gvsu.edu")){
+            return true;
+        }
+        else if(email.equals("klosinm@mail.gvsu.edu")){
             return true;
         }
         else
