@@ -24,10 +24,10 @@ public class home_screen_monica extends AppCompatActivity {
      * -Matt
      * ********************************************************************************************/
     public void toHub(View view) {
-        //startActivity(new Intent(home_screen_monica.this, [Page ID].class));
+        startActivity(new Intent(home_screen_monica.this, Hub_monica.class));
     }
     public void toFindEvents(View view) {
-        //startActivity(new Intent(home_screen_monica.this, [Page ID].class));
+        startActivity(new Intent(home_screen_monica.this, Find_Events_monica.class));
     }
     public void toMap(View view) {
         startActivity(new Intent(home_screen_monica.this, MapPageKelly.class));

@@ -49,6 +49,16 @@
             android:label="Create Event"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".Hub_monica"
+            android:label="Hub"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".Find_Events_monica"
+            android:label="Hub"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
     </application>
 
