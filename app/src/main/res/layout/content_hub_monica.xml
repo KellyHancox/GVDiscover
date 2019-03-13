@@ -38,7 +38,7 @@
         android:layout_marginRight="188dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="<User>'s Hub"
+        android:text="User's Hub"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
