@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MapPageKelly"
+    tools:context=".MapPage"
     tools:showIn="@layout/activity_map_page_kelly">
 
 </android.support.constraint.ConstraintLayout>

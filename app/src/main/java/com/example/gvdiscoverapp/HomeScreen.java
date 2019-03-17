@@ -2,13 +2,11 @@ package com.example.gvdiscoverapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class home_screen_monica extends AppCompatActivity {
+public class HomeScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,16 +22,16 @@ public class home_screen_monica extends AppCompatActivity {
      * -Matt
      * ********************************************************************************************/
     public void toHub(View view) {
-        startActivity(new Intent(home_screen_monica.this, Hub_monica.class));
+        startActivity(new Intent(HomeScreen.this, Hub.class));
     }
     public void toFindEvents(View view) {
-        startActivity(new Intent(home_screen_monica.this, Find_Events_monica.class));
+        startActivity(new Intent(HomeScreen.this, FindEvents.class));
     }
     public void toMap(View view) {
-        startActivity(new Intent(home_screen_monica.this, MapPageKelly.class));
+        startActivity(new Intent(HomeScreen.this, MapPage.class));
     }
     public void toCreateEvents(View view) {
-        startActivity(new Intent(home_screen_monica.this, createEventsMatt.class));
+        startActivity(new Intent(HomeScreen.this, CreateEvents.class));
     }
 
 

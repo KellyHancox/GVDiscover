@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
     public void toHome(View view) {
-        startActivity(new Intent(LoginActivity.this, home_screen_monica.class));
+        startActivity(new Intent(LoginActivity.this, HomeScreen.class));
     }
 
     @Override
@@ -150,7 +150,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * errors are presented and no actual login attempt is made.
      */
     private void attemptLogin() {
-        startActivity(new Intent(LoginActivity.this, home_screen_monica.class));
+        startActivity(new Intent(LoginActivity.this, HomeScreen.class));
         if (mAuthTask != null) {
             return;
         }

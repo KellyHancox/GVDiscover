@@ -8,7 +8,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import android.util.Log;
 
@@ -19,11 +18,9 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
 
-import java.sql.Connection;
+public class MapPage extends AppCompatActivity {
 
-public class MapPageKelly extends AppCompatActivity {
-
-    private static final String TAG = "MapPageKelly";
+    private static final String TAG = "MapPage";
     private static final int ERROR_DIALOG_REQUEST = 9001;
     private GoogleMap mMap;
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
@@ -94,7 +91,7 @@ public class MapPageKelly extends AppCompatActivity {
 
     public boolean isServicesOK(){
         Log.d(TAG, "isServicesOK: checking google services version");
-        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(MapPageKelly.this);
+        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(MapPage.this);
 
         if(available == ConnectionResult.SUCCESS){
             //everything is ok and the user can make requests
@@ -102,7 +99,7 @@ public class MapPageKelly extends AppCompatActivity {
         }else if(GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
             //an error occurred but we can resolve it
             Log.d(TAG, "isServicesOK: an error occurred, but you can fix it");
-            //Dailog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MapPageKelly.this, available, ERROR_DIALOG_REQUEST);
+            //Dailog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MapPage.this, available, ERROR_DIALOG_REQUEST);
             //dialog.show();
             return true;
         }
