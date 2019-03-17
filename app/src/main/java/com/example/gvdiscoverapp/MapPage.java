@@ -120,23 +120,30 @@ public class MapPage extends AppCompatActivity {
             public void onMapReady(GoogleMap googleMap) {
                 mMap = googleMap;
 
-
-
-                //Constrain the camera target to the Adelaide bounds.
-
                 //sets zoom preferences
                 mMap.setMinZoomPreference(16.0f);
                 mMap.setMaxZoomPreference(17.0f);
 
                 // Add a marker at Kirkhof and move the camera.
-                LatLng grandValley = new LatLng(42.962739, -85.888673);
-                mMap.addMarker(new MarkerOptions().position(grandValley).title("Marker at Kirkhof"));
+                LatLng kirkhof = new LatLng(42.962739, -85.888673);
+                mMap.addMarker(new MarkerOptions().position(kirkhof).
+                        title("You can find events at Kirkhof"));
+
+                // Add a marker at Kirkhof and move the camera.
+                LatLng recCenter = new LatLng(42.966857, -85.889745);
+                mMap.addMarker(new MarkerOptions().position(recCenter).
+                        title("You can find events at the Rec Center"));
+
+                // Add a marker at Kirkhof and move the camera.
+                LatLng mak = new LatLng(42.966833, -85.886892);
+                mMap.addMarker(new MarkerOptions().position(mak).
+                        title("You can find events at Mackinac"));
 
                 LatLngBounds ADELAIDE = new LatLngBounds(
                         //lower left
                         new LatLng(42.961,-85.897),
                         //upper right
-                        new LatLng(42.965, -85.8815));
+                        new LatLng(42.975, -85.8815));
 
                 mMap.setLatLngBoundsForCameraTarget(ADELAIDE);
             }

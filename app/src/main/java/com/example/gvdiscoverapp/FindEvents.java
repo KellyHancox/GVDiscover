@@ -26,4 +26,7 @@ public class FindEvents extends AppCompatActivity {
         });
     }
 
+    //pull from model
+    //
+
 }
