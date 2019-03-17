@@ -35,27 +35,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".home_screen_monica"
+            android:name=".HomeScreen"
             android:label="Home Screen"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".MapPageKelly"
+            android:name=".MapPage"
             android:label="Maps"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".createEventsMatt"
+            android:name=".CreateEvents"
             android:label="Create Event"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".Hub_monica"
+            android:name=".Hub"
             android:label="Hub"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".Find_Events_monica"
+            android:name=".FindEvents"
             android:label="Hub"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
