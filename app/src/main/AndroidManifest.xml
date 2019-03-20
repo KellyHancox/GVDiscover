@@ -37,22 +37,27 @@
         <activity
             android:name=".HomeScreen"
             android:label="Home Screen"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" >
+
         </activity>
         <activity
             android:name=".MapPage"
             android:label="Maps"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".CreateEvents"
             android:label="Create Event"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".Hub"
             android:label="Hub"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".FindEvents"
