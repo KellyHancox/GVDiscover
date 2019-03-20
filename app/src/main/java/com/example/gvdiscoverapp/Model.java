@@ -26,7 +26,13 @@ public class Model {
     public static void newUser(String email) {
         user = new GVUser(email);
     }
-
+    /***
+     *  Adds an event to the model.
+     *  Value format: "location~~date~~startTime~~endTime~~desc"
+     *
+     *  @param eventName name of the event
+     *  @param event in the format above
+     * */
     public static void addEvent(String eventName, String event) {
         events.put(eventName, event);
     }

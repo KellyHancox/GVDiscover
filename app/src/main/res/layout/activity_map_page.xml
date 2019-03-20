@@ -28,6 +28,6 @@
         android:layout_height="match_parent"
         tools:context="com.example.mapwithmarker.MapsMarkerActivity" />
 
-    <include layout="@layout/content_map_page_kelly" />
+    <include layout="@layout/content_map_page" />
 
 </android.support.design.widget.CoordinatorLayout>
