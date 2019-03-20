@@ -39,7 +39,7 @@ public class CreateEvents extends AppCompatActivity {
         Model model = Model.getInstance();
 
         eventName = (EditText)findViewById(R.id.eventName);
-        //location = (Spinner)findViewById(R.id.location);
+        location = (Spinner)findViewById(R.id.location);
         startDate = (EditText)findViewById(R.id.startDate);
         startTime = (EditText)findViewById(R.id.startTime);
         endTime = (EditText)findViewById(R.id.endTime);
@@ -49,7 +49,7 @@ public class CreateEvents extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String name = eventName.getText().toString();
-                String event = "Kirkof" + "~~"
+                String event = location.getSelectedItem().toString() + "~~"
                         + startDate.getText().toString() + "~~"
                         + startTime.getText().toString() + "~~"
                         + endTime.getText().toString() + "~~"
