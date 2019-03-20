@@ -58,7 +58,7 @@ public class Model {
         return list;
     }
 
-    public static void SignUp(String eventName) {
+    public static void signUp(String eventName) throws NullPointerException{
         user.addEvent(eventName);
     }
 

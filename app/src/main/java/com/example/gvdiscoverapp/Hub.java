@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 public class Hub extends AppCompatActivity {
+    private Model model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,17 @@ public class Hub extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    /***
+     * Signs the user up with the current event
+     *
+     * @param event is the name of the event
+     * @throws NullPointerException when user is not signed in
+     * */
+    private void signUpUser(String event) throws NullPointerException{
+        model = Model.getInstance();
+        model.signUp(event);
     }
 
 }

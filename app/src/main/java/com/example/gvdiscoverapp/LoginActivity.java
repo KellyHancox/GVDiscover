@@ -63,6 +63,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
 
+    private Model model;
 
     public void toHome(View view) {
         startActivity(new Intent(LoginActivity.this, HomeScreen.class));
@@ -195,6 +196,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
+            model = Model.getInstance();
+            model.newUser(email);
         }
     }
 
