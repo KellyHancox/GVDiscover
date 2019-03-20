@@ -120,22 +120,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <EditText
-        android:id="@+id/category"
-        android:layout_width="wrap_content"
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
-        android:layout_marginLeft="23dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="175dp"
-        android:layout_marginRight="175dp"
-        android:ems="10"
-        android:hint="@string/Category"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="174dp"
+        android:layout_marginRight="174dp"
+        android:layout_marginBottom="60dp"
+        android:entries="@array/BuildingArrays"
+        android:prompt="@string/Category"
+        app:layout_constraintBottom_toTopOf="@+id/startDate"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventName" />
+        app:layout_constraintTop_toBottomOf="@+id/eventName"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/startDate"
