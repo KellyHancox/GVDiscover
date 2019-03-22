@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Model is a singleton class that holds information such as the current user and events
+ *
+ * @author Matthew Shan
+ * */
 public class Model {
     /** An instance of the Singleton model */
     private static Model instance = null;
@@ -11,13 +16,22 @@ public class Model {
     private static GVUser user;
     /** Holds all the events in the database.
      * Value format: "location~~date~~startTime~~endTime~~desc */
-    public static Map<String, String> events;
+    private static Map<String, String> events;
 
 
+    /**
+     * Private constructor creates new HashMap
+     * */
     private Model() {
         events = new HashMap<String, String>();
     }
 
+    /**
+     * Singleton method that creates and returns a new instance if there is no instance otherwise
+     * just returns the old/current instance.
+     *
+     * @return The singleton instance of Model
+     * */
     public static Model getInstance() {
         if(instance == null) {
             instance = new Model();
@@ -25,9 +39,16 @@ public class Model {
         return instance;
     }
 
+    /**
+     * Sets this session's user to this email.
+     *
+     * @param email user email
+     * */
     public static void newUser(String email) {
         user = new GVUser(email);
     }
+
+
     /***
      *  Adds an event to the model.
      *  Value format: "location~~date~~startTime~~endTime~~desc"
@@ -36,7 +57,22 @@ public class Model {
      *  @param event in the format above
      * */
     public static void addEvent(String eventName, String event) {
+        //TODO: String validation - https://www.geeksforgeeks.org/java-date-format-validation-using-regex/
         events.put(eventName, event);
+    }
+
+    /**
+     * This method signs up the current user for a new event by key
+     *
+     * @param eventName is the name of the event, which is the key in the event HashMap.
+     *
+     * @throws NullPointerException when no user is found
+     *
+     * */
+    public static void signUp(String eventName) throws NullPointerException{
+        if (user == null)
+            throw new NullPointerException("No user found");
+        user.signUpEvent(eventName);
     }
 
     /***
@@ -49,6 +85,13 @@ public class Model {
         return events;
     }
 
+
+    /***
+     *  Gets the events stored in model as an array list.
+     *  Value format: "name~~location~~date~~startTime~~endTime~~desc
+     *
+     *  @return ArrayList<String> of the event.
+     * */
     public static ArrayList<String> getEventsList() {
         ArrayList<String> list = new ArrayList<String>();
         for (Map.Entry<String,String> entry : events.entrySet()) {
@@ -58,11 +101,17 @@ public class Model {
         return list;
     }
 
-    public static void signUp(String eventName) throws NullPointerException{
-        user.addEvent(eventName);
-    }
 
+
+
+    /**
+     * Returns the user that is currently in session
+     *
+     * @return GVUser that is currently logged in
+     * */
     public static GVUser getUser() {
         return user;
     }
+
+    //TODO: Save/Load Events
 }
