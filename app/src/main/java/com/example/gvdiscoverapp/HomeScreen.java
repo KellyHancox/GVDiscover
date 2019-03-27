@@ -5,9 +5,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-
+/**
+ * HomeScreen is responsible for navigation to the other pages
+ *
+ * @author Monica Klosin, Matthew Shan
+ * */
 public class HomeScreen extends AppCompatActivity {
 
+    /**
+     * This simply creates the page
+     *
+     * @param savedInstanceState see AppCompatActivity
+     * */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,20 +25,38 @@ public class HomeScreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
-    /***********************************************************************************************
-     * The follow methods are responsible for navigation. Some are currently commented out
-     * because they do not have pages at the moment.
-     * -Matt
-     * ********************************************************************************************/
+    /**
+     * toHub method takes the user to the Hub Page
+     *
+     * @param view is the object that was clicked.
+     * */
     public void toHub(View view) {
         startActivity(new Intent(HomeScreen.this, Hub.class));
     }
+
+    /**
+     * toFindEvents method takes the user to the Find Events page
+     *
+     * @param view is the object that was clicked.
+     * */
     public void toFindEvents(View view) {
         startActivity(new Intent(HomeScreen.this, FindEvents.class));
     }
+
+    /**
+     * toMap method takes the user to the Map Page
+     *
+     * @param view is the object that was clicked.
+     * */
     public void toMap(View view) {
         startActivity(new Intent(HomeScreen.this, MapPage.class));
     }
+
+    /**
+     * toCreateEvents method takes the user to the Create Event Page
+     *
+     * @param view is the object that was clicked.
+     * */
     public void toCreateEvents(View view) {
         startActivity(new Intent(HomeScreen.this, CreateEvents.class));
     }

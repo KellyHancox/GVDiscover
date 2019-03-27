@@ -61,6 +61,7 @@ public class Model {
         events.put(eventName, event);
     }
 
+
     /**
      * This method signs up the current user for a new event by key
      *
@@ -74,6 +75,7 @@ public class Model {
             throw new NullPointerException("No user found");
         user.signUpEvent(eventName);
     }
+
 
     /***
      *  Gets the events stored in model.
@@ -100,8 +102,6 @@ public class Model {
         }
         return list;
     }
-
-
 
 
     /**

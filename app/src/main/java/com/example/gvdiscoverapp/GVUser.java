@@ -2,6 +2,11 @@ package com.example.gvdiscoverapp;
 
 import java.util.ArrayList;
 
+/**
+ *  GVUser is the class the represents a user. This holds information such as email and events.
+ *
+ * @author Matthew Shan
+ * */
 public class GVUser {
     /** A string for the user email. */
     private String email;
