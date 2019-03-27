@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FindEvents">
+    tools:context=".FindEventsOld">
 
 
     <include layout="@layout/content_find_events" />
@@ -16,7 +16,3 @@
 
 
 </android.support.design.widget.ConstraintLayout>
-
-
-
-

@@ -37,6 +37,8 @@ import static android.Manifest.permission.READ_CONTACTS;
 
 /**
  * A login screen that offers login via email/password.
+ *
+ * @author Jesse David
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
@@ -63,11 +65,22 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
 
+    private Model model;
 
+    /**
+     * toHome method takes the user to the Home page
+     *
+     * @param view is the object that was clicked.
+     * */
     public void toHome(View view) {
         startActivity(new Intent(LoginActivity.this, HomeScreen.class));
     }
 
+    /**
+     * This simply creates the page
+     *
+     * @param savedInstanceState see AppCompatActivity
+     * */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,6 +145,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     /**
      * Callback received when a permissions request has been completed.
+     * TODO:
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
      */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
@@ -195,6 +212,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
+            model = Model.getInstance();
+            model.newUser(email);
         }
     }
 
@@ -260,6 +279,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
     }
 
+    /**
+     *
+     * TODO: desc, returns and params
+     *
+     * @param i
+     * @param bundle
+     *
+     * @returns
+     * */
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         return new CursorLoader(this,
@@ -277,6 +305,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 ContactsContract.Contacts.Data.IS_PRIMARY + " DESC");
     }
 
+    /**
+     *
+     * TODO: desc, returns and params
+     *
+     * @param cursorLoader
+     * @param cursor
+     * */
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
         List<String> emails = new ArrayList<>();
@@ -289,6 +324,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         addEmailsToAutoComplete(emails);
     }
 
+    /**
+     * TODO: Is this method suppose to be here
+     *
+     * */
     @Override
     public void onLoaderReset(Loader<Cursor> cursorLoader) {
 
@@ -317,6 +356,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
+     *
+     * @author Jesse David
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 

@@ -60,7 +60,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".FindEvents"
+            android:name=".FindEventsOld"
             android:label="Hub"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
