@@ -7,7 +7,7 @@
     tools:context=".FindEventsOld">
 
 
-    <include layout="@layout/content_find_events" />
+    <include layout="@layout/content_find_events_old" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/eventRecyclerView"

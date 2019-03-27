@@ -1,6 +1,7 @@
 package com.example.gvdiscoverapp;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import android.util.Log;
+import android.view.View;
 
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.ConnectionResult;
@@ -103,6 +105,15 @@ public class MapPage extends AppCompatActivity {
             }
         }
 
+    }
+
+    /**
+     * toCreateEvents method takes the user to the Create Event Page
+     *
+     * @param view is the object that was clicked.
+     * */
+    public void toCreateEvents(View view) {
+        startActivity(new Intent(MapPage.this, CreateEvents.class));
     }
 
     /**
