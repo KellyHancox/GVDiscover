@@ -40,7 +40,7 @@ public class HomeScreen extends AppCompatActivity {
      * @param view is the object that was clicked.
      * */
     public void toFindEvents(View view) {
-        startActivity(new Intent(HomeScreen.this, FindEvents.class));
+        startActivity(new Intent(HomeScreen.this, FindEventsOld.class));
     }
 
     /**
