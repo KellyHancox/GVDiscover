@@ -25,7 +25,7 @@ public class HomeScreen extends AppCompatActivity {
         startActivity(new Intent(HomeScreen.this, Hub.class));
     }
     public void toFindEvents(View view) {
-        startActivity(new Intent(HomeScreen.this, FindEvents.class));
+        startActivity(new Intent(HomeScreen.this, FindTheEvents.class));
     }
     public void toMap(View view) {
         startActivity(new Intent(HomeScreen.this, MapPage.class));
