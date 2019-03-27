@@ -10,7 +10,7 @@
     tools:layout_editor_absoluteY="56dp"
     tools:showIn="@layout/activity_create_events">
 
-    <EditText
+    <Spinner
         android:id="@+id/endTime"
         android:layout_width="173dp"
         android:layout_height="52dp"
@@ -20,15 +20,17 @@
         android:layout_marginEnd="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginBottom="392dp"
+        android:dropDownWidth="match_parent"
+        android:dropDownHeight="50dp"
         android:ems="10"
-        android:hint="@string/end_time"
+        android:entries="@array/end_time"
         android:inputType="time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <Spinner
         android:id="@+id/startTime"
         android:layout_width="171dp"
         android:layout_height="50dp"
@@ -38,8 +40,10 @@
         android:layout_marginEnd="217dp"
         android:layout_marginRight="217dp"
         android:layout_marginBottom="392dp"
+        android:dropDownWidth="match_parent"
+        android:dropDownHeight="50dp"
         android:ems="10"
-        android:hint="@string/start_time"
+        android:entries="@array/start_time"
         android:inputType="time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
