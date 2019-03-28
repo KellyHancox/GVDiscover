@@ -21,16 +21,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <Button
-        android:id="@+id/startActivityButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal|center_vertical"
-        android:onClick="toCreateEvents"
-        android:text="@string/create_event"
-        app:layout_anchor="@+id/map"
-        app:layout_anchorGravity="bottom|center" />
-
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/map"
@@ -41,5 +31,17 @@
         tools:context="com.example.mapwithmarker.MapsMarkerActivity" />
 
     <include layout="@layout/content_map_page" />
+
+    <Button
+        android:id="@+id/startActivityButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_marginBottom="20dp"
+        android:onClick="toCreateEvents"
+        android:text="@string/create_event"
+        app:layout_anchor="@+id/map"
+        app:layout_anchorGravity="bottom|center" />
+
 
 </android.support.design.widget.CoordinatorLayout>
