@@ -27,10 +27,10 @@ public class GVUser implements Serializable {
     /**
      * Signs the user up for the given event name
      *
-     * @param key 'key' is the name of the event in the HashMap
+     * @param event is the string event
      * */
-    public void signUpEvent(String key) {
-        events.add(key);
+    public void signUpEvent(String event) {
+        events.add(event);
     }
 
     /**

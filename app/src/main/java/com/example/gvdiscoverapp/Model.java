@@ -20,15 +20,15 @@ public class Model {
     /** Holds the current user in session */
     private static GVUser user;
     /** Holds all the events in the database.
-     * Value format: "location~~date~~startTime~~endTime~~desc */
-    private static Map<String, String> events;
+     * Value format: "name~~location~~date~~startTime~~endTime~~desc */
+    private static ArrayList<String> events;
 
 
     /**
      * Private constructor creates new HashMap
      * */
     private Model() {
-        events = new HashMap<String, String>();
+        events = new ArrayList<String>();
     }
 
     /**
@@ -56,31 +56,29 @@ public class Model {
 
     /***
      *  Adds an event to the model.
-     *  Value format: "location~~date~~startTime~~endTime~~desc"
+     *  Value format: "names~~location~~date~~startTime~~endTime~~desc"
      *
-     *  @param eventName name of the event
      *  @param event in the format above
      * */
-    public static void addEvent(String eventName, String event) {
+    public static void addEvent(String event) {
         //TODO: String validation - https://www.geeksforgeeks.org/java-date-format-validation-using-regex/
-        events.put(eventName, event);
+        events.add(event);
     }
 
 
     /**
      * This method signs up the current user for a new event by key
      *
-     * @param eventName is the name of the event, which is the key in the event HashMap.
+     * @param event is the event string
      *
      * @throws NullPointerException when no user is found
      *
      * */
-    public static void signUp(String eventName) throws NullPointerException{
+    public static void signUp(String event) throws NullPointerException{
         if (user == null)
             throw new NullPointerException("No user found");
-        user.signUpEvent(eventName);
+        user.signUpEvent(event);
     }
-
 
     /***
      *  Gets the events stored in model as an array list.
@@ -89,13 +87,7 @@ public class Model {
      *  @return ArrayList<String> of the event.
      * */
     public static ArrayList<String> getEventsList() {
-        ArrayList<String> list = new ArrayList<String>();
-        for (Map.Entry<String,String> entry : events.entrySet()) {
-            list.add(entry.getKey() + "~~" + entry.getValue());
-            System.out.println(entry.getKey() + "~~" + entry.getValue());
-
-        }
-        return list;
+        return events;
     }
 
 
@@ -137,7 +129,7 @@ public class Model {
         //First retrieve the events
         FileInputStream fileEvents = new FileInputStream ("events.ser");
         ObjectInputStream streamEvents = new ObjectInputStream(fileEvents);
-        events = (HashMap<String, String>)streamEvents.readObject();
+        events = (ArrayList<String>)streamEvents.readObject();
         streamEvents.close();
         //Then load the user by email
         FileInputStream fileUser = new FileInputStream ("users/" + user.getEmail() + ".ser");
