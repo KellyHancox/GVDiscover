@@ -1,6 +1,7 @@
 package com.example.gvdiscoverapp;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import android.util.Log;
+import android.view.View;
 
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.ConnectionResult;
@@ -17,7 +19,11 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
-
+/**
+ * Class responsible for the Map Page
+ *
+ * @author Kelly Hancox
+ * */
 public class MapPage extends AppCompatActivity {
 
     private static final String TAG = "MapPage";
@@ -28,6 +34,11 @@ public class MapPage extends AppCompatActivity {
     private boolean mLocationPermissionGranted = false;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
 
+    /**
+     * This simply creates the page
+     *
+     * @param savedInstanceState see AppCompatActivity
+     * */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +70,13 @@ public class MapPage extends AppCompatActivity {
         }
     }
 
+    /**
+     * TODO: description, param
+     *
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     * */
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -89,6 +107,20 @@ public class MapPage extends AppCompatActivity {
 
     }
 
+    /**
+     * toCreateEvents method takes the user to the Create Event Page
+     *
+     * @param view is the object that was clicked.
+     * */
+    public void toCreateEvents(View view) {
+        startActivity(new Intent(MapPage.this, CreateEvents.class));
+    }
+
+    /**
+     * TODO: description and return
+     *
+     * @return
+     * */
     public boolean isServicesOK(){
         Log.d(TAG, "isServicesOK: checking google services version");
         int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(MapPage.this);
