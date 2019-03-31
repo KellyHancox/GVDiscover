@@ -10,7 +10,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import java.sql.Wrapper;
-
+/**
+ * CreateEvents class corresponds with the CreateEvents page. It handles data collection from the
+ * form and putting it into the Model.
+ *
+ * @author Matthew Shan, Jesse David
+ * */
 public class CreateEvents extends AppCompatActivity {
     /** Object that represents eventName input */
     private EditText eventName;
@@ -19,9 +24,9 @@ public class CreateEvents extends AppCompatActivity {
     /** Object that represents startDate input */
     private EditText startDate;
     /** Object that represents startTime input */
-    private EditText startTime;
+    private Spinner startTime;
     /** Object that represents endTime input */
-    private EditText endTime;
+    private Spinner endTime;
     /** Object that represents description input */
     private EditText description;
     /** Object that represents submit input */
@@ -29,6 +34,11 @@ public class CreateEvents extends AppCompatActivity {
     /** Represents the connection to Model */
     private Model model;
 
+    /**
+     * onCreate method creates the page and handles the submit button
+     *
+     * @param savedInstanceState see AppCompatActivity
+     * */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,23 +46,27 @@ public class CreateEvents extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Model model = Model.getInstance();
+        model = Model.getInstance();
 
         eventName = (EditText)findViewById(R.id.eventName);
         location = (Spinner)findViewById(R.id.location);
-        startDate = (EditText)findViewById(R.id.startDate);
-        startTime = (EditText)findViewById(R.id.startTime);
-        endTime = (EditText)findViewById(R.id.endTime);
+        startDate = (EditText) findViewById(R.id.startDate);
+        startTime = (Spinner) findViewById(R.id.startTime);
+        endTime = (Spinner)findViewById(R.id.endTime);
         description = (EditText)findViewById(R.id.description);
         submit = (Button)findViewById(R.id.submit);
 
         submit.setOnClickListener(new View.OnClickListener() {
+            /**
+             * The onClick method for the submit button that handles the data and encodes it into
+             * the Model.
+             * */
             public void onClick(View v) {
                 String name = eventName.getText().toString();
                 String event = location.getSelectedItem().toString() + "~~"
                         + startDate.getText().toString() + "~~"
-                        + startTime.getText().toString() + "~~"
-                        + endTime.getText().toString() + "~~"
+                        + startTime.getSelectedItem().toString() + "~~"
+                        + endTime.getSelectedItem().toString() + "~~"
                         + description.getText().toString() ;
                 Model.addEvent(name, event);
                 System.out.println("\nEvent Name: " + name);
