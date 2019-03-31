@@ -75,7 +75,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 //print events list
                 Log.d(TAG, currentEvent + " added.");
             }
-        });
+     b   });
 
         if(arrayOfEventInformation.length == 6) {
             viewHolder.eventTitle.setText(arrayOfEventInformation[0]);
