@@ -1,5 +1,6 @@
 package com.example.gvdiscoverapp;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -7,7 +8,7 @@ import java.util.ArrayList;
  *
  * @author Matthew Shan
  * */
-public class GVUser {
+public class GVUser implements Serializable {
     /** A string for the user email. */
     private String email;
     /** An ArrayList of string that hold event keys. The keys reference the hash map in Model */

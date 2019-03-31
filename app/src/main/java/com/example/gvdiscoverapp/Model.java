@@ -113,5 +113,15 @@ public class Model {
         return user;
     }
 
+    //Save everytime event create or sign up
+    public void saveEvents() {
+
+    }
+
+    public void loadEvents() {
+
+    }
+
+
     //TODO: Save/Load Events
 }
