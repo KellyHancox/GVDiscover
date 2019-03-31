@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:padding="15dp"
+    android:id="@+id/parent_layout">
+
+
+    <ImageView
+        android:layout_height="90dp"
+        android:layout_width="90dp"
+        android:id="@+id/eventCardIcon"
+        app:srcCompat="@drawable/discovericon" />
+
+    <TextView
+        android:id="@+id/eventCardTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+
+
+        android:layout_marginRight="100dp"
+
+        android:layout_toRightOf="@id/eventCardIcon"
+        android:text="Title"
+
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:id="@+id/eventCardDate"
+
+        android:layout_toRightOf="@id/eventCardIcon"
+
+        android:textColor="@color/colorAccent"
+
+        android:layout_marginLeft="190dp"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Time: "
+        android:id="@+id/eventCardSTimeLabel"
+        android:layout_toRightOf="@id/eventCardIcon"
+        android:layout_below="@id/eventCardTitle"
+
+
+        android:textColor="@color/colorPrimaryDark"
+
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="5dp"
+        android:textSize="10sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1:30 pm"
+        android:id="@+id/eventCardSTime"
+        android:layout_toRightOf="@id/eventCardIcon"
+        android:layout_below="@id/eventCardTitle"
+
+        android:textColor="@color/colorPrimaryDark"
+
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="55dp"
+        android:textSize="10sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="End Time: "
+        android:id="@+id/eventCardETimeLabel"
+        android:layout_toRightOf="@id/eventCardIcon"
+        android:layout_below="@id/eventCardTitle"
+
+        android:textColor="@color/colorPrimaryDark"
+
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="125dp"
+        android:textSize="10sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2:40 pm"
+        android:id="@+id/eventCardETime"
+        android:layout_toRightOf="@id/eventCardIcon"
+        android:layout_below="@id/eventCardTitle"
+
+        android:textColor="@color/colorPrimaryDark"
+
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="170dp"
+        android:textSize="10sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location "
+        android:id="@+id/eventCardLoc"
+        android:layout_toRightOf="@id/eventCardIcon"
+        android:layout_below="@id/eventCardTitle"
+
+        android:textColor="@color/colorPrimaryDark"
+
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="235dp"
+        android:textSize="10sp"
+        />
+
+    <TextView
+        android:id="@+id/eventCardDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/eventCardSTimeLabel"
+
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+
+        android:layout_toRightOf="@id/eventCardIcon"
+        android:text="description"
+        android:textColor="@color/colorPrimary"
+        android:textSize="10sp" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_toRightOf="@id/eventCardIcon"
+        android:layout_below="@id/eventCardDesc"
+
+        android:text="Sign up now!"
+        android:textColor="@color/colorPrimary"
+
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp" />
+
+</RelativeLayout>

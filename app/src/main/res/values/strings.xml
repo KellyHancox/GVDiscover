@@ -97,5 +97,6 @@
         <item>Campus Recreation</item>
         <item>Mackinac</item>
     </string-array>
+    <string name="title_activity_find_the_events">FindTheEvents</string>
 
 </resources>
