@@ -99,6 +99,7 @@ public class Model {
         for (Map.Entry<String,String> entry : events.entrySet()) {
             list.add(entry.getKey() + "~~" + entry.getValue());
             System.out.println(entry.getKey() + "~~" + entry.getValue());
+
         }
         return list;
     }
