@@ -1,5 +1,6 @@
 package com.example.gvdiscoverapp;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -7,7 +8,8 @@ import java.util.ArrayList;
  *
  * @author Matthew Shan
  * */
-public class GVUser {
+public class GVUser implements Serializable {
+    private static final long serialVersionUID = 1L;
     /** A string for the user email. */
     private String email;
     /** An ArrayList of string that hold event keys. The keys reference the hash map in Model */
@@ -25,10 +27,10 @@ public class GVUser {
     /**
      * Signs the user up for the given event name
      *
-     * @param key 'key' is the name of the event in the HashMap
+     * @param event is the string event
      * */
-    public void signUpEvent(String key) {
-        events.add(key);
+    public void signUpEvent(String event) {
+        events.add(event);
     }
 
     /**
@@ -38,5 +40,14 @@ public class GVUser {
      * */
     public ArrayList<String> getEvents() {
         return events;
+    }
+
+    /**
+     * Returns the user's email
+     *
+     * @returns User email
+     */
+    public String getEmail() {
+        return email;
     }
 }

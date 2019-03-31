@@ -12,18 +12,29 @@ import android.view.View;
 
 import java.util.ArrayList;
 
+/**
+ * FindEventsOld class corresponds with the FindEventsOld page. It handles viewing all events from model
+ * and user sign up
+ *
+ * @author Kelly Hancox, Monica Klosin
+ * */
 public class FindTheEvents extends AppCompatActivity {
 
-    Model model =  Model.getInstance();
+    private Model model =  Model.getInstance();
 
-    GVUser user = Model.getUser();
+    private GVUser user = Model.getUser();
 
-    ArrayList<String> eventList = model.getEventsList();
-    ArrayList<String> signedUpEventsList = user.getEvents();
+    private ArrayList<String> eventList = model.getEventsList();
+    private ArrayList<String> signedUpEventsList = user.getEvents();
 
 
     private static final String TAG = "FindTheEvents";
 
+    /**
+     * onCreate method creates the FindEventsOld
+     *
+     * @param savedInstanceState see AppCompatActivity
+     * */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

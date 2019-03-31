@@ -1,5 +1,10 @@
 package com.example.gvdiscoverapp;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,15 +20,15 @@ public class Model {
     /** Holds the current user in session */
     private static GVUser user;
     /** Holds all the events in the database.
-     * Value format: "location~~date~~startTime~~endTime~~desc */
-    private static Map<String, String> events;
+     * Value format: "name~~location~~date~~startTime~~endTime~~desc */
+    private static ArrayList<String> events;
 
 
     /**
      * Private constructor creates new HashMap
      * */
     private Model() {
-        events = new HashMap<String, String>();
+        events = new ArrayList<String>();
     }
 
     /**
@@ -51,42 +56,29 @@ public class Model {
 
     /***
      *  Adds an event to the model.
-     *  Value format: "location~~date~~startTime~~endTime~~desc"
+     *  Value format: "names~~location~~date~~startTime~~endTime~~desc"
      *
-     *  @param eventName name of the event
      *  @param event in the format above
      * */
-    public static void addEvent(String eventName, String event) {
+    public static void addEvent(String event) {
         //TODO: String validation - https://www.geeksforgeeks.org/java-date-format-validation-using-regex/
-        events.put(eventName, event);
+        events.add(event);
     }
 
 
     /**
      * This method signs up the current user for a new event by key
      *
-     * @param eventName is the name of the event, which is the key in the event HashMap.
+     * @param event is the event string
      *
      * @throws NullPointerException when no user is found
      *
      * */
-    public static void signUp(String eventName) throws NullPointerException{
+    public static void signUp(String event) throws NullPointerException{
         if (user == null)
             throw new NullPointerException("No user found");
-        user.signUpEvent(eventName);
+        user.signUpEvent(event);
     }
-
-
-    /***
-     *  Gets the events stored in model.
-     *  Value format: "location~~date~~startTime~~endTime~~desc
-     *
-     *  @return Hash map were the key is the name of the event.
-     * */
-    public static Map<String, String> getEvents() {
-        return events;
-    }
-
 
     /***
      *  Gets the events stored in model as an array list.
@@ -95,13 +87,7 @@ public class Model {
      *  @return ArrayList<String> of the event.
      * */
     public static ArrayList<String> getEventsList() {
-        ArrayList<String> list = new ArrayList<String>();
-        for (Map.Entry<String,String> entry : events.entrySet()) {
-            list.add(entry.getKey() + "~~" + entry.getValue());
-            System.out.println(entry.getKey() + "~~" + entry.getValue());
-
-        }
-        return list;
+        return events;
     }
 
 
@@ -114,5 +100,41 @@ public class Model {
         return user;
     }
 
-    //TODO: Save/Load Events
+    //Save everytime event create or sign up
+
+    /**
+     * Saves events and the data of the current user
+     *
+     * @throws IOException when there is an error with saving
+     * */
+    public void saveEvents() throws IOException {
+        //First save all the events
+        FileOutputStream fileEvents = new FileOutputStream("events.ser");
+        ObjectOutputStream streamEvents = new ObjectOutputStream(fileEvents);
+        streamEvents.writeObject(events);
+        streamEvents.close();
+        //Then save the user by their email
+        FileOutputStream fileUser = new FileOutputStream("./users/" + user.getEmail() + ".ser");
+        ObjectOutputStream streamUser = new ObjectOutputStream(fileUser);
+        streamUser.writeObject(user);
+        streamUser.close();
+    }
+    /**
+     * Saves events and the data of the current user
+     *
+     * @throws IOException when there is an error with saving
+     * @throws ClassNotFoundException when loaded file does not have the correct class
+     * */
+    public void loadEvents() throws ClassNotFoundException, IOException{
+        //First retrieve the events
+        FileInputStream fileEvents = new FileInputStream ("events.ser");
+        ObjectInputStream streamEvents = new ObjectInputStream(fileEvents);
+        events = (ArrayList<String>)streamEvents.readObject();
+        streamEvents.close();
+        //Then load the user by email
+        FileInputStream fileUser = new FileInputStream ("users/" + user.getEmail() + ".ser");
+        ObjectInputStream streamUser = new ObjectInputStream(fileUser);
+        user = (GVUser) streamUser.readObject();
+        streamUser.close();
+    }
 }
