@@ -16,6 +16,8 @@ import java.sql.Wrapper;
  *
  * @author Matthew Shan, Jesse David
  * */
+
+//TODO: Input testing
 public class CreateEvents extends AppCompatActivity {
     /** Object that represents eventName input */
     private EditText eventName;
@@ -62,14 +64,13 @@ public class CreateEvents extends AppCompatActivity {
              * the Model.
              * */
             public void onClick(View v) {
-                String name = eventName.getText().toString();
-                String event = location.getSelectedItem().toString() + "~~"
+                String event = eventName.getText().toString() + "~~"
+                        + location.getSelectedItem().toString() + "~~"
                         + startDate.getText().toString() + "~~"
                         + startTime.getSelectedItem().toString() + "~~"
                         + endTime.getSelectedItem().toString() + "~~"
                         + description.getText().toString() ;
-                Model.addEvent(name, event);
-                System.out.println("\nEvent Name: " + name);
+                Model.addEvent(event);
                 System.out.println("Event: " + event);
             }
         });
