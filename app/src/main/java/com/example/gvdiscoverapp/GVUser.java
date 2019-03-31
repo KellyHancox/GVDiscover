@@ -41,4 +41,13 @@ public class GVUser implements Serializable {
     public ArrayList<String> getEvents() {
         return events;
     }
+
+    /**
+     * Returns the user's email
+     *
+     * @returns User email
+     */
+    public String getEmail() {
+        return email;
+    }
 }

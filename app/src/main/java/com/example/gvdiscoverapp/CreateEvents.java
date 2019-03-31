@@ -16,6 +16,8 @@ import java.sql.Wrapper;
  *
  * @author Matthew Shan, Jesse David
  * */
+
+//TODO: Input testing
 public class CreateEvents extends AppCompatActivity {
     /** Object that represents eventName input */
     private EditText eventName;
