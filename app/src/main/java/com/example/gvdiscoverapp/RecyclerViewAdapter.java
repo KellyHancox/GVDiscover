@@ -41,7 +41,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public RecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.event_card_layout, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.event_card_layout,
+                viewGroup, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
@@ -50,7 +51,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public int getItemCount() {
         return mEvents.size();
     }
-
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
@@ -75,7 +75,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 //print events list
                 Log.d(TAG, currentEvent + " added.");
             }
-     b   });
+        });
 
         if(arrayOfEventInformation.length == 6) {
             viewHolder.eventTitle.setText(arrayOfEventInformation[0]);

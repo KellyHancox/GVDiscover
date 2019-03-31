@@ -13,7 +13,7 @@ public class GVUser implements Serializable {
     /** A string for the user email. */
     private String email;
     /** An ArrayList of string that hold event keys. The keys reference the hash map in Model */
-    private ArrayList<String> events;
+    private ArrayList<String> events = new ArrayList<String>();
 
     /**
      * Creates a user with a given email
@@ -30,6 +30,7 @@ public class GVUser implements Serializable {
      * @param event is the string event
      * */
     public void signUpEvent(String event) {
+
         events.add(event);
     }
 

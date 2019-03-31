@@ -11,7 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="18b38471-a9de-42fb-926f-0dfb9488a1a8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/GVUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/GVUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/RecyclerViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/RecyclerViewAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_hub.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_hub.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/content_home_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/content_home_screen.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/event_card_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/event_card_layout.xml" afterDir="false" />
     </list>
@@ -46,49 +48,49 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gradle" value="5" />
-          <entry key="java" value="34" />
+          <entry key="java" value="35" />
           <entry key="properties" value="2" />
-          <entry key="xml" value="27" />
+          <entry key="xml" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="5" />
-          <entry key="JAVA" value="34" />
+          <entry key="JAVA" value="35" />
           <entry key="Properties" value="2" />
-          <entry key="XML" value="27" />
+          <entry key="XML" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="53" />
-          <entry key="java" value="4191" />
+          <entry key="java" value="4238" />
           <entry key="txt" value="30" />
-          <entry key="xml" value="1398" />
+          <entry key="xml" value="1436" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="53" />
-          <entry key="JAVA" value="4191" />
+          <entry key="JAVA" value="4238" />
           <entry key="PLAIN_TEXT" value="30" />
-          <entry key="XML" value="1398" />
+          <entry key="XML" value="1436" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/RecyclerViewAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="77" column="6" selection-start-line="77" selection-start-column="6" selection-end-line="77" selection-end-column="6" />
+              <caret line="76" column="13" lean-forward="true" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1363#1364#0" expanded="true" />
                 <element signature="e#1400#1401#0" expanded="true" />
-                <element signature="e#1910#2204#0" expanded="true" />
+                <element signature="e#1902#2261#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,8 +100,20 @@
         <entry file="file://$PROJECT_DIR$/src/main/res/layout/event_card_layout.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="136" column="37" selection-start-line="136" selection-start-column="37" selection-end-line="136" selection-end-column="37" />
+            <state relative-caret-position="2055">
+              <caret line="137" column="37" selection-start-line="137" selection-start-column="37" selection-end-line="137" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/Hub.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,19 +121,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="76" column="5" lean-forward="true" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
+            <state relative-caret-position="151">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
               <folding>
-                <element signature="e#671#672#0" expanded="true" />
-                <element signature="e#725#726#0" expanded="true" />
-                <element signature="e#1241#1242#0" expanded="true" />
-                <element signature="e#1281#1282#0" expanded="true" />
-                <element signature="e#2423#2424#0" expanded="true" />
-                <element signature="e#2452#2453#0" expanded="true" />
-                <element signature="e#2758#2766#0" expanded="true" />
-                <element signature="e#3178#3179#0" expanded="true" />
-                <element signature="e#3205#3206#0" expanded="true" />
+                <element signature="e#837#838#0" expanded="true" />
+                <element signature="e#885#886#0" expanded="true" />
+                <element signature="e#1401#1402#0" expanded="true" />
+                <element signature="e#1441#1442#0" expanded="true" />
+                <element signature="e#2469#2470#0" expanded="true" />
+                <element signature="e#2498#2499#0" expanded="true" />
+                <element signature="e#2665#2666#0" expanded="true" />
+                <element signature="e#2692#2693#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_home_screen.xml">
+          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="74" column="51" selection-start-line="74" selection-start-column="51" selection-end-line="74" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -127,11 +150,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/GVUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+            <state relative-caret-position="330">
+              <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
               <folding>
-                <element signature="e#785#786#0" expanded="true" />
-                <element signature="e#816#817#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#541#549#0" expanded="true" />
+                <element signature="e#735#736#0" expanded="true" />
+                <element signature="e#1088#1089#0" expanded="true" />
+                <element signature="e#1117#1118#0" expanded="true" />
+                <element signature="e#1231#1232#0" expanded="true" />
+                <element signature="e#1259#1260#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -173,10 +201,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/FindTheEvents.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/Model.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/Hub.java" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/content_home_screen.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/GVUser.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/event_card_layout.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_hub.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/RecyclerViewAdapter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/GVUser.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/content_home_screen.xml" />
       </list>
     </option>
   </component>
@@ -419,14 +448,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_find__events_monica.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_find__events_monica.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_create_events.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="11" column="54" lean-forward="true" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_find_events.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_event_list.xml">
       <provider editor-type-id="android-designer2" />
@@ -537,16 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/Hub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/FindEventsOld.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -554,59 +565,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/Model.java">
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_create_events.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="76" column="5" lean-forward="true" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
-          <folding>
-            <element signature="e#671#672#0" expanded="true" />
-            <element signature="e#725#726#0" expanded="true" />
-            <element signature="e#1241#1242#0" expanded="true" />
-            <element signature="e#1281#1282#0" expanded="true" />
-            <element signature="e#2423#2424#0" expanded="true" />
-            <element signature="e#2452#2453#0" expanded="true" />
-            <element signature="e#2758#2766#0" expanded="true" />
-            <element signature="e#3178#3179#0" expanded="true" />
-            <element signature="e#3205#3206#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_home_screen.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="-880" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/GVUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-          <folding>
-            <element signature="e#785#786#0" expanded="true" />
-            <element signature="e#816#817#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="165">
+          <caret line="11" column="54" lean-forward="true" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/event_card_layout.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="136" column="37" selection-start-line="136" selection-start-column="37" selection-end-line="136" selection-end-column="37" />
+        <state relative-caret-position="2055">
+          <caret line="137" column="37" selection-start-line="137" selection-start-column="37" selection-end-line="137" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+          <folding>
+            <element signature="e#837#838#0" expanded="true" />
+            <element signature="e#885#886#0" expanded="true" />
+            <element signature="e#1401#1402#0" expanded="true" />
+            <element signature="e#1441#1442#0" expanded="true" />
+            <element signature="e#2469#2470#0" expanded="true" />
+            <element signature="e#2498#2499#0" expanded="true" />
+            <element signature="e#2665#2666#0" expanded="true" />
+            <element signature="e#2692#2693#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/GVUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#541#549#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
+            <element signature="e#1088#1089#0" expanded="true" />
+            <element signature="e#1117#1118#0" expanded="true" />
+            <element signature="e#1231#1232#0" expanded="true" />
+            <element signature="e#1259#1260#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/RecyclerViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="77" column="6" selection-start-line="77" selection-start-column="6" selection-end-line="77" selection-end-column="6" />
+          <caret line="76" column="13" lean-forward="true" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1363#1364#0" expanded="true" />
             <element signature="e#1400#1401#0" expanded="true" />
-            <element signature="e#1910#2204#0" expanded="true" />
+            <element signature="e#1902#2261#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_hub.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_hub.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-386" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/Hub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_home_screen.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="74" column="51" selection-start-line="74" selection-start-column="51" selection-end-line="74" selection-end-column="51" />
         </state>
       </provider>
     </entry>
