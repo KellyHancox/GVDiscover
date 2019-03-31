@@ -9,6 +9,7 @@ import java.util.ArrayList;
  * @author Matthew Shan
  * */
 public class GVUser implements Serializable {
+    private static final long serialVersionUID = 1L;
     /** A string for the user email. */
     private String email;
     /** An ArrayList of string that hold event keys. The keys reference the hash map in Model */

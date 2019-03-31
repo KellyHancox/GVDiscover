@@ -116,7 +116,8 @@ public class Model {
 
     //Save everytime event create or sign up
     public void saveEvents() {
-
+        //First save all the events
+        //Then save the user by their email
     }
 
     public void loadEvents() {
