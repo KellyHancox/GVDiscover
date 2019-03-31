@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 /**
- * Hub is responsible for navigation to the other pages
+ * Hub can view one user's events they signed up for
  *
  * @author Kelly Hancox, Monica Klosin, Matthew Shan
  * */
