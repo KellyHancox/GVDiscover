@@ -21,15 +21,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private static final String TAG = "RecyclerViewAdapter";
 
     private ArrayList<String> mEvents; //= new ArrayList<String>();
-
     private Context mContext;
-
-    public String mTitle;
-    private String m;
-
     private Model mmodel;
-
-    //private ArrayList<String> mUserEvents = new ArrayList<String>();
 
 
     public RecyclerViewAdapter(Context context, ArrayList<String> events) {
