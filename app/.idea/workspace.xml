@@ -62,7 +62,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="53" />
-          <entry key="java" value="4190" />
+          <entry key="java" value="4191" />
           <entry key="txt" value="30" />
           <entry key="xml" value="1398" />
         </counts>
@@ -70,7 +70,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="53" />
-          <entry key="JAVA" value="4190" />
+          <entry key="JAVA" value="4191" />
           <entry key="PLAIN_TEXT" value="30" />
           <entry key="XML" value="1398" />
         </counts>
@@ -82,14 +82,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/RecyclerViewAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+            <state relative-caret-position="270">
+              <caret line="77" column="6" selection-start-line="77" selection-start-column="6" selection-end-line="77" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1363#1364#0" expanded="true" />
                 <element signature="e#1400#1401#0" expanded="true" />
                 <element signature="e#1910#2204#0" expanded="true" />
-                <element signature="e#2203#2204#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -377,7 +376,7 @@
       <window_info anchor="bottom" id="Build" order="5" sideWeight="0.4995015" weight="0.33424658" />
       <window_info anchor="bottom" id="Android Profiler" order="6" sideWeight="0.4995015" weight="0.329927" />
       <window_info anchor="bottom" id="CheckStyle" order="7" sideWeight="0.4995015" weight="0.32739726" />
-      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.4995015" visible="true" weight="0.32739726" />
+      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.4995015" visible="true" weight="0.3109589" />
       <window_info anchor="bottom" id="Debug" order="9" />
       <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.32876712" />
       <window_info anchor="bottom" id="Find" order="11" weight="0.32876712" />
@@ -600,14 +599,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/RecyclerViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+        <state relative-caret-position="270">
+          <caret line="77" column="6" selection-start-line="77" selection-start-column="6" selection-end-line="77" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1363#1364#0" expanded="true" />
             <element signature="e#1400#1401#0" expanded="true" />
             <element signature="e#1910#2204#0" expanded="true" />
-            <element signature="e#2203#2204#0" expanded="true" />
           </folding>
         </state>
       </provider>
