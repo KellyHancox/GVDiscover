@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -57,13 +58,24 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         String[] arrayOfEventInformation = mEvents.get(i).split("~~");
 
-
         mmodel = Model.getInstance();
+        final String currentEvent = mEvents.get(i);
 
         //this only occurs when i click button
         //needs a try catch block
-        mmodel.SignUp(mEvents.get(i));
 
+
+        viewHolder.signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mmodel.signUp(currentEvent);
+                Toast.makeText(mContext, "You have signed up for this event", Toast.LENGTH_SHORT).show();
+
+                //print events list
+                Log.d(TAG, currentEvent + " added.");
+            }
+        });
 
         if(arrayOfEventInformation.length == 6) {
             viewHolder.eventTitle.setText(arrayOfEventInformation[0]);
@@ -86,6 +98,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public TextView eventETime;
         public TextView eventDesc;
         public TextView eventLoc;
+        public Button signUpButton;
 
         // used in on-click listener, we may or may not need
         RelativeLayout parentLayout;
@@ -100,6 +113,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             eventETime = itemView.findViewById(R.id.eventCardETime);
             eventDesc = itemView.findViewById(R.id.eventCardDesc);
             eventLoc = itemView.findViewById(R.id.eventCardLoc);
+            signUpButton = (Button) itemView.findViewById(R.id.signUpButton);
 
             //for on-click listener
             parentLayout = itemView.findViewById(R.id.parent_layout);
