@@ -24,9 +24,9 @@ public class CreateEvents extends AppCompatActivity {
     /** Object that represents startDate input */
     private EditText startDate;
     /** Object that represents startTime input */
-    private EditText startTime;
+    private Spinner startTime;
     /** Object that represents endTime input */
-    private EditText endTime;
+    private Spinner endTime;
     /** Object that represents description input */
     private EditText description;
     /** Object that represents submit input */
@@ -50,9 +50,9 @@ public class CreateEvents extends AppCompatActivity {
 
         eventName = (EditText)findViewById(R.id.eventName);
         location = (Spinner)findViewById(R.id.location);
-        startDate = (EditText)findViewById(R.id.startDate);
-        startTime = (EditText)findViewById(R.id.startTime);
-        endTime = (EditText)findViewById(R.id.endTime);
+        startDate = (EditText) findViewById(R.id.startDate);
+        startTime = (Spinner) findViewById(R.id.startTime);
+        endTime = (Spinner)findViewById(R.id.endTime);
         description = (EditText)findViewById(R.id.description);
         submit = (Button)findViewById(R.id.submit);
 
@@ -65,8 +65,8 @@ public class CreateEvents extends AppCompatActivity {
                 String name = eventName.getText().toString();
                 String event = location.getSelectedItem().toString() + "~~"
                         + startDate.getText().toString() + "~~"
-                        + startTime.getText().toString() + "~~"
-                        + endTime.getText().toString() + "~~"
+                        + startTime.getSelectedItem().toString() + "~~"
+                        + endTime.getSelectedItem().toString() + "~~"
                         + description.getText().toString() ;
                 Model.addEvent(name, event);
                 System.out.println("\nEvent Name: " + name);

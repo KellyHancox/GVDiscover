@@ -77,13 +77,6 @@
                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/guest"
-                android:layout_width="126dp"
-                android:layout_height="wrap_content"
-                android:text="@string/guest"
-                android:onClick="toHome"/>
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
