@@ -103,20 +103,56 @@
         app:layout_constraintVertical_bias="0.954" />
 
     <EditText
-        android:id="@+id/startDate"
-        android:layout_width="359dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/day"
+        android:layout_width="74dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginLeft="136dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:hint="@string/day"
+        android:inputType="time"
+        app:layout_constraintBottom_toTopOf="@+id/endTime"
+        app:layout_constraintEnd_toStartOf="@+id/year"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/month"
+        android:layout_width="74dp"
+        android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="32dp"
         android:ems="10"
-        android:hint="@string/start_date"
+        android:hint="@string/month"
+        android:inputType="time"
+        app:layout_constraintBottom_toTopOf="@+id/endTime"
+        app:layout_constraintEnd_toStartOf="@+id/day"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/year"
+        android:layout_width="74dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:hint="@string/year"
         android:inputType="time"
         app:layout_constraintBottom_toTopOf="@+id/endTime"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.809"
         app:layout_constraintStart_toStartOf="parent" />
+
 
     <Spinner
         android:id="@+id/location"
@@ -129,7 +165,7 @@
         android:layout_marginBottom="30dp"
         android:entries="@array/BuildingArrays"
         android:prompt="@string/Category"
-        app:layout_constraintBottom_toTopOf="@+id/startDate"
+        app:layout_constraintBottom_toTopOf="@+id/day"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />

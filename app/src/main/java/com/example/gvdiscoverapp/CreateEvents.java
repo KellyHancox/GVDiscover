@@ -25,7 +25,13 @@ public class CreateEvents extends AppCompatActivity {
     /** Object that represents location wrapper */
     private Spinner location;
     /** Object that represents startDate input */
-    private EditText startDate;
+    private String startDate;
+    /**Object that represents the day input */
+    private EditText day;
+    /**Object that represents the month input */
+    private EditText month;
+    /**Object that represents the year input */
+    private EditText year;
     /** Object that represents startTime input */
     private Spinner startTime;
     /** Object that represents endTime input */
@@ -53,7 +59,10 @@ public class CreateEvents extends AppCompatActivity {
 
         eventName = (EditText)findViewById(R.id.eventName);
         location = (Spinner)findViewById(R.id.location);
-        startDate = (EditText) findViewById(R.id.startDate);
+        // = (EditText) findViewById(R.id.startDate);
+        day = (EditText) findViewById(R.id.day);
+        month = (EditText) findViewById(R.id.month);
+        year = (EditText) findViewById(R.id.year);
         startTime = (Spinner) findViewById(R.id.startTime);
         endTime = (Spinner)findViewById(R.id.endTime);
         description = (EditText)findViewById(R.id.description);
@@ -65,9 +74,12 @@ public class CreateEvents extends AppCompatActivity {
              * the Model.
              * */
             public void onClick(View v) {
+                startDate = month.getText().toString() + "/"
+                        + day.getText().toString() + "/"
+                        + year.getText().toString();
                 String event = eventName.getText().toString() + "~~"
                         + location.getSelectedItem().toString() + "~~"
-                        + startDate.getText().toString() + "~~"
+                        + startDate + "~~"
                         + startTime.getSelectedItem().toString() + "~~"
                         + endTime.getSelectedItem().toString() + "~~"
                         + description.getText().toString() ;
