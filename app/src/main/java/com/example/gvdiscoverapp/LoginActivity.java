@@ -19,6 +19,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.IOException;
 
 /**
  * A login screen that offers login via email/password.
@@ -141,12 +144,27 @@ public class LoginActivity extends AppCompatActivity {
             focusView.requestFocus();
         } else {
             // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
+            // perform the user login    attempt.
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
             model = Model.getInstance();
-            model.newUser(email);
+            try {
+                Model.load(email);
+            }
+            catch (ClassNotFoundException e){
+                Toast.makeText(getApplicationContext(), "ClassNotFoundException has occured...",
+                        Toast.LENGTH_LONG).show();
+            }
+            catch (IOException e) {
+                Toast.makeText(getApplicationContext(), "IOException has occured...",
+                        Toast.LENGTH_LONG).show();
+            }
+            catch (Exception e) {
+                Toast.makeText(getApplicationContext(), "Unknown Exception has occured...",
+                        Toast.LENGTH_LONG).show();
+            }
+
         }
     }
 

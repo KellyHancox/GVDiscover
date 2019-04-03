@@ -1,6 +1,5 @@
 package com.example.gvdiscoverapp;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -8,8 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
-import java.sql.Wrapper;
+import java.io.IOException;
+
 /**
  * CreateEvents class corresponds with the CreateEvents page. It handles data collection from the
  * form and putting it into the Model.
@@ -71,6 +72,17 @@ public class CreateEvents extends AppCompatActivity {
                         + endTime.getSelectedItem().toString() + "~~"
                         + description.getText().toString() ;
                 Model.addEvent(event);
+                try {
+                    Model.save();
+                }
+                catch (IOException e) {
+                    Toast.makeText(getApplicationContext(), "IOException has occured...",
+                            Toast.LENGTH_LONG).show();
+                }
+                catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Unknown exception has occured...",
+                            Toast.LENGTH_LONG).show();
+                }
                 System.out.println("Event: " + event);
             }
         });
