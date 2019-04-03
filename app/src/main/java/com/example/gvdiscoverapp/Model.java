@@ -147,7 +147,11 @@ public class Model {
         }
         else {
             user = new GVUser(email);
-            System.out.println("\n=====================New user created\n=====================");
+            printOut("New user created");
         }
+    }
+    /***Prints out a message to the run terminal*/
+    private static void printOut(String s) {
+        System.out.println("\n=====================" + s +"\n=====================");
     }
 }
