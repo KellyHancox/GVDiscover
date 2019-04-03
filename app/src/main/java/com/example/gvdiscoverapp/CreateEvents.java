@@ -73,15 +73,23 @@ public class CreateEvents extends AppCompatActivity {
                         + description.getText().toString() ;
                 Model.addEvent(event);
                 try {
+                    System.out.println("=====================================================================\nsaving:");
                     Model.save();
                 }
                 catch (IOException e) {
                     Toast.makeText(getApplicationContext(), "IOException has occured...",
                             Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+                }
+                catch (NullPointerException e) {
+                    Toast.makeText(getApplicationContext(), "NullPointer - user never created...",
+                            Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
                 }
                 catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "Unknown exception has occured...",
                             Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
                 }
                 System.out.println("Event: " + event);
             }

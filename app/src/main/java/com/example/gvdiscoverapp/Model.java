@@ -1,5 +1,7 @@
 package com.example.gvdiscoverapp;
 
+import android.widget.Toast;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -98,9 +100,10 @@ public class Model {
      * @throws IOException when there is an error with saving
      * @throws NullPointerException when the user does not exist. This should never be the case.
      * */
-    public static void save() throws IOException {
-        if(user == null)
+    public static void save() throws IOException, NullPointerException {
+        if(user == null) {
             throw new NullPointerException();
+        }
 
         //First save all the events
         FileOutputStream fileEvents = new FileOutputStream("events.ser");
@@ -121,12 +124,18 @@ public class Model {
      * @throws IOException when there is an error with saving
      * @throws ClassNotFoundException when loaded file does not have the correct class
      * */
-    public static void load(String email) throws ClassNotFoundException, IOException{
+    public static void load(String email) throws ClassNotFoundException, IOException, NumberFormatException{
         //First retrieve the events
-        FileInputStream fileEvents = new FileInputStream ("events.ser");
-        ObjectInputStream streamEvents = new ObjectInputStream(fileEvents);
-        events = (ArrayList<String>)streamEvents.readObject();
-        streamEvents.close();
+        File modelFile = new File("events.ser");
+        if(modelFile.exists()) {
+            FileInputStream fileEvents = new FileInputStream("events.ser");
+            ObjectInputStream streamEvents = new ObjectInputStream(fileEvents);
+            events = (ArrayList<String>) streamEvents.readObject();
+            streamEvents.close();
+        }
+        else {
+            throw new NumberFormatException();
+        }
 
         //Then load the user by email
         File userFile = new File("users/" + email + ".ser");
@@ -138,6 +147,7 @@ public class Model {
         }
         else {
             user = new GVUser(email);
+            System.out.println("\n=====================New user created\n=====================");
         }
     }
 }
