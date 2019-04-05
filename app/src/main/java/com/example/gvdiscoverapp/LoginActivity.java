@@ -148,10 +148,10 @@ public class LoginActivity extends AppCompatActivity {
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
-            model = Model.getInstance();
+            //model = Model.getInstance();
             try {
                 //TODO: For some reason, user is never instantiated.
-                Model.load(email);
+                Model.getInstance().load(this, email);
                 Toast.makeText(getApplicationContext(), "Model successfully loaded",
                         Toast.LENGTH_LONG).show();
             }

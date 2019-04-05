@@ -83,10 +83,13 @@ public class CreateEvents extends AppCompatActivity {
                         + startTime.getSelectedItem().toString() + "~~"
                         + endTime.getSelectedItem().toString() + "~~"
                         + description.getText().toString() ;
-                Model.addEvent(event);
+                Model.getInstance().addEvent(event);
                 try {
-                    System.out.println("=====================================================================\nsaving:");
-                    Model.save();
+                    Model.getInstance().save(CreateEvents.this);
+                }
+                catch (NoUserFoundException e) {
+                    Toast.makeText(getApplicationContext(), "No user found...",
+                            Toast.LENGTH_LONG).show();
                 }
                 catch (IOException e) {
                     Toast.makeText(getApplicationContext(), "IOException has occured...",
@@ -94,7 +97,7 @@ public class CreateEvents extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 catch (NullPointerException e) {
-                    Toast.makeText(getApplicationContext(), "NullPointer - user never created...",
+                    Toast.makeText(getApplicationContext(), "NullPointerException",
                             Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
