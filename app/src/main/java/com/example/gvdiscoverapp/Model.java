@@ -109,7 +109,9 @@ public class Model {
         //Get the app file directory
         File directory = context.getFilesDir();
         File eventPath = new File(directory,"events.ser");
-        File userPath = new File(directory, "users/" + user.getEmail() + ".ser");
+        eventPath.createNewFile();
+        File userPath = new File(directory, user.getEmail());
+        userPath.createNewFile();
 
         //First save all the events
         FileOutputStream fileEvents = new FileOutputStream(eventPath);
@@ -144,7 +146,9 @@ public class Model {
         try {
             directory = context.getFilesDir();
             eventPath = new File(directory, "events.ser");
-            userPath = new File(directory, "users/" + user.getEmail() + ".ser");
+            eventPath.createNewFile();
+            userPath = new File(directory, user.getEmail());
+            userPath.createNewFile();
         }
         catch(Exception e) {
             e.printStackTrace();
