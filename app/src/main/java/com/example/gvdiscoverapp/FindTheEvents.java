@@ -24,7 +24,7 @@ public class FindTheEvents extends AppCompatActivity {
 
     private GVUser user = Model.getUser();
 
-    private ArrayList<String> eventList = model.getEventsList();
+    private ArrayList<String> eventList = Model.getEventsList();
     private ArrayList<String> signedUpEventsList = user.getEvents();
 
 
