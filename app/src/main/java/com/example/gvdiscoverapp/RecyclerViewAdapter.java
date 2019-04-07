@@ -105,7 +105,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 }
 
                 //uses Model's sign up method to add it to an arralist for this user
-                Model.getInstance().signUp(currentEvent);
+                try {
+                    Model.getInstance().signUp(currentEvent);
+                }
+                catch (Exception e) {
+                    //TODO: Make this gooder later
+                    e.printStackTrace();
+                }
                 Toast.makeText(mContext, "You have signed up for this event",
                         Toast.LENGTH_SHORT).show();
 
