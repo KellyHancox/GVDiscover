@@ -20,11 +20,11 @@ import java.util.ArrayList;
  * */
 public class FindTheEvents extends AppCompatActivity {
 
-    private Model model =  Model.getInstance();
+    //private Model model =  Model.getInstance();
 
-    private GVUser user = Model.getUser();
+    private GVUser user = Model.getInstance().getUser();
 
-    private ArrayList<String> eventList = Model.getEventsList();
+    private ArrayList<String> eventList = Model.getInstance().getEventsList();
     private ArrayList<String> signedUpEventsList = user.getEvents();
 
 

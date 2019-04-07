@@ -1,9 +1,10 @@
 package com.example.gvdiscoverapp;
 
-import android.widget.Toast;
+import android.content.Context;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -20,10 +21,10 @@ public class Model {
     /** An instance of the Singleton model */
     private static Model instance = null;
     /** Holds the current user in session */
-    private static GVUser user;
+    private GVUser user;
     /** Holds all the events in the database.
      * Value format: "name~~location~~date~~startTime~~endTime~~desc */
-    private static ArrayList<String> events;
+    private ArrayList<String> events;
 
 
     /**
@@ -52,8 +53,7 @@ public class Model {
      *
      *  @param event in the format above
      * */
-    public static void addEvent(String event) {
-        //TODO: String validation - https://www.geeksforgeeks.org/java-date-format-validation-using-regex/
+    public void addEvent(String event) {
         events.add(event);
     }
 
@@ -63,12 +63,12 @@ public class Model {
      *
      * @param event is the event string
      *
-     * @throws NullPointerException when no user is found
+     * @throws NoUserFoundException when no user is found
      *
      * */
-    public static void signUp(String event) throws NullPointerException{
+    public void signUp(String event) throws FileNotFoundException, NoUserFoundException {
         if (user == null)
-            throw new NullPointerException("No user found");
+            throw new NoUserFoundException("No user found");
         user.signUpEvent(event);
     }
 
@@ -78,7 +78,7 @@ public class Model {
      *
      *  @return ArrayList<String> of the event.
      * */
-    public static ArrayList<String> getEventsList() {
+    public ArrayList<String> getEventsList() {
         return events;
     }
 
@@ -88,7 +88,7 @@ public class Model {
      *
      * @return GVUser that is currently logged in
      * */
-    public static GVUser getUser() {
+    public GVUser getUser() {
         return user;
     }
 
@@ -98,24 +98,36 @@ public class Model {
      * Saves events and the data of the current user. Saves only upon event creation or signup
      *
      * @throws IOException when there is an error with saving
-     * @throws NullPointerException when the user does not exist. This should never be the case.
+     * @throws NoUserFoundException when the user does not exist. This should never be the case.
      * */
-    public static void save() throws IOException, NullPointerException {
+    public void save(Context context) throws IOException, NoUserFoundException {
+        printOut("Attempting to save");
         if(user == null) {
-            throw new NullPointerException();
+            throw new NoUserFoundException();
         }
 
+        //Get the app file directory
+        File directory = context.getFilesDir();
+        File eventPath = new File(directory,"events.ser");
+        eventPath.createNewFile();
+        File userPath = new File(directory, user.getEmail());
+        userPath.createNewFile();
+
         //First save all the events
-        FileOutputStream fileEvents = new FileOutputStream("events.ser");
+        FileOutputStream fileEvents = new FileOutputStream(eventPath);
         ObjectOutputStream streamEvents = new ObjectOutputStream(fileEvents);
         streamEvents.writeObject(events);
         streamEvents.close();
+        printOut("Events saved...");
 
         //Then save the user by their email
-        FileOutputStream fileUser = new FileOutputStream("./users/" + user.getEmail() + ".ser");
+        FileOutputStream fileUser = new FileOutputStream(userPath);
         ObjectOutputStream streamUser = new ObjectOutputStream(fileUser);
         streamUser.writeObject(user);
         streamUser.close();
+        printOut("User saved...");
+
+        printOut("Saving done.");
     }
 
     /**
@@ -124,34 +136,53 @@ public class Model {
      * @throws IOException when there is an error with saving
      * @throws ClassNotFoundException when loaded file does not have the correct class
      * */
-    public static void load(String email) throws ClassNotFoundException, IOException, NumberFormatException{
-        //First retrieve the events
-        File modelFile = new File("events.ser");
-        if(modelFile.exists()) {
-            FileInputStream fileEvents = new FileInputStream("events.ser");
+    public void load(Context context, String email) throws ClassNotFoundException, IOException, NumberFormatException{
+        printOut("Attempting to load");
+        File directory = null;
+        File eventPath = null;
+        File userPath = null;
+
+        //Get the app file directory
+        try {
+            directory = context.getFilesDir();
+            eventPath = new File(directory, "events.ser");
+            eventPath.createNewFile();
+            userPath = new File(directory, user.getEmail());
+            userPath.createNewFile();
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        if(eventPath != null && eventPath.exists()) {
+            FileInputStream fileEvents = new FileInputStream(eventPath);
             ObjectInputStream streamEvents = new ObjectInputStream(fileEvents);
             events = (ArrayList<String>) streamEvents.readObject();
             streamEvents.close();
+            printOut("Event file found");
         }
         else {
-            throw new NumberFormatException();
+            printOut("Event file not found");
+            //throw new NumberFormatException();
         }
 
         //Then load the user by email
-        File userFile = new File("users/" + email + ".ser");
-        if(userFile.exists()) {
-            FileInputStream fileUser = new FileInputStream("users/" + email + ".ser");
+        if(userPath != null && userPath.exists()) {
+            FileInputStream fileUser = new FileInputStream(userPath);
             ObjectInputStream streamUser = new ObjectInputStream(fileUser);
             user = (GVUser) streamUser.readObject();
             streamUser.close();
+            printOut("User file found");
         }
         else {
+            printOut("No user file found");
             user = new GVUser(email);
             printOut("New user created");
         }
+
+        printOut("Loading done.");
     }
     /***Prints out a message to the run terminal*/
-    private static void printOut(String s) {
-        System.out.println("\n=====================" + s +"\n=====================");
+    private void printOut(String s) {
+        System.out.println("\n=====================\n" + s +"\n=====================");
     }
 }
