@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
@@ -87,8 +88,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         String[] arrayOfEventInformation = mEvents.get(i).split("~~");
 
-        //instantiates the defined objecst
-        mmodel = Model.getInstance();
         final String currentEvent = mEvents.get(i);
 
         //this only occurs when i click button
@@ -99,9 +98,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         viewHolder.signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try {
+                    Model.getInstance().signUp(currentEvent);
+                    Toast.makeText(mContext, "You have signed up for this event", Toast.LENGTH_SHORT).show();
+                }
+                catch (FileNotFoundException e) {
+                    Toast.makeText(mContext, "User now found", Toast.LENGTH_SHORT).show();
+                }
+                catch (Exception e) {
+                    Toast.makeText(mContext, "Unknown exception", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
 
                 //uses Model's sign up method to add it to an arralist for this user
-                mmodel.signUp(currentEvent);
+                Model.getInstance().signUp(currentEvent);
                 Toast.makeText(mContext, "You have signed up for this event",
                         Toast.LENGTH_SHORT).show();
 
