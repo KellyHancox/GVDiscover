@@ -14,13 +14,19 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/**
+ * RecyclerViewAdapter is necessary for RecyclerView to
+ * put the values of the events into the cards
+ *
+ * @author Kelly Hancox
+ * */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
     /* creates tag for class itself */
     private static final String TAG = "RecyclerViewAdapter";
 
     /* list of all events created */
-    private ArrayList<String> mEvents; //= new ArrayList<String>();
+    private ArrayList<String> mEvents;
 
     /* context of this adapter */
     private Context mContext;
