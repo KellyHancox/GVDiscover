@@ -15,13 +15,19 @@ import android.widget.Toast;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+/**
+ * RecyclerViewAdapter is necessary for RecyclerView to
+ * put the values of the events into the cards
+ *
+ * @author Kelly Hancox
+ * */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
     /* creates tag for class itself */
     private static final String TAG = "RecyclerViewAdapter";
 
     /* list of all events created */
-    private ArrayList<String> mEvents; //= new ArrayList<String>();
+    private ArrayList<String> mEvents;
 
     /* context of this adapter */
     private Context mContext;
@@ -111,7 +117,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 catch(Exception e){
                     System.out.print(e);
                 }
-
                 Toast.makeText(mContext, "You have signed up for this event",
                         Toast.LENGTH_SHORT).show();
 

@@ -2,6 +2,9 @@ package com.example.gvdiscoverapp;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
+import static org.hamcrest.core.IsCollectionContaining.hasItem;
 import static org.junit.Assert.*;
 
 /**
@@ -14,9 +17,26 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
-}
 
-//public class LoginTest{
-//    @Test
-//    public void
-//}
+    @Test
+    public void addToSignUp() {
+        Model model = Model.getInstance();
+        model.addEvent("practiceEvent~~practiceEvent~~2/19/19~~2:30 pm " +
+                "~~ 3:30 pm ~~ this is a practice event");
+
+        ArrayList<String> eventsList = model.getEventsList();
+        assertThat(eventsList, hasItem("practiceEvent~~practiceEvent~~2/19/19~~2:30 pm " +
+                "~~ 3:30 pm ~~ this is a practice event"));
+    }
+
+    @Test
+    public void addToSignUp2() {
+        Model model = Model.getInstance();
+        model.addEvent("practiceEvent~~practiceEvent~~2/19/19~~2:30 pm " +
+                "~~ 3:30 pm ~~ this is a practice event");
+
+        ArrayList<String> eventsList = model.getEventsList();
+        assertThat(eventsList, hasItem("practiceEvent~~practiceEvent~~2/19/19~~2:30 pm " +
+                "~~ 3:30 pm ~~ this is a practice event"));
+    }
+}
