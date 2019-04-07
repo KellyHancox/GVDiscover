@@ -102,7 +102,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     Model.getInstance().signUp(currentEvent);
                     Toast.makeText(mContext, "You have signed up for this event", Toast.LENGTH_SHORT).show();
                 }
-                catch (FileNotFoundException e) {
+                catch (NoUserFoundException e) {
                     Toast.makeText(mContext, "User now found", Toast.LENGTH_SHORT).show();
                 }
                 catch (Exception e) {

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item name="day" type="id">day</item>
-    <item name="year" type="id">year</item>
-    <item name="month" type="id" />
-</resources>
