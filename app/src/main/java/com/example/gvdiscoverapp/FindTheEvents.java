@@ -12,19 +12,19 @@ import java.util.ArrayList;
  * FindEventsOld class handles viewing all events from model
  * and user sign up
  *
- * @author Kelly Hancox, Monica Klosin
+ * @author Kelly Hancox
  * */
 public class FindTheEvents extends AppCompatActivity {
 
-    //private Model model =  Model.getInstance();
 
+    /* user */
     private GVUser user = Model.getInstance().getUser();
 
+    /* full events list */
     private ArrayList<String> eventList = Model.getInstance().getEventsList();
-    //private ArrayList<String> signedUpEventsList = user.getEvents();
 
     /* list of events this user signed up for */
-    private ArrayList<String> signedUpEventsList = user.getEvents();
+  //  private ArrayList<String> signedUpEventsList = user.getEvents();
 
     /* instance of this class for logging */
     private static final String TAG = "FindTheEvents";
