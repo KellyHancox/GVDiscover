@@ -15,19 +15,41 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/**
+ * UserRecyclerViewAdapter is the same as the first, but for the
+ * events that the user specifically signed up for. It will not
+ * include the sign up button, but look mostly the same as the
+ * find events image
+ */
 public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerViewAdapter.ViewHolder>{
 
+    /* creates tag for class itself */
     private static final String TAG = "RecyclerViewAdapter";
-    private ArrayList<String> userEvents; //= new ArrayList<String>();
 
+    /* list of only events that this user signed up for*/
+    private ArrayList<String> userEvents;
+
+    /* context of this adapter */
     private Context mContext;
 
-
+    /**
+     * RecyclerViewAdapter is the constructor that initializes
+     * the context and list of events
+     * @param context this method
+     * @param events list of available events
+     */
     public UserRecyclerViewAdapter(Context context, ArrayList<String> events) {
         userEvents = events;
         mContext = context;
     }
 
+    /**
+     * onCreateViewHolder chooses which layout we're replacing and returns it for use
+     *
+     * @param viewGroup the overall class of card
+     * @param i place of event in arrayList
+     * @return the card
+     */
     @NonNull
     @Override
     public UserRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -38,21 +60,32 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
         return holder;
     }
 
+    /**
+     * getItemCount counts how many events
+     * this user has signed up for
+     *
+     * @return count of events
+     */
     @Override
     public int getItemCount() {
         return userEvents.size();
     }
 
+    /**
+     * onBindViewHolder takes values from the signed up events arrayList
+     *
+     * and places them into the card
+     * @param viewHolder the card
+     * @param i the placement in the events arraylist
+     */
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: called");
 
         String[] arrayOfEventInformation = userEvents.get(i).split("~~");
 
-        Log.d(TAG, "help " + arrayOfEventInformation[0]);
-        Log.d(TAG, "help " + arrayOfEventInformation[1]);
-        Log.d(TAG, "help " + arrayOfEventInformation[2]);
-
+        //if every input for create event was put in, then we can place these
+        //values into the card
         if(arrayOfEventInformation.length == 6) {
             viewHolder.userEventTitle.setText(arrayOfEventInformation[0]);
             viewHolder.userEventLoc.setText(arrayOfEventInformation[1]);
@@ -65,20 +98,42 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
         }
     }
 
+    /**
+     * This class binds the event info to the actual card
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        /* event image on card */
         public ImageView userEventImage;
+
+        /* event title on card */
         public TextView userEventTitle;
+
+        /* event date on card */
         public TextView userEventDate;
+
+        /* event start time on card */
         public TextView userEventSTime;
+
+        /* event end time on card */
         public TextView userEventETime;
+
+        /* event description on card */
         public TextView userEventDesc;
+
+        /* event location on card */
         public TextView userEventLoc;
 
 
+        /**
+         * ViewHolder places the values into the card
+         *
+         * @param itemView the card
+         */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            //these all bind the functions to each place on the card
             userEventImage = itemView.findViewById(R.id.userEventCardIcon);
             userEventTitle = itemView.findViewById(R.id.userEventCardTitle);
             userEventDate = itemView.findViewById(R.id.userEventCardDate);

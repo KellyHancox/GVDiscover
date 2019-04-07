@@ -26,16 +26,27 @@ import com.google.android.gms.maps.model.*;
  * */
 public class MapPage extends AppCompatActivity {
 
+    /* creates reference for this page */
     private static final String TAG = "MapPage";
-    private static final int ERROR_DIALOG_REQUEST = 9001;
+
+    /* map object */
     private GoogleMap mMap;
+
+    /* fine location, most specific */
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
-    private static final String COARSE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
+
+    /* coarse location, less specific */
+    private static final String COARSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
+
+    /* boolean for location permissions */
     private boolean mLocationPermissionGranted = false;
+
+    /* permissions number */
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
 
     /**
-     * This simply creates the page
+     * Checks on services and then the calls for
+     * location permissions to initialize the map
      *
      * @param savedInstanceState see AppCompatActivity
      * */
@@ -50,6 +61,10 @@ public class MapPage extends AppCompatActivity {
         getLocationPermission();
     }
 
+    /**
+     * Checks that we can get the location permission
+     *
+     * */
     private void getLocationPermission(){
         String[] permissions = {COARSE_LOCATION, FINE_LOCATION};
 
@@ -71,11 +86,12 @@ public class MapPage extends AppCompatActivity {
     }
 
     /**
-     * TODO: description, param
+     * Required overridden method that requests
+     * the permission for locations
      *
-     * @param requestCode
-     * @param permissions
-     * @param grantResults
+     * @param requestCode the code given to the device
+     * @param permissions type of permissions
+     * @param grantResults array of grant results
      * */
     @Override
     public void onRequestPermissionsResult(int requestCode,
@@ -97,10 +113,6 @@ public class MapPage extends AppCompatActivity {
                     //initialize the map
                     initMap();
 
-//                    SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-//                            .findFragmentById(R.id.map);
-//                    mapFragment.getMapAsync(this);
-
                 }
             }
         }
@@ -117,9 +129,9 @@ public class MapPage extends AppCompatActivity {
     }
 
     /**
-     * TODO: description and return
+     * isServicesOk checks if Google Play Services works on device
      *
-     * @return
+     * @return if services is available on device
      * */
     public boolean isServicesOK(){
         Log.d(TAG, "isServicesOK: checking google services version");
@@ -141,6 +153,11 @@ public class MapPage extends AppCompatActivity {
         }
     }
 
+    /**
+     * initMap begins map at GVSU parameters with only
+     * 2 levels of zoom and adds markers at available locations
+     *
+     * */
     private void initMap(){
         Log.d(TAG, "initMap: initializing map");
 
@@ -171,6 +188,7 @@ public class MapPage extends AppCompatActivity {
                 mMap.addMarker(new MarkerOptions().position(mak).
                         title("You can find events at Mackinac"));
 
+                //creates new bounds
                 LatLngBounds ADELAIDE = new LatLngBounds(
                         //lower left
                         new LatLng(42.961,-85.897),
