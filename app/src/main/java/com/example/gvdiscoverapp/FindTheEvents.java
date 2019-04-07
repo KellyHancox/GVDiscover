@@ -25,6 +25,7 @@ public class FindTheEvents extends AppCompatActivity {
     /* creates event list */
     private ArrayList<String> eventList = model.getEventsList();
 
+
     /* list of events this user signed up for */
     private ArrayList<String> signedUpEventsList = user.getEvents();
 

@@ -1,13 +1,15 @@
 package com.example.gvdiscoverapp;
 
+import android.widget.Toast;
+
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+
 
 /**
  * Model is a singleton class that holds information such as the current user and events
@@ -43,16 +45,6 @@ public class Model {
         }
         return instance;
     }
-
-    /**
-     * Sets this session's user to this email.
-     *
-     * @param email user email
-     * */
-    public static void newUser(String email) {
-        user = new GVUser(email);
-    }
-
 
     /***
      *  Adds an event to the model.
@@ -103,38 +95,63 @@ public class Model {
     //Save everytime event create or sign up
 
     /**
-     * Saves events and the data of the current user
+     * Saves events and the data of the current user. Saves only upon event creation or signup
      *
      * @throws IOException when there is an error with saving
+     * @throws NullPointerException when the user does not exist. This should never be the case.
      * */
-    public void saveEvents() throws IOException {
+    public static void save() throws IOException, NullPointerException {
+        if(user == null) {
+            throw new NullPointerException();
+        }
+
         //First save all the events
         FileOutputStream fileEvents = new FileOutputStream("events.ser");
         ObjectOutputStream streamEvents = new ObjectOutputStream(fileEvents);
         streamEvents.writeObject(events);
         streamEvents.close();
+
         //Then save the user by their email
         FileOutputStream fileUser = new FileOutputStream("./users/" + user.getEmail() + ".ser");
         ObjectOutputStream streamUser = new ObjectOutputStream(fileUser);
         streamUser.writeObject(user);
         streamUser.close();
     }
+
     /**
-     * Saves events and the data of the current user
+     * Loads events and the data of the current user. Loads only upon login
      *
      * @throws IOException when there is an error with saving
      * @throws ClassNotFoundException when loaded file does not have the correct class
      * */
-    public void loadEvents() throws ClassNotFoundException, IOException{
+    public static void load(String email) throws ClassNotFoundException, IOException, NumberFormatException{
         //First retrieve the events
-        FileInputStream fileEvents = new FileInputStream ("events.ser");
-        ObjectInputStream streamEvents = new ObjectInputStream(fileEvents);
-        events = (ArrayList<String>)streamEvents.readObject();
-        streamEvents.close();
+        File modelFile = new File("events.ser");
+        if(modelFile.exists()) {
+            FileInputStream fileEvents = new FileInputStream("events.ser");
+            ObjectInputStream streamEvents = new ObjectInputStream(fileEvents);
+            events = (ArrayList<String>) streamEvents.readObject();
+            streamEvents.close();
+        }
+        else {
+            throw new NumberFormatException();
+        }
+
         //Then load the user by email
-        FileInputStream fileUser = new FileInputStream ("users/" + user.getEmail() + ".ser");
-        ObjectInputStream streamUser = new ObjectInputStream(fileUser);
-        user = (GVUser) streamUser.readObject();
-        streamUser.close();
+        File userFile = new File("users/" + email + ".ser");
+        if(userFile.exists()) {
+            FileInputStream fileUser = new FileInputStream("users/" + email + ".ser");
+            ObjectInputStream streamUser = new ObjectInputStream(fileUser);
+            user = (GVUser) streamUser.readObject();
+            streamUser.close();
+        }
+        else {
+            user = new GVUser(email);
+            printOut("New user created");
+        }
+    }
+    /***Prints out a message to the run terminal*/
+    private static void printOut(String s) {
+        System.out.println("\n=====================" + s +"\n=====================");
     }
 }
