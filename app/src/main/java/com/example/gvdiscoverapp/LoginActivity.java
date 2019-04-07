@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
      * errors are presented and no actual login attempt is made.
      */
     private void attemptLogin() {
-        startActivity(new Intent(LoginActivity.this, HomeScreen.class));
+        //startActivity(new Intent(LoginActivity.this, HomeScreen.class));
         if (mAuthTask != null) {
             return;
         }
@@ -148,10 +148,11 @@ public class LoginActivity extends AppCompatActivity {
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
-            model = Model.getInstance();
+
+            //Loading model
             try {
                 //TODO: For some reason, user is never instantiated.
-                Model.load(email);
+                Model.getInstance().load(this, email);
                 Toast.makeText(getApplicationContext(), "Model successfully loaded",
                         Toast.LENGTH_LONG).show();
             }
