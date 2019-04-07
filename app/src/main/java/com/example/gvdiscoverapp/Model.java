@@ -66,7 +66,7 @@ public class Model {
      * @throws NoUserFoundException when no user is found
      *
      * */
-    public void signUp(String event) throws FileNotFoundException, NoUserFoundException {
+    public void signUp(String event) throws NoUserFoundException {
         if (user == null)
             throw new NoUserFoundException("No user found");
         user.signUpEvent(event);
@@ -147,7 +147,7 @@ public class Model {
             directory = context.getFilesDir();
             eventPath = new File(directory, "events.ser");
             eventPath.createNewFile();
-            userPath = new File(directory, user.getEmail());
+            userPath = new File(directory, email);
             userPath.createNewFile();
         }
         catch(Exception e) {
