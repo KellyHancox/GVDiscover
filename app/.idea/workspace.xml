@@ -10,11 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18b38471-a9de-42fb-926f-0dfb9488a1a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/UserRecyclerViewAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/users_singular_event_layout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/Hub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/Hub.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/FindTheEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/FindTheEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/MapPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/MapPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/RecyclerViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/RecyclerViewAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/UserRecyclerViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/UserRecyclerViewAdapter.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,22 +33,23 @@
     <session id="497247019">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="15" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.10" value="3" />
-          <entry key="project.open.time.11" value="2" />
+          <entry key="project.open.time.11" value="4" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.20" value="1" />
+          <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="3" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.open.time.9" value="4" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
           <entry key="gradle" value="5" />
-          <entry key="java" value="38" />
+          <entry key="java" value="44" />
           <entry key="properties" value="2" />
           <entry key="xml" value="34" />
         </counts>
@@ -57,7 +58,7 @@
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="Groovy" value="5" />
-          <entry key="JAVA" value="38" />
+          <entry key="JAVA" value="44" />
           <entry key="Properties" value="2" />
           <entry key="XML" value="34" />
         </counts>
@@ -65,7 +66,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="53" />
-          <entry key="java" value="4468" />
+          <entry key="java" value="7761" />
           <entry key="txt" value="30" />
           <entry key="xml" value="1447" />
         </counts>
@@ -73,7 +74,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="53" />
-          <entry key="JAVA" value="4468" />
+          <entry key="JAVA" value="7761" />
           <entry key="PLAIN_TEXT" value="30" />
           <entry key="XML" value="1447" />
         </counts>
@@ -82,63 +83,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/RecyclerViewAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" column="98" selection-start-line="36" selection-start-column="81" selection-end-line="36" selection-end-column="98" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1363#1364#0" expanded="true" />
-                <element signature="e#1400#1401#0" expanded="true" />
-                <element signature="e#1902#2261#0" expanded="true" />
-                <element signature="e#2260#2261#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/event_card_layout.xml">
-          <provider selected="true" editor-type-id="android-designer2" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/UserRecyclerViewAdapter.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/FindTheEvents.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#916#917#0" expanded="true" />
-                <element signature="e#953#954#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/Hub.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="990">
+              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/012ec255352e06d09224b6d346c5eec3/jars/classes.jar!/android/support/v7/widget/RecyclerView.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="6013" column="63" selection-start-line="6013" selection-start-column="63" selection-end-line="6013" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -157,8 +109,10 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>26.1.0</find>
-      <find>initrecyclerview</find>
       <find>event_card_layout</find>
+      <find>initrecyclerview</find>
+      <find>error</find>
+      <find>onrequestpermission</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -168,7 +122,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/MapPage.java" />
         <option value="$PROJECT_DIR$/../build.gradle" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_find__events_monica.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/FindEvents.java" />
@@ -178,16 +131,17 @@
         <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_find_the_events.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/FindTheEvents.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/Model.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/event_card_layout.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_hub.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/GVUser.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/content_home_screen.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/users_singular_event_layout.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/RecyclerViewAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/Hub.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/MapPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/RecyclerViewAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/UserRecyclerViewAdapter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/FindTheEvents.java" />
       </list>
     </option>
   </component>
@@ -213,11 +167,6 @@
             <path>
               <item name="GVDiscover" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
-            </path>
-            <path>
-              <item name="GVDiscover" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
             </path>
             <path>
@@ -229,18 +178,8 @@
             <path>
               <item name="GVDiscover" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="generatedJava" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="GVDiscover" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="GVDiscover" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="gvdiscoverapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -384,10 +323,10 @@
       <window_info anchor="bottom" id="TODO" order="2" weight="0.32876712" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.32876712" />
       <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.50049853" side_tool="true" weight="0.329927" />
-      <window_info anchor="bottom" id="Build" order="5" sideWeight="0.4995015" weight="0.33424658" />
-      <window_info anchor="bottom" id="Android Profiler" order="6" sideWeight="0.4995015" weight="0.329927" />
+      <window_info anchor="bottom" id="Build" order="5" sideWeight="0.4995015" visible="true" weight="0.33424658" />
+      <window_info anchor="bottom" id="Android Profiler" order="6" show_stripe_button="false" sideWeight="0.4995015" weight="0.329927" />
       <window_info anchor="bottom" id="CheckStyle" order="7" sideWeight="0.4995015" weight="0.32739726" />
-      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.4995015" visible="true" weight="0.3452055" />
+      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.4995015" weight="0.3452055" />
       <window_info anchor="bottom" id="Debug" order="9" />
       <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.32876712" />
       <window_info anchor="bottom" id="Find" order="11" weight="0.32876712" />
@@ -433,13 +372,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/MapPageKelly.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/GVEvent.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/MapPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1575">
-          <caret line="124" column="44" selection-start-line="124" selection-start-column="44" selection-end-line="124" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -527,23 +459,17 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-255">
           <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
-      <provider editor-type-id="android-manifest" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/HomeScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="870">
           <caret line="62" selection-start-line="62" selection-end-line="62" />
-          <folding>
-            <element signature="e#923#924#0" expanded="true" />
-            <element signature="e#992#993#0" expanded="true" />
-            <element signature="e#1419#1420#0" expanded="true" />
-            <element signature="e#1492#1493#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -584,26 +510,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="162" column="34" lean-forward="true" selection-start-line="162" selection-start-column="34" selection-end-line="162" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/GVUser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#541#549#0" expanded="true" />
-            <element signature="e#735#736#0" expanded="true" />
-            <element signature="e#1088#1089#0" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
-            <element signature="e#1231#1232#0" expanded="true" />
-            <element signature="e#1259#1260#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -632,13 +542,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/FindTheEvents.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="52" column="74" lean-forward="true" selection-start-line="52" selection-start-column="74" selection-end-line="52" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/event_card_layout.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -646,9 +554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
           <caret line="48" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -659,36 +564,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/RecyclerViewAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="98" selection-start-line="36" selection-start-column="81" selection-end-line="36" selection-end-column="98" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1363#1364#0" expanded="true" />
-            <element signature="e#1400#1401#0" expanded="true" />
-            <element signature="e#1902#2261#0" expanded="true" />
-            <element signature="e#2260#2261#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2040">
+          <caret line="162" column="34" lean-forward="true" selection-start-line="162" selection-start-column="34" selection-end-line="162" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/event_card_layout.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/MapPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2070">
+          <caret line="156" column="16" selection-start-line="156" selection-start-column="16" selection-end-line="156" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/UserRecyclerViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+        <state relative-caret-position="2025">
+          <caret line="135" column="68" selection-start-line="135" selection-start-column="68" selection-end-line="135" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#916#917#0" expanded="true" />
-            <element signature="e#953#954#0" expanded="true" />
+            <element signature="e#1342#1343#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/RecyclerViewAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2295">
+          <caret line="158" column="12" selection-start-line="158" selection-start-column="12" selection-end-line="158" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/gvdiscoverapp/FindTheEvents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

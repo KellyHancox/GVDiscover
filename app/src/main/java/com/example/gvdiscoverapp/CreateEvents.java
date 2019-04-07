@@ -1,6 +1,5 @@
 package com.example.gvdiscoverapp;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -8,8 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
-import java.sql.Wrapper;
+import java.io.IOException;
+
 /**
  * CreateEvents class corresponds with the CreateEvents page. It handles data collection from the
  * form and putting it into the Model.
@@ -82,7 +83,29 @@ public class CreateEvents extends AppCompatActivity {
                         + startTime.getSelectedItem().toString() + "~~"
                         + endTime.getSelectedItem().toString() + "~~"
                         + description.getText().toString() ;
-                Model.addEvent(event);
+                Model.getInstance().addEvent(event);
+                try {
+                    Model.getInstance().save(CreateEvents.this);
+                }
+                catch (NoUserFoundException e) {
+                    Toast.makeText(getApplicationContext(), "No user found...",
+                            Toast.LENGTH_LONG).show();
+                }
+                catch (IOException e) {
+                    Toast.makeText(getApplicationContext(), "IOException has occured...",
+                            Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+                }
+                catch (NullPointerException e) {
+                    Toast.makeText(getApplicationContext(), "NullPointerException",
+                            Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+                }
+                catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Unknown exception has occured...",
+                            Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+                }
                 System.out.println("Event: " + event);
             }
         });

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class Hub extends AppCompatActivity {
 
     //private Model model =  Model.getInstance();
-    private GVUser user = Model.getUser();
+    private GVUser user = Model.getInstance().getUser();
 
     //private ArrayList<String> eventList = model.getEventsList();
     private ArrayList<String> signedUpEventsList = user.getEvents();
