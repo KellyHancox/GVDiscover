@@ -33,7 +33,6 @@ public class LoginActivity extends AppCompatActivity {
 
     /**
      * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
@@ -52,31 +51,34 @@ public class LoginActivity extends AppCompatActivity {
     private Model model;
 
     /**
-     * toHome method takes the user to the Home page
+     * toHome method takes the user to the Home page.
      *
      * @param view is the object that was clicked.
      * */
-    public void toHome(View view) {
+    public void toHome(final View view) {
         startActivity(new Intent(LoginActivity.this, HomeScreen.class));
     }
 
     /**
-     * This simply creates the page
+     * This simply creates the page.
      *
-     * @param savedInstanceState see AppCompatActivity
+     * @param savedInstanceState see AppCompatActivity.
      * */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
 
         mPasswordView = (EditText) findViewById(R.id.password);
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        mPasswordView.setOnEditorActionListener(
+                new TextView.OnEditorActionListener() {
             @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_NULL) {
+            public boolean onEditorAction(final TextView textView, final int id,
+                                          final KeyEvent keyEvent) {
+                if (id == EditorInfo.IME_ACTION_DONE
+                        || id == EditorInfo.IME_NULL) {
                     attemptLogin();
                     return true;
                 }
@@ -84,10 +86,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        Button mEmailSignInButton = (Button)
+                findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 attemptLogin();
             }
         });
@@ -149,27 +152,29 @@ public class LoginActivity extends AppCompatActivity {
             /*
             //Loading model
             try {
-                //TODO: For some reason, user is never instantiated.
                 Model.getInstance().load(this, email);
-                Toast.makeText(getApplicationContext(), "Model successfully loaded",
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),
+                        "Model successfully loaded", Toast.LENGTH_LONG).show();
             }
-            catch (ClassNotFoundException e){
-                Toast.makeText(getApplicationContext(), "ClassNotFoundException has occured...",
+                        catch (ClassNotFoundException e){
+                Toast.makeText(getApplicationContext(),
+                        "ClassNotFoundException has occured...",
                         Toast.LENGTH_LONG).show();
-                e.printStackTrace();
-            }
+                e.printStackTrace(); }
             catch (IOException e) {
-                Toast.makeText(getApplicationContext(), "IOException has occured...",
+                Toast.makeText(getApplicationContext(),
+                        "IOException has occured...",
                         Toast.LENGTH_LONG).show();
                 e.printStackTrace();
             }
             catch (NumberFormatException e){
-                Toast.makeText(getApplicationContext(), "Model does not exist yet.",
+                Toast.makeText(getApplicationContext(),
+                        "Model does not exist yet.",
                         Toast.LENGTH_LONG).show();
             }
             catch (Exception e) {
-                Toast.makeText(getApplicationContext(), "Unknown Exception has occured...",
+                Toast.makeText(getApplicationContext(),
+                        "Unknown Exception has occured...",
                         Toast.LENGTH_LONG).show();
                 e.printStackTrace();
             }*/
@@ -204,14 +209,16 @@ public class LoginActivity extends AppCompatActivity {
         // for very easy animations. If available, use these APIs to fade-in
         // the progress spinner.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+            int shortAnimTime = getResources().getInteger(
+                    android.R.integer.config_shortAnimTime);
 
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
             mLoginFormView.animate().setDuration(shortAnimTime).alpha(
                     show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
                 @Override
                 public void onAnimationEnd(Animator animation) {
-                    mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+                    mLoginFormView.setVisibility(show ? View.GONE
+                            : View.VISIBLE);
                 }
             });
 

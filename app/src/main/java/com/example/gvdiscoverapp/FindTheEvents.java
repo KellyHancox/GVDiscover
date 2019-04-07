@@ -24,7 +24,7 @@ public class FindTheEvents extends AppCompatActivity {
     private ArrayList<String> eventList = Model.getInstance().getEventsList();
 
     /* list of events this user signed up for */
-    private ArrayList<String> signedUpEventsList = user.getEvents();
+  //  private ArrayList<String> signedUpEventsList = user.getEvents();
 
     /* instance of this class for logging */
     private static final String TAG = "FindTheEvents";
