@@ -23,6 +23,7 @@
     <string name="submit">Submit</string>
     <string name="delete">Delete files</string>
     <string name="logout">Log out</string>
+    <string name="userSession">Logged in: </string>
     <string name="event_name">Event Name</string>
     <string name="description">Description</string>
     <string name="Category">Category</string>

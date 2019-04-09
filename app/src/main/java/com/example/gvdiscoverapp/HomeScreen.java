@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -15,6 +18,7 @@ import java.io.IOException;
  * @author Monica Klosin, Matthew Shan
  * */
 public class HomeScreen extends AppCompatActivity {
+
 
     /**
      * This simply creates the page
@@ -27,6 +31,9 @@ public class HomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        TextView user = (TextView) findViewById(R.id.user);
+        user.setText("Logged in: " + Model.getInstance().getUser().getEmail());
     }
 
     /**
@@ -87,7 +94,7 @@ public class HomeScreen extends AppCompatActivity {
             Model.getInstance().save(this);
             Model.getInstance().logOut();
             startActivity(new Intent(HomeScreen.this, LoginActivity.class));
-            finish();
+            finishAffinity();
         } catch (NoUserFoundException e) {
             Toast.makeText(getApplicationContext(), "No user found...",
                     Toast.LENGTH_LONG).show();
