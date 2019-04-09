@@ -1,5 +1,6 @@
 package com.example.gvdiscoverapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -106,6 +107,7 @@ public class CreateEvents extends AppCompatActivity {
                         + endTime.getSelectedItem().toString() + "~~"
                         + description.getText().toString();
                 Model.getInstance().addEvent(event);
+                startActivity(new Intent(CreateEvents.this, HomeScreen.class));
                 try {
                     Model.getInstance().save(CreateEvents.this);
                 } catch (NoUserFoundException e) {

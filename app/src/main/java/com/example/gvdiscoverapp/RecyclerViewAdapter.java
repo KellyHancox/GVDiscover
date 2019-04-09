@@ -101,6 +101,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 try {
                     Model.getInstance().signUp(currentEvent);
                     Toast.makeText(mContext, "You have signed up for this event", Toast.LENGTH_SHORT).show();
+                    Model.getInstance().save(mContext);
                 }
                 catch (NoUserFoundException e) {
                     Toast.makeText(mContext, "User now found", Toast.LENGTH_SHORT).show();
@@ -109,17 +110,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     Toast.makeText(mContext, "Unknown exception", Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
-
-                //uses Model's sign up method to add it to an arralist for this user
-                try{
-                    Model.getInstance().signUp(currentEvent);
-                }
-                catch(Exception e){
-                    System.out.print(e);
-                }
-                Toast.makeText(mContext, "You have signed up for this event",
-                        Toast.LENGTH_SHORT).show();
-
                 //print events list into the log for debugging
                 Log.d(TAG, currentEvent + " added.");
             }

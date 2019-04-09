@@ -129,7 +129,7 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         "Model successfully loaded", Toast.LENGTH_LONG).show();
             }
-                        catch (ClassNotFoundException e){
+            catch (ClassNotFoundException e){
                 Toast.makeText(getApplicationContext(),
                         "ClassNotFoundException has occured...",
                         Toast.LENGTH_LONG).show();

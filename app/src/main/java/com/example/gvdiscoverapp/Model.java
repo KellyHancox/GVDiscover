@@ -1,6 +1,8 @@
 package com.example.gvdiscoverapp;
 
 import android.content.Context;
+import android.content.Intent;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.security.spec.ECField;
 import java.util.ArrayList;
 
 
@@ -109,9 +112,9 @@ public class Model {
         //Get the app file directory
         File directory = context.getFilesDir();
         File eventPath = new File(directory,"events.ser");
-        eventPath.createNewFile();
-        File userPath = new File(directory, user.getEmail());
-        userPath.createNewFile();
+        Boolean newEvent = eventPath.createNewFile();
+        File userPath = new File(directory, user.getEmail() + ".ser");
+        Boolean newUser = userPath.createNewFile();
 
         //First save all the events
         FileOutputStream fileEvents = new FileOutputStream(eventPath);
@@ -125,9 +128,8 @@ public class Model {
         ObjectOutputStream streamUser = new ObjectOutputStream(fileUser);
         streamUser.writeObject(user);
         streamUser.close();
-        printOut("User saved...");
 
-        printOut("Saving done.");
+        printOut("Saving done for: " + this.getUser().getEmail());
     }
 
     /**
@@ -138,22 +140,11 @@ public class Model {
      * */
     public void load(Context context, String email) throws ClassNotFoundException, IOException, NumberFormatException{
         printOut("Attempting to load");
-        File directory = null;
-        File eventPath = null;
-        File userPath = null;
+        File directory = context.getFilesDir();
+        File eventPath = new File(directory, "events.ser");
+        File userPath = new File(directory, email + ".ser");
 
-        //Get the app file directory
-        try {
-            directory = context.getFilesDir();
-            eventPath = new File(directory, "events.ser");
-            eventPath.createNewFile();
-            userPath = new File(directory, email);
-            userPath.createNewFile();
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
-        if(eventPath != null && eventPath.exists()) {
+        if(eventPath.exists()) {
             FileInputStream fileEvents = new FileInputStream(eventPath);
             ObjectInputStream streamEvents = new ObjectInputStream(fileEvents);
             events = (ArrayList<String>) streamEvents.readObject();
@@ -161,12 +152,12 @@ public class Model {
             printOut("Event file found");
         }
         else {
+            events = new ArrayList<String>();
             printOut("Event file not found");
-            //throw new NumberFormatException();
         }
 
         //Then load the user by email
-        if(userPath != null && userPath.exists()) {
+        if(userPath.exists()) {
             FileInputStream fileUser = new FileInputStream(userPath);
             ObjectInputStream streamUser = new ObjectInputStream(fileUser);
             user = (GVUser) streamUser.readObject();
@@ -179,10 +170,39 @@ public class Model {
             printOut("New user created");
         }
 
-        printOut("Loading done.");
+        printOut("Loading done. Current User: " + this.getUser().getEmail());
+    }
+
+    /* *
+     * This method deletes all the saved files
+     * */
+    public String deleteAll(Context context) {
+        File folder = context.getFilesDir();
+        File[] serList = folder.listFiles();
+
+        for(File f: serList) {
+            if (f.getName().endsWith(".ser")) {
+                boolean delete = f.delete();
+            }
+        }
+        try {
+            this.load(context, this.getUser().getEmail());
+            return "Files deleted";
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        return "Files not deleted...";
+    }
+
+    /* *
+     * This method logs the user out
+     * */
+    public void logOut(){
+        this.user = null;
     }
     /***Prints out a message to the run terminal*/
     private void printOut(String s) {
-        System.out.println("\n=====================\n" + s +"\n=====================");
+        System.out.println("\n==================" + s +"==================");
     }
 }
