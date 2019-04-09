@@ -152,6 +152,7 @@ public class LoginActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             startActivity(new Intent(LoginActivity.this, HomeScreen.class));
+            finish();
         }
     }
 

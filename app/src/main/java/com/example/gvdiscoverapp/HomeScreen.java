@@ -86,7 +86,8 @@ public class HomeScreen extends AppCompatActivity {
         try {
             Model.getInstance().save(this);
             Model.getInstance().logOut();
-
+            startActivity(new Intent(HomeScreen.this, LoginActivity.class));
+            finish();
         } catch (NoUserFoundException e) {
             Toast.makeText(getApplicationContext(), "No user found...",
                     Toast.LENGTH_LONG).show();
