@@ -8,12 +8,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.io.IOException;
 
 /**
- * HomeScreen is responsible for navigation to the other pages
+ * HomeScreen is responsible for navigation to the other .
  *
  * @author Monica Klosin, Matthew Shan
  * */
@@ -21,12 +19,12 @@ public class HomeScreen extends AppCompatActivity {
 
 
     /**
-     * This simply creates the page
+     * This simply creates the page.
      *
      * @param savedInstanceState see AppCompatActivity
      * */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -37,47 +35,47 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     /**
-     * toHub method takes the user to the Hub Page
+     * toHub method takes the user to the Hub Page.
      *
      * @param view is the object that was clicked.
      * */
-    public void toHub(View view) {
+    public void toHub(final View view) {
         startActivity(new Intent(HomeScreen.this, Hub.class));
     }
 
     /**
-     * toFindEvents method takes the user to the Find Events page
+     * toFindEvents method takes the user to the Find Events page.
      *
      * @param view is the object that was clicked.
      * */
-    public void toFindEvents(View view) {
+    public void toFindEvents(final View view) {
         startActivity(new Intent(HomeScreen.this, FindTheEvents.class));
     }
 
     /**
-     * toMap method takes the user to the Map Page
+     * toMap method takes the user to the Map Page.
      *
      * @param view is the object that was clicked.
      * */
-    public void toMap(View view) {
+    public void toMap(final View view) {
         startActivity(new Intent(HomeScreen.this, MapPage.class));
     }
 
     /**
-     * toCreateEvents method takes the user to the Create Event Page
+     * toCreateEvents method takes the user to the Create Event Page.
      *
      * @param view is the object that was clicked.
      * */
-    public void toCreateEvents(View view) {
+    public void toCreateEvents(final View view) {
         startActivity(new Intent(HomeScreen.this, CreateEvents.class));
     }
 
     /**
-     * deleteFiles deletes all the files in the
+     * deleteFiles deletes all the files in the view.
      *
      * @param view is the object that was clicked.
      * */
-    public void deleteFiles(View view){
+    public void deleteFiles(final View view) {
         String msg = Model.getInstance().deleteAll(this);
         Toast.makeText(getApplicationContext(),
                 msg,
@@ -85,11 +83,11 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     /**
-     * deleteFiles deletes all the files in the
+     * logOut logs out and saves and instance of the view.
      *
      * @param view is the object that was clicked.
      * */
-    public void logOut(View view) {
+    public void logOut(final View view) {
         try {
             Model.getInstance().save(this);
             Model.getInstance().logOut();
@@ -99,7 +97,8 @@ public class HomeScreen extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "No user found...",
                     Toast.LENGTH_LONG).show();
         } catch (IOException e) {
-            Toast.makeText(getApplicationContext(), "IOException has occured...",
+            Toast.makeText(getApplicationContext(),
+                    "IOException has occured...",
                     Toast.LENGTH_LONG).show();
             e.printStackTrace();
         } catch (NullPointerException e) {
@@ -107,7 +106,8 @@ public class HomeScreen extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
             e.printStackTrace();
         } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Unknown exception has occured...",
+            Toast.makeText(getApplicationContext(),
+                    "Unknown exception has occured...",
                     Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
