@@ -15,43 +15,60 @@ import android.view.View;
 
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.*;
-import com.google.android.gms.maps.model.*;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 /**
- * Class responsible for the Map Page
+ * Class responsible for the Map Page.
  *
  * @author Kelly Hancox
  * */
 public class MapPage extends AppCompatActivity {
 
-    /* creates reference for this page */
+    /**
+     *  creates reference for this page.
+     */
     private static final String TAG = "MapPage";
 
-    /* map object */
+    /**
+     *  map object.
+     */
     private GoogleMap mMap;
 
-    /* fine location, most specific */
-    private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
+    /**
+     *  fine location, most specific.
+     */
+    private static final String FINE_LOCATION =
+            Manifest.permission.ACCESS_FINE_LOCATION;
 
-    /* coarse location, less specific */
-    private static final String COARSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
+    /**
+     *  coarse location, less specific.
+     */
+    private static final String COARSE_LOCATION =
+            Manifest.permission.ACCESS_COARSE_LOCATION;
 
-    /* boolean for location permissions */
+    /**
+     *  boolean for location permissions.
+     */
     private boolean mLocationPermissionGranted = false;
 
-    /* permissions number */
+    /**
+     *  permissions number.
+     */
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
 
     /**
      * Checks on services and then the calls for
-     * location permissions to initialize the map
+     * location permissions to initialize the map.
      *
      * @param savedInstanceState see AppCompatActivity
      * */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_page);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -62,24 +79,26 @@ public class MapPage extends AppCompatActivity {
     }
 
     /**
-     * Checks that we can get the location permission
+     * Checks that we can get the location permission.
      *
      * */
-    private void getLocationPermission(){
+    private void getLocationPermission() {
         String[] permissions = {COARSE_LOCATION, FINE_LOCATION};
 
-        if(ContextCompat.checkSelfPermission(this.getApplicationContext(), FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED){
-            if(ContextCompat.checkSelfPermission(this.getApplicationContext(), COARSE_LOCATION)
+        if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                    COARSE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
                 mLocationPermissionGranted = true;
                 initMap();
 
-            }else{
+            } else {
                 ActivityCompat.requestPermissions(this, permissions,
                         LOCATION_PERMISSION_REQUEST_CODE);
             }
-        }else{
+        } else {
             ActivityCompat.requestPermissions(this, permissions,
                     LOCATION_PERMISSION_REQUEST_CODE);
         }
@@ -87,67 +106,65 @@ public class MapPage extends AppCompatActivity {
 
     /**
      * Required overridden method that requests
-     * the permission for locations
+     * the permission for locations.
      *
      * @param requestCode the code given to the device
      * @param permissions type of permissions
      * @param grantResults array of grant results
      * */
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(final int requestCode,
+                                           @NonNull final String[] permissions,
+                                           @NonNull final int[] grantResults) {
         Log.d(TAG, "onRequestPermissionsResult: requesting permissions");
         mLocationPermissionGranted = false;
 
-        switch(requestCode){
-            case LOCATION_PERMISSION_REQUEST_CODE:{
-                if(grantResults.length > 0){
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0) {
 
-                    //looping through the grant results
-                    for(int i = 0; i > grantResults.length; i++){
-                        if(grantResults[i] != PackageManager.PERMISSION_GRANTED){
-                            return;
-                        }
+                //looping through the grant results
+                for (int i = 0; i > grantResults.length; i++) {
+                    if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                        return;
                     }
-                    mLocationPermissionGranted = true;
-                    //initialize the map
-                    initMap();
-
                 }
+                mLocationPermissionGranted = true;
+                //initialize the map
+                initMap();
+
             }
         }
 
     }
 
     /**
-     * toCreateEvents method takes the user to the Create Event Page
+     * toCreateEvents method takes the user to the Create Event Page.
      *
      * @param view is the object that was clicked.
      * */
-    public void toCreateEvents(View view) {
+    public void toCreateEvents(final View view) {
         startActivity(new Intent(MapPage.this, CreateEvents.class));
     }
 
     /**
-     * isServicesOk checks if Google Play Services works on device
+     * isServicesOk checks if Google Play Services works on device.
      *
      * @return if services is available on device
      * */
-    public boolean isServicesOK(){
+    public boolean isServicesOK() {
         Log.d(TAG, "isServicesOK: checking google services version");
-        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(MapPage.this);
+        int available = GoogleApiAvailability.getInstance()
+                .isGooglePlayServicesAvailable(MapPage.this);
 
-        if(available == ConnectionResult.SUCCESS){
+        if (available == ConnectionResult.SUCCESS) {
             //everything is ok and the user can make requests
             return true;
-        }else if(GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
+        } else if (GoogleApiAvailability.getInstance()
+                .isUserResolvableError(available)) {
             //an error occurred but we can resolve it
             Log.d(TAG, "isServicesOK: an error occurred, but you can fix it");
-            //Dailog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MapPage.this, available, ERROR_DIALOG_REQUEST);
-            //dialog.show();
             return true;
-        }
-        else{
+        } else {
         //we can't make map requests
         return false;
         }
@@ -155,18 +172,19 @@ public class MapPage extends AppCompatActivity {
 
     /**
      * initMap begins map at GVSU parameters with only
-     * 2 levels of zoom and adds markers at available locations
+     * 2 levels of zoom and adds markers at available locations.
      *
      * */
-    private void initMap(){
+    private void initMap() {
         Log.d(TAG, "initMap: initializing map");
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+        SupportMapFragment mapFragment =
+                (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(new OnMapReadyCallback() {
 
             @Override
-            public void onMapReady(GoogleMap googleMap) {
+            public void onMapReady(final GoogleMap googleMap) {
                 mMap = googleMap;
 
                 //sets zoom preferences
@@ -189,13 +207,13 @@ public class MapPage extends AppCompatActivity {
                         title("You can find events at Mackinac"));
 
                 //creates new bounds
-                LatLngBounds ADELAIDE = new LatLngBounds(
+                LatLngBounds latLngBounds = new LatLngBounds(
                         //lower left
-                        new LatLng(42.961,-85.897),
+                        new LatLng(42.961, -85.897),
                         //upper right
                         new LatLng(42.975, -85.8815));
 
-                mMap.setLatLngBoundsForCameraTarget(ADELAIDE);
+                mMap.setLatLngBoundsForCameraTarget(latLngBounds);
             }
         });
     }

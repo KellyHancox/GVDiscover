@@ -5,11 +5,9 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
-import android.os.AsyncTask;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -30,11 +28,28 @@ import java.io.IOException;
  */
 public class LoginActivity extends AppCompatActivity {
     // UI references.
+    /**
+     * mEmailView is the view associated with the autocomplete text field.
+     */
     private AutoCompleteTextView mEmailView;
+    /**
+     * mPasswordView is the view associated with the password.
+     */
     private EditText mPasswordView;
+
+    /**
+     * mProgressView is the view associated with showing the progress.
+     */
     private View mProgressView;
+
+    /**
+     * mLoginFormView is the view associated with the login form.
+     */
     private View mLoginFormView;
 
+    /**
+     * Model is the model instance for saving.
+     */
     private Model model;
 
     /**
@@ -127,25 +142,23 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 Model.getInstance().load(this, email);
                 Toast.makeText(getApplicationContext(),
-                        "Model successfully loaded", Toast.LENGTH_LONG).show();
-            }
-            catch (ClassNotFoundException e){
+                        "Model successfully loaded",
+                        Toast.LENGTH_LONG).show();
+            } catch (ClassNotFoundException e) {
                 Toast.makeText(getApplicationContext(),
                         "ClassNotFoundException has occured...",
                         Toast.LENGTH_LONG).show();
-                e.printStackTrace(); }
-            catch (IOException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
                 Toast.makeText(getApplicationContext(),
                         "IOException has occured...",
                         Toast.LENGTH_LONG).show();
                 e.printStackTrace();
-            }
-            catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 Toast.makeText(getApplicationContext(),
                         "Model does not exist yet.",
                         Toast.LENGTH_LONG).show();
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Toast.makeText(getApplicationContext(),
                         "Unknown Exception has occured...",
                         Toast.LENGTH_LONG).show();
@@ -156,20 +169,22 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private boolean isEmailValid(String email) {
+    /**
+     * @param email inputed the email
+     * @return sends the boolean value if the email is valid.
+     */
+    private boolean isEmailValid(final String email) {
         //determines if the inputed email is one of the following
-        if(email.contains("@mail.gvsu.edu")){
-            return true;
-        }
-        else
-            return false;
+        return email.contains("@mail.gvsu.edu");
     }
 
-    private boolean isPasswordValid(String password) {
-        if (password.length() > 7)
-            return true;
-        else
-            return false;
+    /**
+     *
+     * @param password inputed password.
+     * @return Returns true if the password is longer than 7 characters.
+     */
+    private boolean isPasswordValid(final String password) {
+        return password.length() > 7;
     }
 
     /**
@@ -186,29 +201,80 @@ public class LoginActivity extends AppCompatActivity {
             int shortAnimTime = getResources().getInteger(
                     android.R.integer.config_shortAnimTime);
 
-            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-            mLoginFormView.animate().setDuration(shortAnimTime).alpha(
-                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    mLoginFormView.setVisibility(show ? View.GONE
-                            : View.VISIBLE);
-                }
-            });
+            if (show) {
+                mLoginFormView.setVisibility(View.GONE);
+            } else {
+                mLoginFormView.setVisibility(View.VISIBLE);
+            }
+            if (show) {
+                mLoginFormView.animate().setDuration(shortAnimTime).alpha(
+                        0).setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(final Animator animation) {
+                        if (show) {
+                            mLoginFormView.setVisibility(View.GONE);
+                        } else {
+                            mLoginFormView.setVisibility(View.VISIBLE);
+                        }
+                    }
+                });
+            } else {
+                mLoginFormView.animate().setDuration(shortAnimTime).alpha(
+                        1).setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(final Animator animation) {
+                        if (show) {
+                            mLoginFormView.setVisibility(View.GONE);
+                        } else {
+                            mLoginFormView.setVisibility(View.VISIBLE);
+                        }
+                    }
+                });
+            }
 
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-            mProgressView.animate().setDuration(shortAnimTime).alpha(
-                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-                }
-            });
+            if (show) {
+                mProgressView.setVisibility(View.VISIBLE);
+            } else {
+                mProgressView.setVisibility(View.GONE);
+            }
+            if (show) {
+                mProgressView.animate().setDuration(shortAnimTime).alpha(
+                        1).setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(final Animator animation) {
+                        if (show) {
+                            mProgressView.setVisibility(View.VISIBLE);
+                        } else {
+                            mProgressView.setVisibility(View.GONE);
+                        }
+                    }
+                });
+            } else {
+                mProgressView.animate().setDuration(shortAnimTime).alpha(
+                        0).setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(final Animator animation) {
+                        if (show) {
+                            mProgressView.setVisibility(View.VISIBLE);
+                        } else {
+                            mProgressView.setVisibility(View.GONE);
+                        }
+                    }
+                });
+            }
         } else {
             // The ViewPropertyAnimator APIs are not available, so simply show
             // and hide the relevant UI components.
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+            if (show) {
+                mProgressView.setVisibility(View.VISIBLE);
+            } else {
+                mProgressView.setVisibility(View.GONE);
+            }
+            if (show) {
+                mLoginFormView.setVisibility(View.GONE);
+            } else {
+                mLoginFormView.setVisibility(View.VISIBLE);
+            }
         }
     }
 }
