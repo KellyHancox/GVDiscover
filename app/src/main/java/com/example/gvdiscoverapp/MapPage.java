@@ -13,6 +13,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.Objects;
+
 /**
  * Class responsible for the Map Page.
  *
@@ -66,7 +68,7 @@ public class MapPage extends AppCompatActivity {
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(new OnMapReadyCallback() {
+        Objects.requireNonNull(mapFragment).getMapAsync(new OnMapReadyCallback() {
 
             @Override
             public void onMapReady(final GoogleMap googleMap) {

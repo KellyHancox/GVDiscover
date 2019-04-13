@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.io.File;
@@ -84,7 +83,7 @@ public class RecyclerViewAdapter extends
      *
      * and places them into the card
      * @param viewHolder the card
-     * @param i the placement in the events arraylist
+     * @param i the placement in the events arrayList
      */
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder,
@@ -107,7 +106,7 @@ public class RecyclerViewAdapter extends
                     File directory = mContext.getFilesDir();
                     Model.getInstance().save(directory);
                 } catch (NoUserFoundException e) {
-                    Toast.makeText(mContext, "User now found",
+                    Toast.makeText(mContext, "User not found",
                             Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     Toast.makeText(mContext, "Unknown exception",
@@ -137,11 +136,6 @@ public class RecyclerViewAdapter extends
      * This class binds the event info to the actual card.
      */
     public class ViewHolder extends RecyclerView.ViewHolder {
-
-        /**
-         * event image on card.
-         */
-        private ImageView eventImage;
 
         /**
          *  event title on card.
@@ -188,7 +182,6 @@ public class RecyclerViewAdapter extends
             super(itemView);
 
             //these all bind the functions to each place on the card
-            eventImage = itemView.findViewById(R.id.eventCardIcon);
             eventTitle = itemView.findViewById(R.id.eventCardTitle);
             eventDate = itemView.findViewById(R.id.eventCardDate);
             eventSTime = itemView.findViewById(R.id.eventCardSTime);
@@ -197,26 +190,6 @@ public class RecyclerViewAdapter extends
             eventLoc = itemView.findViewById(R.id.eventCardLoc);
             signUpButton = itemView.findViewById(R.id.signUpButton);
 
-        }
-
-// --Commented out by Inspection START (4/13/2019 5:59 PM):
-//        /**
-//         * getter for viewImage.
-//         * @return returns the image
-//         */
-// --Commented out by Inspection START (4/13/2019 5:59 PM):
-////        public ImageView getEventImage() {
-////            return eventImage;
-////        }
-//// --Commented out by Inspection STOP (4/13/2019 5:59 PM)
-//
-//        /**
-//         * setter for EventImage.
-//         * @param eventImageSet image for events
-//         */
-// --Commented out by Inspection STOP (4/13/2019 5:59 PM)
-        public void setEventImage(final ImageView eventImageSet) {
-            this.eventImage = eventImageSet;
         }
     }
 

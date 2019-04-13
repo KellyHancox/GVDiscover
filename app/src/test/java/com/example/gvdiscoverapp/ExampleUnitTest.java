@@ -59,7 +59,6 @@ public class ExampleUnitTest {
         model.addEvent("practiceEvent~~Event~~2/19/19~~2:30 pm " +
                 "~~ 3:30 pm ~~ this is a practice event");
 
-        FindTheEvents findEvents = new FindTheEvents();
         ArrayList<String> eventList = model.getEventsList();
 
         String[] arrayOfEventInformation = eventList.get(0).split("~~");
