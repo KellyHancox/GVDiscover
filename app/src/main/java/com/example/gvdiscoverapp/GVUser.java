@@ -21,10 +21,10 @@ public class GVUser implements Serializable {
     /**
      * Creates a user with a given email.
      *
-     * @param email The users given email in login
+     * @param userEmail The users given email in login
      */
-    public GVUser(final String email) {
-        this.email = email;
+    public GVUser(final String userEmail) {
+        this.email = userEmail;
     }
 
     /**
