@@ -64,7 +64,7 @@ public class CreateEvents extends AppCompatActivity {
     /**
      * Represents the connection to Model
      */
-    private Model model;
+    //private Model model;
 
     /**
      * onCreate method creates the page and handles the submit button
@@ -78,7 +78,7 @@ public class CreateEvents extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        model = Model.getInstance();
+        //model = Model.getInstance();
 
         eventName = (EditText) findViewById(R.id.eventName);
         location = (Spinner) findViewById(R.id.location);
@@ -97,18 +97,25 @@ public class CreateEvents extends AppCompatActivity {
              * the Model.
              * */
             public void onClick(View v) {
-                startDate = month.getText().toString() + "/"
-                        + day.getText().toString() + "/"
-                        + year.getText().toString();
-                String event = eventName.getText().toString() + "~~"
-                        + location.getSelectedItem().toString() + "~~"
-                        + startDate + "~~"
-                        + startTime.getSelectedItem().toString() + "~~"
-                        + endTime.getSelectedItem().toString() + "~~"
-                        + description.getText().toString();
-                Model.getInstance().addEvent(event);
-                startActivity(new Intent(CreateEvents.this, HomeScreen.class));
-                try {
+                //every field must be filled in
+                if(month.getText().length() != 0 && day.getText().length() != 0 && year.getText().length() != 0
+                && eventName.getText().length() != 0 && description.getText().length() != 0) {
+                    startDate = month.getText().toString() + "/"
+                            + day.getText().toString() + "/"
+                            + year.getText().toString();
+                    String event = eventName.getText().toString() + "~~"
+                            + location.getSelectedItem().toString() + "~~"
+                            + startDate + "~~"
+                            + startTime.getSelectedItem().toString() + "~~"
+                            + endTime.getSelectedItem().toString() + "~~"
+                            + description.getText().toString();
+                    Model.getInstance().addEvent(event);
+                    //go back to home screen
+                    startActivity(new Intent(CreateEvents.this, HomeScreen.class));
+                } else{
+                    Toast.makeText(CreateEvents.this, "Event not created. " +
+                                    "All Fields required.", Toast.LENGTH_SHORT).show();
+                }try {
                     Model.getInstance().save(CreateEvents.this);
                 } catch (NoUserFoundException e) {
                     Toast.makeText(getApplicationContext(), "No user found...",
@@ -126,7 +133,7 @@ public class CreateEvents extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
-                System.out.println("Event: " + event);
+                //System.out.println("Event: " + event);
             }
         });
     }

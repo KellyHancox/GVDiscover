@@ -11,8 +11,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
@@ -31,10 +29,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     /* context of this adapter */
     private Context mContext;
-
-    /* model instance */
-    private Model mmodel;
-
 
     /**
      * RecyclerViewAdapter is the constructor that initializes
@@ -90,17 +84,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         final String currentEvent = mEvents.get(i);
 
-        //this only occurs when i click button
-        //needs a try catch block
-
-
         //calls upon the sign up button on click listener
         viewHolder.signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
                     Model.getInstance().signUp(currentEvent);
-                    Toast.makeText(mContext, "You have signed up for this event", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "You " +
+                            "have signed up for this event", Toast.LENGTH_SHORT).show();
                     Model.getInstance().save(mContext);
                 }
                 catch (NoUserFoundException e) {
@@ -176,7 +167,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             eventDesc = itemView.findViewById(R.id.eventCardDesc);
             eventLoc = itemView.findViewById(R.id.eventCardLoc);
             signUpButton = (Button) itemView.findViewById(R.id.signUpButton);
-
 
         }
     }

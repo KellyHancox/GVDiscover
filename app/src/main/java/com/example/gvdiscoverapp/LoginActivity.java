@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -34,6 +35,9 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+
+    /* this is used for log */
+    private static final String TAG = "LoginActivity";
 
     private Model model;
 
@@ -126,29 +130,20 @@ public class LoginActivity extends AppCompatActivity {
             //Loading model
             try {
                 Model.getInstance().load(this, email);
-                Toast.makeText(getApplicationContext(),
-                        "Model successfully loaded", Toast.LENGTH_LONG).show();
+                Log.d(TAG, "Model successfully loaded");
             }
             catch (ClassNotFoundException e){
-                Toast.makeText(getApplicationContext(),
-                        "ClassNotFoundException has occured...",
-                        Toast.LENGTH_LONG).show();
+                Log.d(TAG, "ClassNotFoundException has occured...");
                 e.printStackTrace(); }
             catch (IOException e) {
-                Toast.makeText(getApplicationContext(),
-                        "IOException has occured...",
-                        Toast.LENGTH_LONG).show();
+                Log.d(TAG,"IOException has occured...");
                 e.printStackTrace();
             }
             catch (NumberFormatException e){
-                Toast.makeText(getApplicationContext(),
-                        "Model does not exist yet.",
-                        Toast.LENGTH_LONG).show();
+                Log.d(TAG,"Model does not exist yet.");
             }
             catch (Exception e) {
-                Toast.makeText(getApplicationContext(),
-                        "Unknown Exception has occured...",
-                        Toast.LENGTH_LONG).show();
+                Log.d(TAG,"Unknown Exception has occured...");
                 e.printStackTrace();
             }
             startActivity(new Intent(LoginActivity.this, HomeScreen.class));

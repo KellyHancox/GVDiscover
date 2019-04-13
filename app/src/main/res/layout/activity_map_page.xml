@@ -32,11 +32,10 @@
 
     <include layout="@layout/content_map_page" />
 
-
     <Button
         android:id="@+id/startActivityButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="20dp"
         android:bottomLeftRadius="80dp"
         android:bottomRightRadius="80dp"
