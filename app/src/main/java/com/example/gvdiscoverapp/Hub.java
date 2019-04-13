@@ -33,7 +33,7 @@ public class Hub extends AppCompatActivity {
     private static final String TAG = "Hub";
 
     /**
-     * onCreate method creates the FindEventsOld.
+     * onCreate method creates the FindTheEvents.
      *
      * @param savedInstanceState see AppCompatActivity
      * */
