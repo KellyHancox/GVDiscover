@@ -217,10 +217,10 @@ public class RecyclerViewAdapter extends
 
         /**
          * setter for EventImage.
-         * @param eventImage image for events
+         * @param eventImageSet image for events
          */
-        public void setEventImage(final ImageView eventImage) {
-            this.eventImage = eventImage;
+        public void setEventImage(final ImageView eventImageSet) {
+            this.eventImage = eventImageSet;
         }
     }
 

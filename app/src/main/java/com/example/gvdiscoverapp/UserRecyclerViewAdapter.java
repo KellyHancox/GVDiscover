@@ -176,10 +176,10 @@ public class UserRecyclerViewAdapter extends RecyclerView.
 
         /**
          * setter for UserEventImage.
-         * @param userEventImage image that for an event
+         * @param userEventImageSet image that for an event
          */
-        public void setUserEventImage(final ImageView userEventImage) {
-            this.userEventImage = userEventImage;
+        public void setUserEventImage(final ImageView userEventImageSet) {
+            this.userEventImage = userEventImageSet;
         }
     }
 }
