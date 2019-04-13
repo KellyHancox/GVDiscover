@@ -7,8 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -29,7 +29,12 @@ public class UserRecyclerViewAdapter extends RecyclerView.
     /**
      * list of only events that this user signed up for.
      */
-    private ArrayList<String> userEvents;
+    private final ArrayList<String> userEvents;
+
+    /**
+     *  context of this adapter.
+     */
+    private final Context mContext;
 
     /**
      * RecyclerViewAdapter is the constructor that initializes.
@@ -40,10 +45,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.
     public UserRecyclerViewAdapter(final Context context,
                                    final ArrayList<String> events) {
         userEvents = events;
-        /*
-           context of this adapter.
-         */
-        Context mContext = context;
+        mContext = context;
     }
 
     /**
@@ -62,9 +64,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.
         View view = LayoutInflater.from(viewGroup.getContext()).
                 inflate(R.layout.users_singular_event_layout,
                 viewGroup, false);
-        UserRecyclerViewAdapter.ViewHolder holder =
-                new UserRecyclerViewAdapter.ViewHolder(view);
-        return holder;
+        return new ViewHolder(view);
     }
 
     /**
@@ -83,7 +83,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.
      *
      * and places them into the card
      * @param viewHolder the card
-     * @param i the placement in the events arraylist
+     * @param i the placement in the events arrayList
      */
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int i) {
@@ -102,6 +102,10 @@ public class UserRecyclerViewAdapter extends RecyclerView.
             viewHolder.userEventDesc.setText(arrayOfEventInformation[5]);
         } else {
             Log.d(TAG, "Not enough information input");
+            Toast.makeText(mContext, "Something went wrong. Please click" +
+                            " 'Delete Files' and try again.",
+                    Toast.LENGTH_SHORT).show();
+
         }
     }
 
@@ -111,40 +115,34 @@ public class UserRecyclerViewAdapter extends RecyclerView.
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         /**
-         *  event image on card.
-         */
-        private ImageView userEventImage;
-
-        /**
          * event title on card.
          */
-        private TextView userEventTitle;
+        private final TextView userEventTitle;
 
         /**
          *  event date on card .
          */
-        private TextView userEventDate;
+        private final TextView userEventDate;
 
         /**
          * event start time on card.
          */
-        private TextView userEventSTime;
+        private final TextView userEventSTime;
 
         /**
          *  event end time on card.
          */
-        private TextView userEventETime;
+        private final TextView userEventETime;
 
         /**
          *  event description on card.
          */
-        private TextView userEventDesc;
+        private final TextView userEventDesc;
 
         /**
          *  event location on card.
          */
-        private TextView userEventLoc;
-
+        private final TextView userEventLoc;
 
         /**
          * ViewHolder places the values into the card.
@@ -155,29 +153,12 @@ public class UserRecyclerViewAdapter extends RecyclerView.
             super(itemView);
 
             //these all bind the functions to each place on the card
-            userEventImage = itemView.findViewById(R.id.userEventCardIcon);
             userEventTitle = itemView.findViewById(R.id.userEventCardTitle);
             userEventDate = itemView.findViewById(R.id.userEventCardDate);
             userEventSTime = itemView.findViewById(R.id.userEventCardSTime);
             userEventETime = itemView.findViewById(R.id.userEventCardETime);
             userEventDesc = itemView.findViewById(R.id.userEventCardDesc);
             userEventLoc = itemView.findViewById(R.id.userEventCardLoc);
-        }
-
-        /**
-         * getter for UserEventImage.
-         * @return returns the image for the event
-         */
-        public ImageView getUserEventImage() {
-            return userEventImage;
-        }
-
-        /**
-         * setter for UserEventImage.
-         * @param userEventImageSet image that for an event
-         */
-        public void setUserEventImage(final ImageView userEventImageSet) {
-            this.userEventImage = userEventImageSet;
         }
     }
 }

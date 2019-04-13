@@ -124,7 +124,7 @@ public class CreateEvents extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                 } catch (IOException e) {
                     Toast.makeText(getApplicationContext(),
-                            "IOException has occured...",
+                            "IOException has occurred...",
                             Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 } catch (NullPointerException e) {
@@ -134,7 +134,7 @@ public class CreateEvents extends AppCompatActivity {
                     e.printStackTrace();
                 } catch (Exception e) {
                     Toast.makeText(getApplicationContext(),
-                            "Unknown exception has occured...",
+                            "Unknown exception has occurred...",
                             Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }

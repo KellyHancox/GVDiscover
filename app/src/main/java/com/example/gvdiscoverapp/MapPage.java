@@ -1,20 +1,19 @@
 package com.example.gvdiscoverapp;
 
-import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-
 import android.util.Log;
 import android.view.View;
-
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.Objects;
 
 /**
  * Class responsible for the Map Page.
@@ -34,28 +33,6 @@ public class MapPage extends AppCompatActivity {
     private GoogleMap mMap;
 
     /**
-     *  fine location, most specific.
-     */
-    private static final String FINE_LOCATION =
-            Manifest.permission.ACCESS_FINE_LOCATION;
-
-    /**
-     *  coarse location, less specific.
-     */
-    private static final String COARSE_LOCATION =
-            Manifest.permission.ACCESS_COARSE_LOCATION;
-
-    /**
-     *  boolean for location permissions.
-     */
-    private boolean mLocationPermissionGranted = false;
-
-    /**
-     *  permissions number.
-     */
-    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
-
-    /**
      * Checks on services and then the calls for
      * location permissions to initialize the map.
      *
@@ -68,8 +45,6 @@ public class MapPage extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //isServicesOK();
-        //getLocationPermission();
         initMap();
     }
 
@@ -93,7 +68,7 @@ public class MapPage extends AppCompatActivity {
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(new OnMapReadyCallback() {
+        Objects.requireNonNull(mapFragment).getMapAsync(new OnMapReadyCallback() {
 
             @Override
             public void onMapReady(final GoogleMap googleMap) {
