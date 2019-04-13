@@ -94,12 +94,12 @@ public class MapPage extends AppCompatActivity {
                         title("You can find events at Mackinac"));
 
                 //creates new bounds
-                LatLngBounds GVSU = new LatLngBounds(
+                LatLngBounds gvsu = new LatLngBounds(
                         //lower left
                         new LatLng(42.961, -85.897),
                         //upper right
                         new LatLng(42.975, -85.8815));
-                mMap.setLatLngBoundsForCameraTarget(GVSU);
+                mMap.setLatLngBoundsForCameraTarget(gvsu);
 
             }
         });

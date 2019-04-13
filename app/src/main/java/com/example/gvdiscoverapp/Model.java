@@ -48,6 +48,9 @@ public final class Model {
         return instance;
     }
 
+    /**
+     * Sets the instance to null.
+     */
     public static void reset() {
         instance = null;
     }
@@ -209,8 +212,12 @@ public final class Model {
         return "Files not deleted...";
     }
 
-    public void logIn(String email) {
-        this.user = new GVUser(email);
+    /**
+     * Sets the new user to the email of the GVUSer.
+     * @param loginEmail of the GVUser
+     */
+    public void logIn(final String loginEmail) {
+        this.user = new GVUser(loginEmail);
     }
 
     /**

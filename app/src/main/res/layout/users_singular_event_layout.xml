@@ -13,7 +13,7 @@
         android:layout_width="90dp"
         android:id="@+id/userEventCardIcon"
         app:srcCompat="@drawable/discovericon"
-        android:contentDescription="TODO" />
+        android:contentDescription="Image for the content description" />
 
     <TextView
         android:id="@+id/userEventCardTitle"

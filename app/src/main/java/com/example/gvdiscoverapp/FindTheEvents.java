@@ -18,7 +18,8 @@ public class FindTheEvents extends AppCompatActivity {
     /**
      *  full events list.
      */
-    private final ArrayList<String> eventList = Model.getInstance().getEventsList();
+    private final ArrayList<String> eventList = Model.getInstance().
+            getEventsList();
 
     /**
      *  instance of this class for logging.
