@@ -65,7 +65,7 @@ public class CreateEvents extends AppCompatActivity {
      * Represents the connection to Model
      */
     private Model model;
-
+#
     /**
      * onCreate method creates the page and handles the submit button
      *

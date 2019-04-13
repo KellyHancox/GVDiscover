@@ -50,7 +50,11 @@ public class Model {
         return instance;
     }
 
-    /***
+    public static void reset() {
+        instance = null;
+    }
+
+    /**
      *  Adds an event to the model.
      *  Value format: "names~~location~~date~~startTime~~endTime~~desc"
      *
@@ -201,6 +205,7 @@ public class Model {
     public void logOut(){
         this.user = null;
     }
+
     /***Prints out a message to the run terminal*/
     private void printOut(String s) {
         System.out.println("\n==================" + s +"==================");
