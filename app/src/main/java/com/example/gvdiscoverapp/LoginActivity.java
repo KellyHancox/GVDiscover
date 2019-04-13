@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -46,11 +47,6 @@ public class LoginActivity extends AppCompatActivity {
      * mLoginFormView is the view associated with the login form.
      */
     private View mLoginFormView;
-
-    /**
-     * Model is the model instance for saving.
-     */
-    private Model model;
 
     /**
      * This simply creates the page.
@@ -140,7 +136,9 @@ public class LoginActivity extends AppCompatActivity {
 
             //Loading model
             try {
-                Model.getInstance().load(this, email);
+                File directory = LoginActivity.this.getFilesDir();
+                Model.getInstance().load(directory, email);
+                System.out.println(directory.getAbsolutePath());
                 Toast.makeText(getApplicationContext(),
                         "Model successfully loaded",
                         Toast.LENGTH_LONG).show();

@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -61,10 +62,6 @@ public class CreateEvents extends AppCompatActivity {
      * Object that represents submit input.
      */
     private Button submit;
-    /**
-     * Represents the connection to Model.
-     */
-    private Model model;
 
     /**
      * onCreate method creates the page and handles the submit button.
@@ -78,7 +75,6 @@ public class CreateEvents extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        model = Model.getInstance();
 
         eventName = findViewById(R.id.eventName);
         location = findViewById(R.id.location);
@@ -109,7 +105,8 @@ public class CreateEvents extends AppCompatActivity {
                 Model.getInstance().addEvent(event);
                 startActivity(new Intent(CreateEvents.this, HomeScreen.class));
                 try {
-                    Model.getInstance().save(CreateEvents.this);
+                    File directory = CreateEvents.this.getFilesDir();
+                    Model.getInstance().save(directory);
                 } catch (NoUserFoundException e) {
                     Toast.makeText(getApplicationContext(), "No user found...",
                             Toast.LENGTH_LONG).show();

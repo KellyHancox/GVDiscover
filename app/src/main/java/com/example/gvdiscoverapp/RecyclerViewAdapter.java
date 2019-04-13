@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -37,11 +38,6 @@ public class RecyclerViewAdapter extends
      *  context of this adapter.
      */
     private Context mContext;
-
-    /**
-     *  model instance.
-     */
-    private Model model;
 
 
     /**
@@ -115,7 +111,8 @@ public class RecyclerViewAdapter extends
                     Toast.makeText(mContext,
                             "You have signed up for this event",
                             Toast.LENGTH_SHORT).show();
-                    Model.getInstance().save(mContext);
+                    File directory = mContext.getFilesDir();
+                    Model.getInstance().save(directory);
                 } catch (NoUserFoundException e) {
                     Toast.makeText(mContext, "User now found",
                             Toast.LENGTH_SHORT).show();

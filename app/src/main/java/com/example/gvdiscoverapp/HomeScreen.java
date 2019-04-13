@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -89,7 +90,8 @@ public class HomeScreen extends AppCompatActivity {
      * */
     public void logOut(final View view) {
         try {
-            Model.getInstance().save(this);
+            File directory = HomeScreen.this.getFilesDir();
+            Model.getInstance().save(directory);
             Model.getInstance().logOut();
             startActivity(new Intent(HomeScreen.this, LoginActivity.class));
             finishAffinity();

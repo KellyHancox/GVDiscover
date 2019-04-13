@@ -9,8 +9,8 @@ import android.util.Log;
 import java.util.ArrayList;
 
 /**
- * FindEventsOld class handles viewing all events from model.
- * and user sign up
+ * FindEventsOld class handles viewing all events from model
+ * and user sign up.
  *
  * @author Kelly Hancox
  * */
