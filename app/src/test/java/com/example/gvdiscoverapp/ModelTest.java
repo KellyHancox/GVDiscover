@@ -1,12 +1,6 @@
 package com.example.gvdiscoverapp;
 
-import android.content.Context;
-import android.os.Environment;
-
-import org.junit.Before;
 import org.junit.Test;
-
-import java.io.File;
 
 import static org.junit.Assert.*;
 

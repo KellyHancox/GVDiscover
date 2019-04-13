@@ -32,11 +32,6 @@ public class UserRecyclerViewAdapter extends RecyclerView.
     private ArrayList<String> userEvents;
 
     /**
-     *  context of this adapter.
-     */
-    private Context mContext;
-
-    /**
      * RecyclerViewAdapter is the constructor that initializes.
      * the context and list of events
      * @param context this method
@@ -45,7 +40,10 @@ public class UserRecyclerViewAdapter extends RecyclerView.
     public UserRecyclerViewAdapter(final Context context,
                                    final ArrayList<String> events) {
         userEvents = events;
-        mContext = context;
+        /**
+         *  context of this adapter.
+         */
+        Context mContext = context;
     }
 
     /**

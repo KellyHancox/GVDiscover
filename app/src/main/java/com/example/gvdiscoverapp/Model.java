@@ -17,6 +17,7 @@ import java.util.ArrayList;
  *
  * @author Matthew Shan
  * */
+@SuppressWarnings("ALL")
 public final class Model {
     /** An instance of the Singleton model. */
     private static Model instance = null;

@@ -202,7 +202,7 @@ public class RecyclerViewAdapter extends
             eventETime = itemView.findViewById(R.id.eventCardETime);
             eventDesc = itemView.findViewById(R.id.eventCardDesc);
             eventLoc = itemView.findViewById(R.id.eventCardLoc);
-            signUpButton = (Button) itemView.findViewById(R.id.signUpButton);
+            signUpButton = itemView.findViewById(R.id.signUpButton);
 
 
         }
