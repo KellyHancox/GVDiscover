@@ -33,7 +33,6 @@ public class GVUser implements Serializable {
      * @param event is the string event
      * */
     public void signUpEvent(final String event) {
-
         events.add(event);
     }
 

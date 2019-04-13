@@ -61,11 +61,7 @@ public class CreateEvents extends AppCompatActivity {
      * Object that represents submit input.
      */
     private Button submit;
-    /**
-     * Represents the connection to Model.
-     */
-    private Model model;
-#
+
     /**
      * onCreate method creates the page and handles the submit button.
      *
@@ -78,7 +74,6 @@ public class CreateEvents extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        model = Model.getInstance();
 
         eventName = findViewById(R.id.eventName);
         location = findViewById(R.id.location);

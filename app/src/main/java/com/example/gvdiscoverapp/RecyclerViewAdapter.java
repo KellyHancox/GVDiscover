@@ -38,11 +38,6 @@ public class RecyclerViewAdapter extends
      */
     private Context mContext;
 
-    /**
-     *  model instance.
-     */
-    private Model model;
-
 
     /**
      * RecyclerViewAdapter is the constructor that initializes

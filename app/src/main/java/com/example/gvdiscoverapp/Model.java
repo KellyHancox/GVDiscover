@@ -177,7 +177,7 @@ public final class Model {
             printOut("User file found");
         } else {
             printOut("No user file found");
-            user = new GVUser(email);
+            this.logIn(email);
             printOut("New user created");
         }
 
@@ -207,6 +207,10 @@ public final class Model {
             e.printStackTrace();
         }
         return "Files not deleted...";
+    }
+
+    public void logIn(String email) {
+        this.user = new GVUser(email);
     }
 
     /**

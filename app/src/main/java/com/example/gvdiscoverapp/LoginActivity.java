@@ -48,11 +48,6 @@ public class LoginActivity extends AppCompatActivity {
     private View mLoginFormView;
 
     /**
-     * Model is the model instance for saving.
-     */
-    private Model model;
-
-    /**
      * This simply creates the page.
      *
      * @param savedInstanceState see AppCompatActivity.
