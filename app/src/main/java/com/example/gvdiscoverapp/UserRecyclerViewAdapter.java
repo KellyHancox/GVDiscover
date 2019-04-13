@@ -29,7 +29,12 @@ public class UserRecyclerViewAdapter extends RecyclerView.
     /**
      * list of only events that this user signed up for.
      */
-    private ArrayList<String> userEvents;
+    private final ArrayList<String> userEvents;
+
+    /**
+     *  context of this adapter.
+     */
+    private Context mContext;
 
     /**
      * RecyclerViewAdapter is the constructor that initializes.
@@ -40,10 +45,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.
     public UserRecyclerViewAdapter(final Context context,
                                    final ArrayList<String> events) {
         userEvents = events;
-        /*
-           context of this adapter.
-         */
-        Context mContext = context;
+        mContext = context;
     }
 
     /**
@@ -62,9 +64,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.
         View view = LayoutInflater.from(viewGroup.getContext()).
                 inflate(R.layout.users_singular_event_layout,
                 viewGroup, false);
-        UserRecyclerViewAdapter.ViewHolder holder =
-                new UserRecyclerViewAdapter.ViewHolder(view);
-        return holder;
+        return new ViewHolder(view);
     }
 
     /**
@@ -118,32 +118,32 @@ public class UserRecyclerViewAdapter extends RecyclerView.
         /**
          * event title on card.
          */
-        private TextView userEventTitle;
+        private final TextView userEventTitle;
 
         /**
          *  event date on card .
          */
-        private TextView userEventDate;
+        private final TextView userEventDate;
 
         /**
          * event start time on card.
          */
-        private TextView userEventSTime;
+        private final TextView userEventSTime;
 
         /**
          *  event end time on card.
          */
-        private TextView userEventETime;
+        private final TextView userEventETime;
 
         /**
          *  event description on card.
          */
-        private TextView userEventDesc;
+        private final TextView userEventDesc;
 
         /**
          *  event location on card.
          */
-        private TextView userEventLoc;
+        private final TextView userEventLoc;
 
 
         /**

@@ -31,12 +31,12 @@ public class RecyclerViewAdapter extends
     /**
      *  list of all events created.
      */
-    private ArrayList<String> mEvents;
+    private final ArrayList<String> mEvents;
 
     /**
      *  context of this adapter.
      */
-    private Context mContext;
+    private final Context mContext;
 
     /**
      * RecyclerViewAdapter is the constructor that initializes
@@ -66,8 +66,7 @@ public class RecyclerViewAdapter extends
         View view = LayoutInflater.from(viewGroup.getContext()).
                 inflate(R.layout.event_card_layout,
                 viewGroup, false);
-        ViewHolder holder = new ViewHolder(view);
-        return holder;
+        return new ViewHolder(view);
     }
 
     /**
@@ -147,37 +146,37 @@ public class RecyclerViewAdapter extends
         /**
          *  event title on card.
          */
-        private TextView eventTitle;
+        private final TextView eventTitle;
 
         /**
          *  event date on card.
          */
-        private TextView eventDate;
+        private final TextView eventDate;
 
         /**
          *  event start time on card.
          */
-        private TextView eventSTime;
+        private final TextView eventSTime;
 
         /**
          *  event end time on card.
          */
-        private TextView eventETime;
+        private final TextView eventETime;
 
         /**
          *  event description on card.
          */
-        private TextView eventDesc;
+        private final TextView eventDesc;
 
         /**
          *  event location on card.
          */
-        private TextView eventLoc;
+        private final TextView eventLoc;
 
         /**
          *  event sign up button on card.
          */
-        private Button signUpButton;
+        private final Button signUpButton;
 
 
         /**

@@ -1,20 +1,11 @@
 package com.example.gvdiscoverapp;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-
 import android.util.Log;
 import android.view.View;
-
-import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.GoogleMap;
@@ -40,28 +31,6 @@ public class MapPage extends AppCompatActivity {
     private GoogleMap mMap;
 
     /**
-     *  fine location, most specific.
-     */
-    private static final String FINE_LOCATION =
-            Manifest.permission.ACCESS_FINE_LOCATION;
-
-    /**
-     *  coarse location, less specific.
-     */
-    private static final String COARSE_LOCATION =
-            Manifest.permission.ACCESS_COARSE_LOCATION;
-
-    /**
-     *  boolean for location permissions.
-     */
-    private boolean mLocationPermissionGranted = false;
-
-    /**
-     *  permissions number.
-     */
-    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
-
-    /**
      * Checks on services and then the calls for
      * location permissions to initialize the map.
      *
@@ -74,69 +43,8 @@ public class MapPage extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //isServicesOK();
-        //getLocationPermission();
         initMap();
     }
-
-//    /**
-//     * Checks that we can get the location permission
-//     *
-//     * */
-//    private void getLocationPermission(){
-//        String[] permissions = {COARSE_LOCATION, FINE_LOCATION};
-//
-//        if(ContextCompat.checkSelfPermission(this.getApplicationContext(), FINE_LOCATION)
-//                == PackageManager.PERMISSION_GRANTED){
-//            if(ContextCompat.checkSelfPermission(this.getApplicationContext(), COARSE_LOCATION)
-//                    == PackageManager.PERMISSION_GRANTED) {
-//                mLocationPermissionGranted = true;
-//                initMap();
-//
-//            }else{
-//                ActivityCompat.requestPermissions(this, permissions,
-//                        LOCATION_PERMISSION_REQUEST_CODE);
-//            }
-//        }else{
-//            ActivityCompat.requestPermissions(this, permissions,
-//                    LOCATION_PERMISSION_REQUEST_CODE);
-//        }
-//    }
-
-//    /**
-//     * Required overridden method that requests
-//     * the permission for locations
-//     *
-//     * @param requestCode the code given to the device
-//     * @param permissions type of permissions
-//     * @param grantResults array of grant results
-//     * */
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode,
-//                                           @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        Log.d(TAG, "onRequestPermissionsResult: requesting permissions");
-//        mLocationPermissionGranted = false;
-//
-//        switch(requestCode){
-//            case LOCATION_PERMISSION_REQUEST_CODE:{
-//                if(grantResults.length > 0){
-//
-//                    //looping through the grant results
-//                    for(int i = 0; i > grantResults.length; i++){
-//                        if(grantResults[i] != PackageManager.PERMISSION_GRANTED){
-//                            return;
-//                        }
-//                    }
-//                    mLocationPermissionGranted = true;
-//                    //initialize the map
-//                    initMap();
-//
-//                }
-//            }
-//        }
-//
-//    }
-
 
     /**
      * toCreateEvents method takes the user to the Create Event Page.
@@ -146,34 +54,6 @@ public class MapPage extends AppCompatActivity {
     public void toCreateEvents(final View view) {
         startActivity(new Intent(MapPage.this, CreateEvents.class));
     }
-
-
-//    /**
-//     * isServicesOk checks if Google Play Services works on device
-//     *
-//     * @return if services is available on device
-//     * */
-//    public boolean isServicesOK(){
-//        Log.d(TAG, "isServicesOK: checking google services version");
-//        int available = GoogleApiAvailability.getInstance().
-//                isGooglePlayServicesAvailable(MapPage.this);
-//
-//        if(available == ConnectionResult.SUCCESS){
-//            //everything is ok and the user can make requests
-//            return true;
-//        }else if(GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
-//            //an error occurred but we can resolve it
-//            Log.d(TAG, "isServicesOK: an error occurred, but you can fix it");
-//            //Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MapPage.this, available, ERROR_DIALOG_REQUEST);
-//            //dialog.show();
-//            return true;
-//        }
-//        else{
-//        //we can't make map requests
-//        return false;
-//        }
-//    }
-
 
     /**
      * initMap begins map at GVSU parameters with only

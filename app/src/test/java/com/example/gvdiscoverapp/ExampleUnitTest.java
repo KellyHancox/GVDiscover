@@ -1,10 +1,6 @@
 package com.example.gvdiscoverapp;
 
-import android.support.annotation.NonNull;
-import android.view.ViewGroup;
-
 import org.junit.Test;
-
 import java.util.ArrayList;
 
 import static org.hamcrest.core.IsCollectionContaining.hasItem;
