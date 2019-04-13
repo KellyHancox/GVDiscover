@@ -13,66 +13,66 @@ import android.widget.Toast;
 import java.io.IOException;
 
 /**
- * CreateEvents class corresponds with the CreateEvents page. It handles data collection from the
+ * CreateEvents class corresponds with the CreateEvents page.
+ * It handles data collection from the
  * form and putting it into the Model.
  *
  * @author Matthew Shan, Jesse David
  */
 
-//TODO: Input testing
 public class CreateEvents extends AppCompatActivity {
     /**
-     * Object that represents eventName input
+     * Object that represents eventName input.
      */
     private EditText eventName;
     /**
-     * Object that represents location wrapper
+     * Object that represents location wrapper.
      */
     private Spinner location;
     /**
-     * Object that represents startDate input
+     * Object that represents startDate input.
      */
     private String startDate;
     /**
-     * Object that represents the day input
+     * Object that represents the day input.
      */
     private EditText day;
     /**
-     * Object that represents the month input
+     * Object that represents the month input.
      */
     private EditText month;
     /**
-     * Object that represents the year input
+     * Object that represents the year input.
      */
     private EditText year;
     /**
-     * Object that represents startTime input
+     * Object that represents startTime input.
      */
     private Spinner startTime;
     /**
-     * Object that represents endTime input
+     * Object that represents endTime input.
      */
     private Spinner endTime;
     /**
-     * Object that represents description input
+     * Object that represents description input.
      */
     private EditText description;
     /**
-     * Object that represents submit input
+     * Object that represents submit input.
      */
     private Button submit;
     /**
-     * Represents the connection to Model
+     * Represents the connection to Model.
      */
     private Model model;
 #
     /**
-     * onCreate method creates the page and handles the submit button
+     * onCreate method creates the page and handles the submit button.
      *
      * @param savedInstanceState see AppCompatActivity
      */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_events);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -80,23 +80,23 @@ public class CreateEvents extends AppCompatActivity {
 
         model = Model.getInstance();
 
-        eventName = (EditText) findViewById(R.id.eventName);
-        location = (Spinner) findViewById(R.id.location);
-        // = (EditText) findViewById(R.id.startDate);
-        day = (EditText) findViewById(R.id.day);
-        month = (EditText) findViewById(R.id.month);
-        year = (EditText) findViewById(R.id.year);
-        startTime = (Spinner) findViewById(R.id.startTime);
-        endTime = (Spinner) findViewById(R.id.endTime);
-        description = (EditText) findViewById(R.id.description);
-        submit = (Button) findViewById(R.id.submit);
+        eventName = findViewById(R.id.eventName);
+        location = findViewById(R.id.location);
+        day = findViewById(R.id.day);
+        month = findViewById(R.id.month);
+        year = findViewById(R.id.year);
+        startTime = findViewById(R.id.startTime);
+        endTime = findViewById(R.id.endTime);
+        description = findViewById(R.id.description);
+        submit = findViewById(R.id.submit);
 
         submit.setOnClickListener(new View.OnClickListener() {
             /**
-             * The onClick method for the submit button that handles the data and encodes it into
+             * The onClick method for the submit button that handles the data
+             * and encodes it into
              * the Model.
              * */
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 startDate = month.getText().toString() + "/"
                         + day.getText().toString() + "/"
                         + year.getText().toString();
@@ -114,15 +114,18 @@ public class CreateEvents extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "No user found...",
                             Toast.LENGTH_LONG).show();
                 } catch (IOException e) {
-                    Toast.makeText(getApplicationContext(), "IOException has occured...",
+                    Toast.makeText(getApplicationContext(),
+                            "IOException has occured...",
                             Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 } catch (NullPointerException e) {
-                    Toast.makeText(getApplicationContext(), "NullPointerException",
+                    Toast.makeText(getApplicationContext(),
+                            "NullPointerException",
                             Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 } catch (Exception e) {
-                    Toast.makeText(getApplicationContext(), "Unknown exception has occured...",
+                    Toast.makeText(getApplicationContext(),
+                            "Unknown exception has occured...",
                             Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
