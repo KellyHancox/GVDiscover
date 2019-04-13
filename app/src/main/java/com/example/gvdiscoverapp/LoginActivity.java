@@ -43,12 +43,10 @@ public class LoginActivity extends AppCompatActivity {
      * mProgressView is the view associated with showing the progress.
      */
     private View mProgressView;
-    
     /**
-    * this is used for log 
+    * this is used for log.
     */
     private static final String TAG = "LoginActivity";
-  
     /**
      * mLoginFormView is the view associated with the login form.
      */

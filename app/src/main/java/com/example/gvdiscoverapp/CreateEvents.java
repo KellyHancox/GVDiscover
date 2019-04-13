@@ -90,10 +90,13 @@ public class CreateEvents extends AppCompatActivity {
              * and encodes it into
              * the Model.
              * */
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 //every field must be filled in
-                if(month.getText().length() != 0 && day.getText().length() != 0 && year.getText().length() != 0
-                && eventName.getText().length() != 0 && description.getText().length() != 0) {
+                if (month.getText().length() != 0
+                        && day.getText().length() != 0
+                        && year.getText().length() != 0
+                        && eventName.getText().length() != 0
+                        && description.getText().length() != 0) {
                     startDate = month.getText().toString() + "/"
                             + day.getText().toString() + "/"
                             + year.getText().toString();
@@ -105,11 +108,15 @@ public class CreateEvents extends AppCompatActivity {
                             + description.getText().toString();
                     Model.getInstance().addEvent(event);
                     //go back to home screen
-                    startActivity(new Intent(CreateEvents.this, HomeScreen.class));
-                } else{
-                    Toast.makeText(CreateEvents.this, "Event not created. " +
-                                    "All Fields required.", Toast.LENGTH_SHORT).show();
-                }try {
+                    startActivity(new Intent(CreateEvents.this,
+                            HomeScreen.class));
+                } else {
+                    Toast.makeText(CreateEvents.this,
+                            "Event not created. "
+                            + "All Fields required.",
+                            Toast.LENGTH_SHORT).show();
+                }
+                try {
                     File directory = CreateEvents.this.getFilesDir();
                     Model.getInstance().save(directory);
                 } catch (NoUserFoundException e) {
