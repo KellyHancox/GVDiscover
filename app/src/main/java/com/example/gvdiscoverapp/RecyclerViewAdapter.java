@@ -11,38 +11,48 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.io.File;
 import java.util.ArrayList;
 
 /**
  * RecyclerViewAdapter is necessary for RecyclerView to
- * put the values of the events into the cards
+ * put the values of the events into the cards.
  *
  * @author Kelly Hancox
  * */
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+public class RecyclerViewAdapter extends
+        RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-    /* creates tag for class itself */
+    /**
+     *  creates tag for class itself.
+     */
     private static final String TAG = "RecyclerViewAdapter";
 
-    /* list of all events created */
+    /**
+     *  list of all events created.
+     */
     private ArrayList<String> mEvents;
 
-    /* context of this adapter */
+    /**
+     *  context of this adapter.
+     */
     private Context mContext;
 
     /**
      * RecyclerViewAdapter is the constructor that initializes
-     * the context and list of events
+     * the context and list of events.
      * @param context this method
      * @param events list of available events
      */
-    public RecyclerViewAdapter(Context context, ArrayList<String> events) {
+    public RecyclerViewAdapter(final Context context,
+                               final ArrayList<String> events) {
         mEvents = events;
         mContext = context;
     }
 
     /**
-     * onCreateViewHolder chooses which layout we're replacing and returns it for use
+     * onCreateViewHolder chooses which layout we're replacing and returns
+     * it for use.
      *
      * @param viewGroup the overall class of card
      * @param i place of event in arrayList
@@ -50,7 +60,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
      */
     @NonNull
     @Override
-    public RecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public RecyclerViewAdapter.ViewHolder onCreateViewHolder(
+            @NonNull final ViewGroup viewGroup, final int i) {
 
         View view = LayoutInflater.from(viewGroup.getContext()).
                 inflate(R.layout.event_card_layout,
@@ -60,7 +71,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     /**
-     * getItemCount counts how many events have been created
+     * getItemCount counts how many events have been created.
      *
      * @return count of events
      */
@@ -70,14 +81,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     /**
-     * onBindViewHolder takes values from the arrayList
+     * onBindViewHolder takes values from the arrayList.
      *
      * and places them into the card
      * @param viewHolder the card
      * @param i the placement in the events arraylist
      */
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder,
+                                 final int i) {
         Log.d(TAG, "onBindViewHolder: called");
 
         String[] arrayOfEventInformation = mEvents.get(i).split("~~");
@@ -87,18 +99,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         //calls upon the sign up button on click listener
         viewHolder.signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 try {
                     Model.getInstance().signUp(currentEvent);
-                    Toast.makeText(mContext, "You " +
-                            "have signed up for this event", Toast.LENGTH_SHORT).show();
-                    Model.getInstance().save(mContext);
-                }
-                catch (NoUserFoundException e) {
-                    Toast.makeText(mContext, "User now found", Toast.LENGTH_SHORT).show();
-                }
-                catch (Exception e) {
-                    Toast.makeText(mContext, "Unknown exception", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext,
+                            "You have signed up for this event",
+                            Toast.LENGTH_SHORT).show();
+                    File directory = mContext.getFilesDir();
+                    Model.getInstance().save(directory);
+                } catch (NoUserFoundException e) {
+                    Toast.makeText(mContext, "User now found",
+                            Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Toast.makeText(mContext, "Unknown exception",
+                            Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
                 //print events list into the log for debugging
@@ -108,54 +122,70 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         //if every input for create event was put in, then we can place these
         //values into the card
-        if(arrayOfEventInformation.length == 6) {
+        if (arrayOfEventInformation.length == 6) {
             viewHolder.eventTitle.setText(arrayOfEventInformation[0]);
             viewHolder.eventLoc.setText(arrayOfEventInformation[1]);
             viewHolder.eventDate.setText(arrayOfEventInformation[2]);
             viewHolder.eventSTime.setText(arrayOfEventInformation[3]);
             viewHolder.eventETime.setText(arrayOfEventInformation[4]);
             viewHolder.eventDesc.setText(arrayOfEventInformation[5]);
-        }else{
+        } else {
             Log.d(TAG, "Not enough information input");
         }
     }
 
     /**
-     * This class binds the event info to the actual card
+     * This class binds the event info to the actual card.
      */
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        /* event image on card */
-        public ImageView eventImage;
+        /**
+         * event image on card.
+         */
+        private ImageView eventImage;
 
-        /* event title on card */
-        public TextView eventTitle;
+        /**
+         *  event title on card.
+         */
+        private TextView eventTitle;
 
-        /* event date on card */
-        public TextView eventDate;
+        /**
+         *  event date on card.
+         */
+        private TextView eventDate;
 
-        /* event start time on card */
-        public TextView eventSTime;
+        /**
+         *  event start time on card.
+         */
+        private TextView eventSTime;
 
-        /* event end time on card */
-        public TextView eventETime;
+        /**
+         *  event end time on card.
+         */
+        private TextView eventETime;
 
-        /* event description on card */
-        public TextView eventDesc;
+        /**
+         *  event description on card.
+         */
+        private TextView eventDesc;
 
-        /* event location on card */
-        public TextView eventLoc;
+        /**
+         *  event location on card.
+         */
+        private TextView eventLoc;
 
-        /* event sign up button on card */
-        public Button signUpButton;
+        /**
+         *  event sign up button on card.
+         */
+        private Button signUpButton;
 
 
         /**
-         * ViewHolder places the values into the card
+         * ViewHolder places the values into the card.
          *
          * @param itemView the card
          */
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull final View itemView) {
             super(itemView);
 
             //these all bind the functions to each place on the card
@@ -168,6 +198,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             eventLoc = itemView.findViewById(R.id.eventCardLoc);
             signUpButton = (Button) itemView.findViewById(R.id.signUpButton);
 
+        }
+
+        /**
+         * getter for viewImage.
+         * @return returns the image
+         */
+        public ImageView getEventImage() {
+            return eventImage;
+        }
+
+        /**
+         * setter for EventImage.
+         * @param eventImageSet image for events
+         */
+        public void setEventImage(final ImageView eventImageSet) {
+            this.eventImage = eventImageSet;
         }
     }
 

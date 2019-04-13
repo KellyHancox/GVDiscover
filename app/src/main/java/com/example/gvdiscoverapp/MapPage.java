@@ -15,43 +15,60 @@ import android.view.View;
 
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.*;
-import com.google.android.gms.maps.model.*;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 /**
- * Class responsible for the Map Page
+ * Class responsible for the Map Page.
  *
  * @author Kelly Hancox
  * */
 public class MapPage extends AppCompatActivity {
 
-    /* creates reference for this page */
+    /**
+     *  creates reference for this page.
+     */
     private static final String TAG = "MapPage";
 
-    /* map object */
+    /**
+     *  map object.
+     */
     private GoogleMap mMap;
 
-    /* fine location, most specific */
-    private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
+    /**
+     *  fine location, most specific.
+     */
+    private static final String FINE_LOCATION =
+            Manifest.permission.ACCESS_FINE_LOCATION;
 
-    /* coarse location, less specific */
-    private static final String COARSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
+    /**
+     *  coarse location, less specific.
+     */
+    private static final String COARSE_LOCATION =
+            Manifest.permission.ACCESS_COARSE_LOCATION;
 
-    /* boolean for location permissions */
+    /**
+     *  boolean for location permissions.
+     */
     private boolean mLocationPermissionGranted = false;
 
-    /* permissions number */
+    /**
+     *  permissions number.
+     */
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
 
     /**
      * Checks on services and then the calls for
-     * location permissions to initialize the map
+     * location permissions to initialize the map.
      *
      * @param savedInstanceState see AppCompatActivity
      * */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_page);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -120,14 +137,16 @@ public class MapPage extends AppCompatActivity {
 //
 //    }
 
+
     /**
-     * toCreateEvents method takes the user to the Create Event Page
+     * toCreateEvents method takes the user to the Create Event Page.
      *
      * @param view is the object that was clicked.
      * */
-    public void toCreateEvents(View view) {
+    public void toCreateEvents(final View view) {
         startActivity(new Intent(MapPage.this, CreateEvents.class));
     }
+
 
 //    /**
 //     * isServicesOk checks if Google Play Services works on device
@@ -155,20 +174,22 @@ public class MapPage extends AppCompatActivity {
 //        }
 //    }
 
+
     /**
      * initMap begins map at GVSU parameters with only
-     * 2 levels of zoom and adds markers at available locations
+     * 2 levels of zoom and adds markers at available locations.
      *
      * */
-    private void initMap(){
+    private void initMap() {
         Log.d(TAG, "initMap: initializing map");
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+        SupportMapFragment mapFragment =
+                (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(new OnMapReadyCallback() {
 
             @Override
-            public void onMapReady(GoogleMap googleMap) {
+            public void onMapReady(final GoogleMap googleMap) {
                 mMap = googleMap;
 
                 //sets zoom preferences
@@ -193,11 +214,11 @@ public class MapPage extends AppCompatActivity {
                 //creates new bounds
                 LatLngBounds GVSU = new LatLngBounds(
                         //lower left
-                        new LatLng(42.961,-85.897),
+                        new LatLng(42.961, -85.897),
                         //upper right
                         new LatLng(42.975, -85.8815));
-
                 mMap.setLatLngBoundsForCameraTarget(GVSU);
+
             }
         });
     }

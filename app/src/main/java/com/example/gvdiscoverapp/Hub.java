@@ -6,33 +6,39 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 
 import java.util.ArrayList;
 
 /**
- * Hub can view one user's events they signed up for
+ * Hub can view one user's events they signed up for.
  *
  * @author Kelly Hancox, Monica Klosin, Matthew Shan
  * */
 public class Hub extends AppCompatActivity {
 
-    //private Model model =  Model.getInstance();
+    /**
+     * User is instance user that logs in.
+     */
     private GVUser user = Model.getInstance().getUser();
 
-    //private ArrayList<String> eventList = model.getEventsList();
+    /**
+     * All of the events that the user signs up for.
+     */
     private ArrayList<String> signedUpEventsList = user.getEvents();
 
 
+    /**
+     * The files tag is hub.
+     */
     private static final String TAG = "Hub";
 
     /**
-     * onCreate method creates the FindEventsOld
+     * onCreate method creates the FindTheEvents.
      *
      * @param savedInstanceState see AppCompatActivity
      * */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_the_events);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -43,12 +49,16 @@ public class Hub extends AppCompatActivity {
         userInitRecyclerView();
     }
 
-    private void userInitRecyclerView(){
+    /**
+     * userInitRecyclerView starts the recycler view.
+     */
+    private void userInitRecyclerView() {
         Log.d(TAG, "userInitRecyclerView: initializing.");
         Log.d(TAG, signedUpEventsList.toString());
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        UserRecyclerViewAdapter adapter = new UserRecyclerViewAdapter(this, signedUpEventsList);
+        UserRecyclerViewAdapter adapter = new UserRecyclerViewAdapter(
+                this, signedUpEventsList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

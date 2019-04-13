@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *  GVUser is the class the represents a user. This holds information such as email and events.
+ *  GVUser is the class the represents a user.
+ *  This holds information such as email and events.
  *
  * @author Matthew Shan
  * */
@@ -12,30 +13,31 @@ public class GVUser implements Serializable {
     private static final long serialVersionUID = 1L;
     /** A string for the user email. */
     private String email;
-    /** An ArrayList of string that hold event keys. The keys reference the hash map in Model */
+    /** An ArrayList of string that hold event keys.
+     * The keys reference the hash map in Model
+     */
     private ArrayList<String> events = new ArrayList<String>();
 
     /**
-     * Creates a user with a given email
+     * Creates a user with a given email.
      *
-     * @param email The users given email in login
+     * @param userEmail The users given email in login
      */
-    public GVUser(String email) {
-        this.email = email;
+    public GVUser(final String userEmail) {
+        this.email = userEmail;
     }
 
     /**
-     * Signs the user up for the given event name
+     * Signs the user up for the given event name.
      *
      * @param event is the string event
      * */
-    public void signUpEvent(String event) {
-
+    public void signUpEvent(final String event) {
         events.add(event);
     }
 
     /**
-     * Returns the user's signed up events
+     * Returns the user's signed up events.
      *
      * @return ArrayList<String> that contains the users signed up events
      * */
@@ -44,9 +46,9 @@ public class GVUser implements Serializable {
     }
 
     /**
-     * Returns the user's email
+     * Returns the user's email.
      *
-     * @returns User email
+     * @return User email
      */
     public String getEmail() {
         return email;
