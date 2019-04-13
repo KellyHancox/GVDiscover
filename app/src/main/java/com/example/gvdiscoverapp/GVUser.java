@@ -12,11 +12,11 @@ import java.util.ArrayList;
 public class GVUser implements Serializable {
     private static final long serialVersionUID = 1L;
     /** A string for the user email. */
-    private String email;
+    private final String email;
     /** An ArrayList of string that hold event keys.
      * The keys reference the hash map in Model
      */
-    private ArrayList<String> events = new ArrayList<String>();
+    private final ArrayList<String> events = new ArrayList<>();
 
     /**
      * Creates a user with a given email.

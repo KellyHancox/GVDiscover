@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,6 +27,7 @@ import java.io.IOException;
  *
  * @author Jesse David
  */
+@SuppressWarnings("ALL")
 public class LoginActivity extends AppCompatActivity {
     // UI references.
     /**
@@ -43,12 +43,12 @@ public class LoginActivity extends AppCompatActivity {
      * mProgressView is the view associated with showing the progress.
      */
     private View mProgressView;
-
+    
     /**
     * this is used for log 
     */
     private static final String TAG = "LoginActivity";
-
+  
     /**
      * mLoginFormView is the view associated with the login form.
      */
@@ -64,9 +64,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        mEmailView = findViewById(R.id.email);
 
-        mPasswordView = (EditText) findViewById(R.id.password);
+        mPasswordView = findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(
                 new TextView.OnEditorActionListener() {
             @Override
@@ -81,8 +81,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        Button mEmailSignInButton = (Button)
-                findViewById(R.id.email_sign_in_button);
+        Button mEmailSignInButton = findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(final View view) {
@@ -142,23 +141,20 @@ public class LoginActivity extends AppCompatActivity {
 
             //Loading model
             try {
-               File directory = LoginActivity.this.getFilesDir();
-               Model.getInstance().load(directory, email);
-               System.out.println(directory.getAbsolutePath());
-               Log.d(TAG, "Model successfully loaded");
-            }
-            catch (ClassNotFoundException e){
+                File directory = LoginActivity.this.getFilesDir();
+                Model.getInstance().load(directory, email);
+                System.out.println(directory.getAbsolutePath());
+                Log.d(TAG, "Model successfully loaded");
+            } catch (ClassNotFoundException e) {
                 Log.d(TAG, "ClassNotFoundException has occured...");
-                e.printStackTrace(); }
-            catch (IOException e) {
-                Log.d(TAG,"IOException has occured...");
                 e.printStackTrace();
-            }
-            catch (NumberFormatException e){
-                Log.d(TAG,"Model does not exist yet.");
-            }
-            catch (Exception e) {
-                Log.d(TAG,"Unknown Exception has occured...");
+            } catch (IOException e) {
+                Log.d(TAG, "IOException has occured...");
+                e.printStackTrace();
+            } catch (NumberFormatException e) {
+                Log.d(TAG, "Model does not exist yet.");
+            } catch (Exception e) {
+                Log.d(TAG, "Unknown Exception has occured...");
                 e.printStackTrace();
             }
             startActivity(new Intent(LoginActivity.this, HomeScreen.class));
@@ -275,4 +271,5 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 }
+
 

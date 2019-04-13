@@ -224,6 +224,3 @@ public class MapPage extends AppCompatActivity {
     }
 
 }
-
-
-

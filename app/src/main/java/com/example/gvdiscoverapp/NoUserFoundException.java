@@ -3,7 +3,7 @@ package com.example.gvdiscoverapp;
 /**
  * NoUserFoundException determines if a user is found.
  */
-public class NoUserFoundException extends Exception {
+class NoUserFoundException extends Exception {
     /**
      * Super for the no user found exception.
      */
