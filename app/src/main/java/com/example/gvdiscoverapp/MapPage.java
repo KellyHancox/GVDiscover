@@ -164,7 +164,7 @@ public class MapPage extends AppCompatActivity {
 //        }else if(GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
 //            //an error occurred but we can resolve it
 //            Log.d(TAG, "isServicesOK: an error occurred, but you can fix it");
-//            //Dailog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MapPage.this, available, ERROR_DIALOG_REQUEST);
+//            //Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MapPage.this, available, ERROR_DIALOG_REQUEST);
 //            //dialog.show();
 //            return true;
 //        }
