@@ -107,9 +107,9 @@ public final class Model {
      * @throws NoUserFoundException when the user does not exist.
      * This should never be the case.
      *
-     * @param context provides the context for the save.
+     * @param directory provides the location of the application files.
      * */
-    public void save(final Context context) throws IOException,
+    public void save(final File directory) throws IOException,
             NoUserFoundException {
         printOut("Attempting to save");
         if (user == null) {
@@ -117,7 +117,6 @@ public final class Model {
         }
 
         //Get the app file directory
-        File directory = context.getFilesDir();
         File eventPath = new File(directory, "events.ser");
         Boolean newEvent = eventPath.createNewFile();
         File userPath = new File(directory, user.getEmail() + ".ser");
@@ -147,13 +146,12 @@ public final class Model {
      * have the correct class
      * @throws NumberFormatException when the number is formatted incorrectly
      *
-     * @param context provides the context for the load
+     * @param directory provides the location of the application files
      * @param email is the email of the user
      * */
-    public void load(final Context context, final String email)
+    public void load(final File directory, final String email)
             throws ClassNotFoundException, IOException, NumberFormatException {
         printOut("Attempting to load");
-        File directory = context.getFilesDir();
         File eventPath = new File(directory, "events.ser");
         File userPath = new File(directory, email + ".ser");
 
@@ -201,7 +199,8 @@ public final class Model {
             }
         }
         try {
-            this.load(context, this.getUser().getEmail());
+            File directory = context.getFilesDir();
+            this.load(directory, this.getUser().getEmail());
             return "Files deleted";
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,21 +1,24 @@
 package com.example.gvdiscoverapp;
 
 import android.content.Context;
+import android.os.Environment;
 
+import org.junit.Before;
 import org.junit.Test;
+
+import java.io.File;
 
 import static org.junit.Assert.*;
 
 /**
- * Example local unit test, which will execute on the development machine (host).
+ * Instrumented test, which will execute on an Android device.
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ModelTest {
-    String event1 = "CryFest~~Kirkof~~1/1/2019~~6:00pm~~7:00pm~~This is a really cool description";
-    String event2 = "ABCFest~~Campus Recreation~~3/21/2020~~4:00pm~~5:00pm~~This is a realllllllly cool description";
-    String mail = "mail@mail.gvsu.edu";
-
+    private String event1 = "CryFest~~Kirkof~~1/1/2019~~6:00pm~~7:00pm~~This is a really cool description";
+    private String event2 = "ABCFest~~Campus Recreation~~3/21/2020~~4:00pm~~5:00pm~~This is a realllllllly cool description";
+    private String mail = "mail@mail.gvsu.edu";
     @Test
     public void testExists() {
         Model.reset();
@@ -54,8 +57,8 @@ public class ModelTest {
             fail();
         }
         assertTrue(Model.getInstance().getUser().getEvents().get(0).equals(event1) &&
-                                Model.getInstance().getUser().getEvents().get(1).equals(event2));
-     }
+                Model.getInstance().getUser().getEvents().get(1).equals(event2));
+    }
 
     @Test
     public void testGetEventList() {
@@ -63,7 +66,7 @@ public class ModelTest {
         Model.getInstance().addEvent(event1);
         Model.getInstance().addEvent(event2);
         assertTrue(Model.getInstance().getEventsList().get(0).equals(event1) &&
-                                Model.getInstance().getEventsList().get(1).equals(event2));
+                Model.getInstance().getEventsList().get(1).equals(event2));
     }
 
     @Test
@@ -73,7 +76,7 @@ public class ModelTest {
         assertEquals(Model.getInstance().getUser().getEmail(), mail);
     }
 
-    @Test
+    /*@Test
     public void testFile() {
         //User and Model set up
         Model.reset();
@@ -89,9 +92,10 @@ public class ModelTest {
         }
 
         //Saving Process
-        HomeScreen home = new HomeScreen();
+        File dir = new File("");
+
         try {
-            Model.getInstance().save(home.getApplicationContext());
+            Model.getInstance().save(dir);
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -101,12 +105,11 @@ public class ModelTest {
         Model.reset();
 
         try {
-            Model.getInstance().load(home, mail);
+            Model.getInstance().load(dir, mail);
         }
         catch (Exception e) {
             fail();
         }
-
         //TODO: Assertions
-    }
+    }*/
 }
