@@ -46,8 +46,8 @@ public class RecyclerViewAdapter extends
      * @param context this method
      * @param events list of available events
      */
-    public RecyclerViewAdapter(final Context context,
-                               final ArrayList<String> events) {
+    RecyclerViewAdapter(final Context context,
+                        final ArrayList<String> events) {
         mEvents = events;
         mContext = context;
     }
@@ -191,7 +191,7 @@ public class RecyclerViewAdapter extends
          *
          * @param itemView the card
          */
-        public ViewHolder(@NonNull final View itemView) {
+        ViewHolder(@NonNull final View itemView) {
             super(itemView);
 
             //these all bind the functions to each place on the card
@@ -202,23 +202,27 @@ public class RecyclerViewAdapter extends
             eventETime = itemView.findViewById(R.id.eventCardETime);
             eventDesc = itemView.findViewById(R.id.eventCardDesc);
             eventLoc = itemView.findViewById(R.id.eventCardLoc);
-            signUpButton = (Button) itemView.findViewById(R.id.signUpButton);
+            signUpButton = itemView.findViewById(R.id.signUpButton);
 
 
         }
 
-        /**
-         * getter for viewImage.
-         * @return returns the image
-         */
-        public ImageView getEventImage() {
-            return eventImage;
-        }
-
-        /**
-         * setter for EventImage.
-         * @param eventImageSet image for events
-         */
+// --Commented out by Inspection START (4/13/2019 5:59 PM):
+//        /**
+//         * getter for viewImage.
+//         * @return returns the image
+//         */
+// --Commented out by Inspection START (4/13/2019 5:59 PM):
+////        public ImageView getEventImage() {
+////            return eventImage;
+////        }
+//// --Commented out by Inspection STOP (4/13/2019 5:59 PM)
+//
+//        /**
+//         * setter for EventImage.
+//         * @param eventImageSet image for events
+//         */
+// --Commented out by Inspection STOP (4/13/2019 5:59 PM)
         public void setEventImage(final ImageView eventImageSet) {
             this.eventImage = eventImageSet;
         }

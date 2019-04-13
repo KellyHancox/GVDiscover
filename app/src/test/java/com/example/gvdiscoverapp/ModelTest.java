@@ -1,12 +1,6 @@
 package com.example.gvdiscoverapp;
 
-import android.content.Context;
-import android.os.Environment;
-
-import org.junit.Before;
 import org.junit.Test;
-
-import java.io.File;
 
 import static org.junit.Assert.*;
 
@@ -16,9 +10,9 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ModelTest {
-    private String event1 = "CryFest~~Kirkof~~1/1/2019~~6:00pm~~7:00pm~~This is a really cool description";
-    private String event2 = "ABCFest~~Campus Recreation~~3/21/2020~~4:00pm~~5:00pm~~This is a realllllllly cool description";
-    private String mail = "mail@mail.gvsu.edu";
+    private final String event1 = "CryFest~~Kirkof~~1/1/2019~~6:00pm~~7:00pm~~This is a really cool description";
+    private final String event2 = "ABCFest~~Campus Recreation~~3/21/2020~~4:00pm~~5:00pm~~This is a realllllllly cool description";
+    private final String mail = "mail@mail.gvsu.edu";
     @Test
     public void testExists() {
         Model.reset();

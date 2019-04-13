@@ -19,12 +19,12 @@ public class Hub extends AppCompatActivity {
     /**
      * User is instance user that logs in.
      */
-    private GVUser user = Model.getInstance().getUser();
+    private final GVUser user = Model.getInstance().getUser();
 
     /**
      * All of the events that the user signs up for.
      */
-    private ArrayList<String> signedUpEventsList = user.getEvents();
+    private final ArrayList<String> signedUpEventsList = user.getEvents();
 
 
     /**

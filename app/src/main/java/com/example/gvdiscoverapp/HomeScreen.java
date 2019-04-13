@@ -31,7 +31,7 @@ public class HomeScreen extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        TextView user = (TextView) findViewById(R.id.user);
+        TextView user = findViewById(R.id.user);
         user.setText("Logged in: " + Model.getInstance().getUser().getEmail());
     }
 

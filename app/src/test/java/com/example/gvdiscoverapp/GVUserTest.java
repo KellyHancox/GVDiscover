@@ -6,9 +6,7 @@ import static org.junit.Assert.*;
 
 
 public class  GVUserTest {
-    //TODO: 100% lines covered, just add more test cases
-    String event1 = "event123~~Kirkof~~1/2/2019~~5:00pm~~6:00pm~~This is an awesome description";
-    String mail = "mail@mail.gvsu.edu";
+    private final String mail = "mail@mail.gvsu.edu";
     @Test
     public void testConstructor() {
         GVUser user = new GVUser(mail);
@@ -19,8 +17,10 @@ public class  GVUserTest {
     public void testSignUpEvent() {
         GVUser user = new GVUser(mail);
 
+        //TODO: 100% lines covered, just add more test cases
+        String event1 = "event123~~Kirkof~~1/2/2019~~5:00pm~~6:00pm~~This is an awesome description";
         user.signUpEvent(event1);
-        assertEquals(user.getEvents().get(0),event1);
+        assertEquals(user.getEvents().get(0), event1);
         //names~~location~~date~~startTime~~endTime~~desc
     }
 

@@ -58,10 +58,6 @@ public class CreateEvents extends AppCompatActivity {
      * Object that represents description input.
      */
     private EditText description;
-    /**
-     * Object that represents submit input.
-     */
-    private Button submit;
 
     /**
      * onCreate method creates the page and handles the submit button.
@@ -84,7 +80,10 @@ public class CreateEvents extends AppCompatActivity {
         startTime = findViewById(R.id.startTime);
         endTime = findViewById(R.id.endTime);
         description = findViewById(R.id.description);
-        submit = findViewById(R.id.submit);
+        /*
+          Object that represents submit input.
+         */
+        Button submit = findViewById(R.id.submit);
 
         submit.setOnClickListener(new View.OnClickListener() {
             /**

@@ -15,15 +15,11 @@ import java.util.ArrayList;
  * @author Kelly Hancox
  * */
 public class FindTheEvents extends AppCompatActivity {
-    /**
-     * user.
-     */
-    private GVUser user = Model.getInstance().getUser();
 
     /**
      *  full events list.
      */
-    private ArrayList<String> eventList = Model.getInstance().getEventsList();
+    private final ArrayList<String> eventList = Model.getInstance().getEventsList();
 
     /**
      *  instance of this class for logging.
