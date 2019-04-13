@@ -43,7 +43,12 @@ public class LoginActivity extends AppCompatActivity {
      * mProgressView is the view associated with showing the progress.
      */
     private View mProgressView;
-
+    
+    /**
+    * this is used for log 
+    */
+    private static final String TAG = "LoginActivity";
+  
     /**
      * mLoginFormView is the view associated with the login form.
      */
@@ -139,27 +144,17 @@ public class LoginActivity extends AppCompatActivity {
                 File directory = LoginActivity.this.getFilesDir();
                 Model.getInstance().load(directory, email);
                 System.out.println(directory.getAbsolutePath());
-                Toast.makeText(getApplicationContext(),
-                        "Model successfully loaded",
-                        Toast.LENGTH_LONG).show();
+                Log.d(TAG, "Model successfully loaded");
             } catch (ClassNotFoundException e) {
-                Toast.makeText(getApplicationContext(),
-                        "ClassNotFoundException has occured...",
-                        Toast.LENGTH_LONG).show();
+                Log.d(TAG, "ClassNotFoundException has occured...");
                 e.printStackTrace();
             } catch (IOException e) {
-                Toast.makeText(getApplicationContext(),
-                        "IOException has occured...",
-                        Toast.LENGTH_LONG).show();
+                Log.d(TAG, "IOException has occured...");
                 e.printStackTrace();
             } catch (NumberFormatException e) {
-                Toast.makeText(getApplicationContext(),
-                        "Model does not exist yet.",
-                        Toast.LENGTH_LONG).show();
+                Log.d(TAG, "Model does not exist yet.");
             } catch (Exception e) {
-                Toast.makeText(getApplicationContext(),
-                        "Unknown Exception has occured...",
-                        Toast.LENGTH_LONG).show();
+                Log.d(TAG, "Unknown Exception has occured...");
                 e.printStackTrace();
             }
             startActivity(new Intent(LoginActivity.this, HomeScreen.class));
@@ -276,4 +271,5 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 }
+
 

@@ -51,12 +51,10 @@ public class MapPage extends AppCompatActivity {
     private static final String COARSE_LOCATION =
             Manifest.permission.ACCESS_COARSE_LOCATION;
 
-
     /**
      *  boolean for location permissions.
      */
     private boolean mLocationPermissionGranted = false;
-
 
     /**
      *  permissions number.
@@ -76,68 +74,69 @@ public class MapPage extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        isServicesOK();
-        getLocationPermission();
+        //isServicesOK();
+        //getLocationPermission();
+        initMap();
     }
 
-    /**
-     * Checks that we can get the location permission.
-     *
-     * */
-    private void getLocationPermission() {
-        String[] permissions = {COARSE_LOCATION, FINE_LOCATION};
+//    /**
+//     * Checks that we can get the location permission
+//     *
+//     * */
+//    private void getLocationPermission(){
+//        String[] permissions = {COARSE_LOCATION, FINE_LOCATION};
+//
+//        if(ContextCompat.checkSelfPermission(this.getApplicationContext(), FINE_LOCATION)
+//                == PackageManager.PERMISSION_GRANTED){
+//            if(ContextCompat.checkSelfPermission(this.getApplicationContext(), COARSE_LOCATION)
+//                    == PackageManager.PERMISSION_GRANTED) {
+//                mLocationPermissionGranted = true;
+//                initMap();
+//
+//            }else{
+//                ActivityCompat.requestPermissions(this, permissions,
+//                        LOCATION_PERMISSION_REQUEST_CODE);
+//            }
+//        }else{
+//            ActivityCompat.requestPermissions(this, permissions,
+//                    LOCATION_PERMISSION_REQUEST_CODE);
+//        }
+//    }
 
-        if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                    COARSE_LOCATION)
-                    == PackageManager.PERMISSION_GRANTED) {
-                mLocationPermissionGranted = true;
-                initMap();
+//    /**
+//     * Required overridden method that requests
+//     * the permission for locations
+//     *
+//     * @param requestCode the code given to the device
+//     * @param permissions type of permissions
+//     * @param grantResults array of grant results
+//     * */
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode,
+//                                           @NonNull String[] permissions, @NonNull int[] grantResults) {
+//        Log.d(TAG, "onRequestPermissionsResult: requesting permissions");
+//        mLocationPermissionGranted = false;
+//
+//        switch(requestCode){
+//            case LOCATION_PERMISSION_REQUEST_CODE:{
+//                if(grantResults.length > 0){
+//
+//                    //looping through the grant results
+//                    for(int i = 0; i > grantResults.length; i++){
+//                        if(grantResults[i] != PackageManager.PERMISSION_GRANTED){
+//                            return;
+//                        }
+//                    }
+//                    mLocationPermissionGranted = true;
+//                    //initialize the map
+//                    initMap();
+//
+//                }
+//            }
+//        }
+//
+//    }
 
-            } else {
-                ActivityCompat.requestPermissions(this, permissions,
-                        LOCATION_PERMISSION_REQUEST_CODE);
-            }
-        } else {
-            ActivityCompat.requestPermissions(this, permissions,
-                    LOCATION_PERMISSION_REQUEST_CODE);
-        }
-    }
-
-    /**
-     * Required overridden method that requests
-     * the permission for locations.
-     *
-     * @param requestCode the code given to the device
-     * @param permissions type of permissions
-     * @param grantResults array of grant results
-     * */
-    @Override
-    public void onRequestPermissionsResult(final int requestCode,
-                                           @NonNull final String[] permissions,
-                                           @NonNull final int[] grantResults) {
-        Log.d(TAG, "onRequestPermissionsResult: requesting permissions");
-        mLocationPermissionGranted = false;
-
-        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
-            if (grantResults.length > 0) {
-
-                //looping through the grant results
-                for (int i = 0; i > grantResults.length; i++) {
-                    if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
-                        return;
-                    }
-                }
-                mLocationPermissionGranted = true;
-                //initialize the map
-                initMap();
-
-            }
-        }
-
-    }
 
     /**
      * toCreateEvents method takes the user to the Create Event Page.
@@ -148,25 +147,33 @@ public class MapPage extends AppCompatActivity {
         startActivity(new Intent(MapPage.this, CreateEvents.class));
     }
 
-    /**
-     * isServicesOk checks if Google Play Services works on device.
-     *
-     * */
-    private void isServicesOK() {
-        Log.d(TAG, "isServicesOK: checking google services version");
-        int available = GoogleApiAvailability.getInstance()
-                .isGooglePlayServicesAvailable(MapPage.this);
 
-        if (available == ConnectionResult.SUCCESS) {
-            //everything is ok and the user can make requests
-        } else if (GoogleApiAvailability.getInstance()
-                .isUserResolvableError(available)) {
-            //an error occurred but we can resolve it
-            Log.d(TAG, "isServicesOK: an error occurred, but you can fix it");
-        } else {
-        //we can't make map requests
-        }
-    }
+//    /**
+//     * isServicesOk checks if Google Play Services works on device
+//     *
+//     * @return if services is available on device
+//     * */
+//    public boolean isServicesOK(){
+//        Log.d(TAG, "isServicesOK: checking google services version");
+//        int available = GoogleApiAvailability.getInstance().
+//                isGooglePlayServicesAvailable(MapPage.this);
+//
+//        if(available == ConnectionResult.SUCCESS){
+//            //everything is ok and the user can make requests
+//            return true;
+//        }else if(GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
+//            //an error occurred but we can resolve it
+//            Log.d(TAG, "isServicesOK: an error occurred, but you can fix it");
+//            //Dailog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MapPage.this, available, ERROR_DIALOG_REQUEST);
+//            //dialog.show();
+//            return true;
+//        }
+//        else{
+//        //we can't make map requests
+//        return false;
+//        }
+//    }
+
 
     /**
      * initMap begins map at GVSU parameters with only
@@ -205,18 +212,15 @@ public class MapPage extends AppCompatActivity {
                         title("You can find events at Mackinac"));
 
                 //creates new bounds
-                LatLngBounds latLngBounds = new LatLngBounds(
+                LatLngBounds GVSU = new LatLngBounds(
                         //lower left
                         new LatLng(42.961, -85.897),
                         //upper right
                         new LatLng(42.975, -85.8815));
+                mMap.setLatLngBoundsForCameraTarget(GVSU);
 
-                mMap.setLatLngBoundsForCameraTarget(latLngBounds);
             }
         });
     }
 
 }
-
-
-

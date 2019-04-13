@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.io.File;
 import java.util.ArrayList;
 
@@ -38,7 +37,6 @@ public class RecyclerViewAdapter extends
      *  context of this adapter.
      */
     private Context mContext;
-
 
     /**
      * RecyclerViewAdapter is the constructor that initializes
@@ -97,10 +95,6 @@ public class RecyclerViewAdapter extends
         String[] arrayOfEventInformation = mEvents.get(i).split("~~");
 
         final String currentEvent = mEvents.get(i);
-
-        //this only occurs when i click button
-        //needs a try catch block
-
 
         //calls upon the sign up button on click listener
         viewHolder.signUpButton.setOnClickListener(new View.OnClickListener() {
@@ -203,7 +197,6 @@ public class RecyclerViewAdapter extends
             eventDesc = itemView.findViewById(R.id.eventCardDesc);
             eventLoc = itemView.findViewById(R.id.eventCardLoc);
             signUpButton = itemView.findViewById(R.id.signUpButton);
-
 
         }
 

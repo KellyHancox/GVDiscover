@@ -15,7 +15,6 @@ import java.util.ArrayList;
  * @author Kelly Hancox
  * */
 public class FindTheEvents extends AppCompatActivity {
-
     /**
      *  full events list.
      */
