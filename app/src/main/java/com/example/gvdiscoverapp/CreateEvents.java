@@ -80,8 +80,8 @@ public class CreateEvents extends AppCompatActivity {
         startTime = findViewById(R.id.startTime);
         endTime = findViewById(R.id.endTime);
         description = findViewById(R.id.description);
-        /**
-         * Object that represents submit input.
+        /*
+          Object that represents submit input.
          */
         Button submit = findViewById(R.id.submit);
 

@@ -46,8 +46,8 @@ public class RecyclerViewAdapter extends
      * @param context this method
      * @param events list of available events
      */
-    public RecyclerViewAdapter(final Context context,
-                               final ArrayList<String> events) {
+    RecyclerViewAdapter(final Context context,
+                        final ArrayList<String> events) {
         mEvents = events;
         mContext = context;
     }
@@ -191,7 +191,7 @@ public class RecyclerViewAdapter extends
          *
          * @param itemView the card
          */
-        public ViewHolder(@NonNull final View itemView) {
+        ViewHolder(@NonNull final View itemView) {
             super(itemView);
 
             //these all bind the functions to each place on the card
@@ -207,18 +207,22 @@ public class RecyclerViewAdapter extends
 
         }
 
-        /**
-         * getter for viewImage.
-         * @return returns the image
-         */
-        public ImageView getEventImage() {
-            return eventImage;
-        }
-
-        /**
-         * setter for EventImage.
-         * @param eventImageSet image for events
-         */
+// --Commented out by Inspection START (4/13/2019 5:59 PM):
+//        /**
+//         * getter for viewImage.
+//         * @return returns the image
+//         */
+// --Commented out by Inspection START (4/13/2019 5:59 PM):
+////        public ImageView getEventImage() {
+////            return eventImage;
+////        }
+//// --Commented out by Inspection STOP (4/13/2019 5:59 PM)
+//
+//        /**
+//         * setter for EventImage.
+//         * @param eventImageSet image for events
+//         */
+// --Commented out by Inspection STOP (4/13/2019 5:59 PM)
         public void setEventImage(final ImageView eventImageSet) {
             this.eventImage = eventImageSet;
         }

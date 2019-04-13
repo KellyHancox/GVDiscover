@@ -16,7 +16,7 @@ public class GVUser implements Serializable {
     /** An ArrayList of string that hold event keys.
      * The keys reference the hash map in Model
      */
-    private final ArrayList<String> events = new ArrayList<String>();
+    private final ArrayList<String> events = new ArrayList<>();
 
     /**
      * Creates a user with a given email.

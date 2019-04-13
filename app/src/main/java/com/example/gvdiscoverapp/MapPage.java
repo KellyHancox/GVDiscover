@@ -51,10 +51,12 @@ public class MapPage extends AppCompatActivity {
     private static final String COARSE_LOCATION =
             Manifest.permission.ACCESS_COARSE_LOCATION;
 
+
     /**
      *  boolean for location permissions.
      */
     private boolean mLocationPermissionGranted = false;
+
 
     /**
      *  permissions number.
@@ -149,24 +151,20 @@ public class MapPage extends AppCompatActivity {
     /**
      * isServicesOk checks if Google Play Services works on device.
      *
-     * @return if services is available on device
      * */
-    public boolean isServicesOK() {
+    private void isServicesOK() {
         Log.d(TAG, "isServicesOK: checking google services version");
         int available = GoogleApiAvailability.getInstance()
                 .isGooglePlayServicesAvailable(MapPage.this);
 
         if (available == ConnectionResult.SUCCESS) {
             //everything is ok and the user can make requests
-            return true;
         } else if (GoogleApiAvailability.getInstance()
                 .isUserResolvableError(available)) {
             //an error occurred but we can resolve it
             Log.d(TAG, "isServicesOK: an error occurred, but you can fix it");
-            return true;
         } else {
         //we can't make map requests
-        return false;
         }
     }
 

@@ -40,8 +40,8 @@ public class UserRecyclerViewAdapter extends RecyclerView.
     public UserRecyclerViewAdapter(final Context context,
                                    final ArrayList<String> events) {
         userEvents = events;
-        /**
-         *  context of this adapter.
+        /*
+           context of this adapter.
          */
         Context mContext = context;
     }
@@ -151,7 +151,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.
          *
          * @param itemView the card
          */
-        public ViewHolder(@NonNull final View itemView) {
+        ViewHolder(@NonNull final View itemView) {
             super(itemView);
 
             //these all bind the functions to each place on the card
