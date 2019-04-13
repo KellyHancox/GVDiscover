@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">GVDiscover</string>
   
     <!-- Strings related to login -->
@@ -8,19 +8,19 @@
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_incorrect_password" tools:keep="@string/error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
+    <string name="permission_rationale" tools:keep="@string/permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="title_activity_map">Map</string>
-    <string name="title_activity_map_page_kelly">MapPageKelly</string>
-    <string name="google_maps_API_key">AIzaSyCn9uIFwLq3ZYfmTCqRE--8EC7DvamhFwI</string>
+    <string name="title_activity_map" tools:keep="@string/title_activity_map">Map</string>
+    <string name="title_activity_map_page_kelly" tools:keep="@string/title_activity_map_page_kelly">MapPageKelly</string>
+    <string name="google_maps_API_key" tools:keep="@string/google_maps_API_key">AIzaSyCn9uIFwLq3ZYfmTCqRE--8EC7DvamhFwI</string>
     <string name="map">Map</string>
     <string name="find_events">Find Events</string>
     <string name="hub">Hub</string>
     <string name="create_event">Create Event</string>
-    <string name="guest">Guest</string>
+    <string name="guest" tools:keep="@string/guest">Guest</string>
     <string name="submit">Submit</string>
     <string name="delete">Delete files</string>
     <string name="logout">Log out</string>
@@ -28,11 +28,11 @@
     <string name="event_name">Event Name</string>
     <string name="description">Description</string>
     <string name="Category">Category</string>
-    <string name="start_date">Start Date</string>
+    <string name="start_date" tools:keep="@string/start_date">Start Date</string>
     <string name="month">Month</string>
     <string name="day">Day</string>
     <string name="year">Year</string>
-    <string name="end_date">End Date</string>
+    <string name="end_date" tools:keep="@string/end_date">End Date</string>
     <string-array name="start_time">Start Time
         <item>7:00 AM</item>
         <item>7:30 AM</item>
