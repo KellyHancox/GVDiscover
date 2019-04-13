@@ -7,7 +7,7 @@ class NoUserFoundException extends Exception {
     /**
      * Super for the no user found exception.
      */
-    public NoUserFoundException() {
+    NoUserFoundException() {
         super();
     }
 
@@ -15,7 +15,7 @@ class NoUserFoundException extends Exception {
      * Returns the message for the the no user found exception.
      * @param message super message
      */
-    public NoUserFoundException(final String message) {
+    NoUserFoundException(final String message) {
         super(message);
     }
 }

@@ -31,12 +31,12 @@ public class RecyclerViewAdapter extends
     /**
      *  list of all events created.
      */
-    private ArrayList<String> mEvents;
+    private final ArrayList<String> mEvents;
 
     /**
      *  context of this adapter.
      */
-    private Context mContext;
+    private final Context mContext;
 
     /**
      * RecyclerViewAdapter is the constructor that initializes
@@ -211,11 +211,10 @@ public class RecyclerViewAdapter extends
 ////        }
 //// --Commented out by Inspection STOP (4/13/2019 5:59 PM)
 //
-//        /**
-//         * setter for EventImage.
-//         * @param eventImageSet image for events
-//         */
-// --Commented out by Inspection STOP (4/13/2019 5:59 PM)
+        /**
+         * setter for EventImage.
+         * @param eventImageSet image for events
+         */
         public void setEventImage(final ImageView eventImageSet) {
             this.eventImage = eventImageSet;
         }
