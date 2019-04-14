@@ -76,7 +76,7 @@ public final class Model {
      * */
     public void signUp(final String event) throws NoUserFoundException {
         if (user == null) {
-            throw new NoUserFoundException("No user found");
+            throw new NoUserFoundException();
         }
         user.signUpEvent(event);
     }
