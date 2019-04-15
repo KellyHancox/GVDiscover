@@ -10,12 +10,4 @@ class NoUserFoundException extends Exception {
     NoUserFoundException() {
         super();
     }
-
-    /**
-     * Returns the message for the the no user found exception.
-     * @param message super message
-     */
-    NoUserFoundException(final String message) {
-        super(message);
-    }
 }
