@@ -1,32 +1,20 @@
 package com.example.gvdiscoverapp;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.util.Log;
-
-import org.junit.Rule;
 import org.junit.Test;
 
 import java.io.File;
-
-//import androidx.test.platform.app.InstrumentationRegistry;
+import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-/**
- * Instrumented test, which will execute on an Android device.
- *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
- */
-public class ModelTest /*extends ActivityTestRule*/ {
+public class ModelTest {
     private LoginActivity act = new LoginActivity();
+    File dir = act.getFilesDir();
     private final String event1 = "CryFest~~Kirkof~~1/1/2019~~6:00pm~~7:00pm~~This is a really cool description";
     private final String event2 = "ABCFest~~Campus Recreation~~3/21/2020~~4:00pm~~5:00pm~~This is a realllllllly cool description";
     private final String mail = "mail@mail.gvsu.edu";
-
-    private LoginActivity mActivity;
 
     @Test
     public void testExists() {
@@ -85,11 +73,30 @@ public class ModelTest /*extends ActivityTestRule*/ {
         assertEquals(Model.getInstance().getUser().getEmail(), mail);
     }
 
+    @Test(expected = NoUserFoundException.class)
+    public void testSaveFail() throws NoUserFoundException{
+        Model.reset();
+        try {
+            Model.getInstance().save(dir);
+        } catch (IOException e) {
+            fail();
+        }
+    }
+
     @Test
-    public void testFile() {
-        //Context t = Instrumen   tationRegistory.getInstrumentation().context;
+    public void testLoadNew() {
+        try {
+            Model.getInstance().load(dir, mail);
+        }
+        catch (Exception e) {
+            fail();
+        }
+        //TODO: Not done
+    }
+
+    @Test
+    public void testSaveAndLoad() {
         //User and Model set up
-        //act.onCreate(Bundle.EMPTY);
         Model.reset();
         Model.getInstance().addEvent(event1);
         Model.getInstance().addEvent(event2);
@@ -103,15 +110,10 @@ public class ModelTest /*extends ActivityTestRule*/ {
         }
 
         //Saving Process
-        //Context c = act.getBaseContext();
-        File dir = act.getFilesDir();
-        //File dir = new File(String.valueOf(c.getFilesDir()));
-
         try {
             Model.getInstance().save(dir);
         }
         catch (Exception e) {
-            e.printStackTrace();
             fail();
         }
 
@@ -123,6 +125,41 @@ public class ModelTest /*extends ActivityTestRule*/ {
         catch (Exception e) {
             fail();
         }
-        //TODO: Assertions
+
+        assertTrue(Model.getInstance().getUser().getEmail().equals(mail) &&
+                Model.getInstance().getEventsList().get(0).equals(event1) &&
+                Model.getInstance().getEventsList().get(1).equals(event2));
+    }
+
+    @Test
+    public void TestDeleteAll() {
+        Model.reset();
+        Model.getInstance().addEvent(event1);
+        Model.getInstance().addEvent(event2);
+        Model.getInstance().logIn(mail);
+        try {
+            Model.getInstance().signUp(event1);
+        }
+        catch(Exception e) {
+            fail();
+        }
+
+        try {
+            Model.getInstance().save(dir);
+        }
+        catch (Exception e) {
+            fail();
+        }   
+
+        Model.getInstance().deleteAll(dir);
+
+        //TODO: Repeat of LoadNew here.
+
+
+    }
+
+    @Test
+    public void TestLogOut() {
+
     }
 }

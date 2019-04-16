@@ -193,9 +193,8 @@ public final class Model {
      *
      * @return a string?
      */
-    public String deleteAll(final Context context) {
-        File folder = context.getFilesDir();
-        File[] serList = folder.listFiles();
+    public String deleteAll(final File directory) {
+        File[] serList = directory.listFiles();
 
         for (File f: serList) {
             if (f.getName().endsWith(".ser")) {
@@ -203,7 +202,6 @@ public final class Model {
             }
         }
         try {
-            File directory = context.getFilesDir();
             this.load(directory, this.getUser().getEmail());
             return "Files deleted";
         } catch (Exception e) {
