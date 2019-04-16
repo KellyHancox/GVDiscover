@@ -102,8 +102,8 @@ public class UserRecyclerViewAdapter extends RecyclerView.
             viewHolder.userEventDesc.setText(arrayOfEventInformation[5]);
         } else {
             Log.d(TAG, "Not enough information input");
-            Toast.makeText(mContext, "Something went wrong. Please click" +
-                            " 'Delete Files' and try again.",
+            Toast.makeText(mContext, "Something went wrong. Please click"
+                            + " 'Delete Files' and try again.",
                     Toast.LENGTH_SHORT).show();
 
         }

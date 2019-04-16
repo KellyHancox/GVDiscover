@@ -68,7 +68,8 @@ public class MapPage extends AppCompatActivity {
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        Objects.requireNonNull(mapFragment).getMapAsync(new OnMapReadyCallback() {
+        Objects.requireNonNull(mapFragment).
+                getMapAsync(new OnMapReadyCallback() {
 
             @Override
             public void onMapReady(final GoogleMap googleMap) {
