@@ -77,7 +77,7 @@ public class HomeScreen extends AppCompatActivity {
      * @param view is the object that was clicked.
      * */
     public void deleteFiles(final View view) {
-        String msg = Model.getInstance().deleteAll(this);
+        String msg = Model.getInstance().deleteAll(this.getFilesDir());
         Toast.makeText(getApplicationContext(),
                 msg,
                 Toast.LENGTH_LONG).show();

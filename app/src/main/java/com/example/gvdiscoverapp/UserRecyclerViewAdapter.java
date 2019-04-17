@@ -86,7 +86,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.
      * @param i the placement in the events arrayList
      */
     @Override
-    public void onBindViewHolder(final ViewHolder viewHolder, final int i) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i) {
         Log.d(TAG, "onBindViewHolder: called");
 
         String[] arrayOfEventInformation = userEvents.get(i).split("~~");
