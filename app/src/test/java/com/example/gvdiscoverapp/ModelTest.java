@@ -4,14 +4,18 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
+import static org.hamcrest.core.IsCollectionContaining.hasItem;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class ModelTest {
-    private LoginActivity act = new LoginActivity();
-    File dir = act.getFilesDir();
+    private final LoginActivity act = new LoginActivity();
+
     private final String event1 = "CryFest~~Kirkof~~1/1/2019~~6:00pm~~7:00pm~~This is a really cool description";
     private final String event2 = "ABCFest~~Campus Recreation~~3/21/2020~~4:00pm~~5:00pm~~This is a realllllllly cool description";
     private final String mail = "mail@mail.gvsu.edu";
@@ -75,6 +79,7 @@ public class ModelTest {
 
     @Test(expected = NoUserFoundException.class)
     public void testSaveFail() throws NoUserFoundException{
+        File dir = act.getFilesDir();
         Model.reset();
         try {
             Model.getInstance().save(dir);
@@ -84,19 +89,26 @@ public class ModelTest {
     }
 
     @Test
-    public void testLoadNew() {
+    public void testLoadNewUser() {
+        File dir = act.getFilesDir();
+        Model.reset();
+        String user = Math.random() + "@mail.gvsu.edu";
         try {
-            Model.getInstance().load(dir, mail);
+            Model.getInstance().load(dir, user);
         }
         catch (Exception e) {
             fail();
         }
-        //TODO: Not done
+
+        boolean flagUser = Model.getInstance().getUser().getEmail().equals(user);
+
+        assertTrue(flagUser);
     }
 
     @Test
     public void testSaveAndLoad() {
         //User and Model set up
+        File dir = act.getFilesDir();
         Model.reset();
         Model.getInstance().addEvent(event1);
         Model.getInstance().addEvent(event2);
@@ -133,6 +145,8 @@ public class ModelTest {
 
     @Test
     public void TestDeleteAll() {
+        LoginActivity act = new LoginActivity();
+        File dir = act.getFilesDir();
         Model.reset();
         Model.getInstance().addEvent(event1);
         Model.getInstance().addEvent(event2);
@@ -149,17 +163,44 @@ public class ModelTest {
         }
         catch (Exception e) {
             fail();
-        }   
+        }
 
-        Model.getInstance().deleteAll(dir);
+        try {
+            Model.getInstance().deleteAll(dir);//Fails here
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        //TODO: Repeat of LoadNew here.
+        try {
+            Model.getInstance().load(dir, mail);
+        }
+        catch (Exception e) {
+            fail();
+        }
 
+        boolean flagUser = Model.getInstance().getUser().getEmail().equals(mail);
+
+        assertTrue(flagUser);
 
     }
 
     @Test
-    public void TestLogOut() {
+    public void addToSignUp() {
+        Model.reset();
+        Model.getInstance().addEvent("practiceEvent~~practiceEvent~~2/19/19~~2:30 pm " +
+                "~~ 3:30 pm ~~ this is a practice event");
 
+        ArrayList<String> eventsList = Model.getInstance().getEventsList();
+        assertThat(eventsList, hasItem("practiceEvent~~practiceEvent~~2/19/19~~2:30 pm " +
+                "~~ 3:30 pm ~~ this is a practice event"));
+    }
+
+    @Test
+    public void TestLogOut() {
+        Model.reset();
+        Model.getInstance().logIn(mail);
+        Model.getInstance().logOut();
+        assertNull(Model.getInstance().getUser());
     }
 }

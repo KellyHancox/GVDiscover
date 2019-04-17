@@ -1,7 +1,5 @@
 package com.example.gvdiscoverapp;
 
-import android.content.Context;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -105,7 +103,7 @@ public final class Model {
 
     /**
      * Saves events and the data of the current user.
-     * Saves only upon event creation or signup
+     * Saves only upon event creation or signup.
      *
      * @throws IOException when there is an error with saving
      * @throws NoUserFoundException when the user does not exist.
@@ -187,13 +185,14 @@ public final class Model {
     }
 
     /**
-     * This method deletes all the saved files.
+     * This method deletes all the saved files in the directory.
      *
      * @param context of the environment
      *
      * @return a string?
      */
     public String deleteAll(final File directory) {
+        System.out.println(directory);
         File[] serList = directory.listFiles();
 
         for (File f: serList) {
@@ -211,7 +210,7 @@ public final class Model {
     }
 
     /**
-     * Sets the new user to the email of the GVUSer.
+     * Sets the new user to the email of the GVUser.
      * @param loginEmail of the GVUser
      */
     public void logIn(final String loginEmail) {
@@ -227,7 +226,7 @@ public final class Model {
 
     /***Prints out a message to the run terminal.
      *
-     * @param s prints out s?
+     * @param s prints out s
      */
     private void printOut(final String s) {
         System.out.println("\n==================" + s + "==================");
